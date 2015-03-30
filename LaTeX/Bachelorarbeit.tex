@@ -1,0 +1,411 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{tikz}                       % Graphen und kommutative Diagramme
+\usepackage{tikz-cd}                    % Kommutative Diagramme effizient und übersichtlich texen.
+
+
+
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mystyle}
+%\newcommand{\eqdef}{=\mathrel{\mathop:}}
+
+\begin{document} 
+ 
+
+\section{Preliminaries}
+Throughout this paper, I will use some theorems, which will be explained in this section.
+$\A$ will always denote a complex, unitary Banach algebra, with the unit denoted by $I$. We have the following
+\begin{defi}[Spectrum]
+For $A \in \A$ the \textit{spectrum} of $A$ in $\A$, is defined as 
+$\spe(A)\coloneqq \{ z \in \C \mid A-z  I \notin \GL(\A) \}$.
+The \textit{spectrum} of $\A$ is defined as $\spe(\A) \coloneqq \{ \chi :\A \to \C \mid \chi \in \Hom_{\cAlg{\C}}(\A, \C) \}  $.
+\end{defi}
+
+ 
+With $\A'$ we denote the dual space $\Hom_\C(\A, \C)$, and by $\A''$ the double dual $\Hom_\C(\Hom_\C(\A, \C))$. 
+
+\begin{thrm}[Gelfand--Naimark] 
+
+Let $\A$ be commutative staralgebra. Then $\spe(\A)$ with the supspace topology of $\A'$ is a compact space, with a canonical isometric, involutive, surjective algebra homomorphism
+\[
+  \G : \A \to \cf(\spe(\A)), ~ A \mapsto ( \hat{A} \coloneqq \G(A): \spe(\A) \to \C , ~ \gamma \mapsto \gamma(A)).
+\]
+\end{thrm}
+The map in the theorem is the so called Gelfandtransform, named after Israel Moissejewitsch Gelfand (1941).
+
+$T$ will always denote a closed operator between some Hilbert spaces $\hs$ and $ \tilde{\hs}$. Most of the time, we will be in the situation of $\hs = \tilde{\hs}$. The space of all such operators will be called $\ch$. By $\domt$ and $\rant$ we denote the domain respectively range of the operator. The bounded linear operators will be called $\bh$.
+\begin{defi}
+  For $T, S \in \lh$ we say $T$ \textit{extends} $S$, if $\dom(S)\subset \domt$ and $ Tx = Sx$ for $x \in \dom (S)$. We write $S \subset T$.
+\end{defi}
+For $S, T \in \ch$, let $S + T$ be the operator with domain $\dom(S) \cap \domt$ and Vorschrift $(S + T)x = Sx + Tx$. Note that this does not give $\ch$ the structure of a vector space, since $S +T \notin \ch$ and  $(S + T) - T \neq S$ because $\dom(S) \cap \domt$ need not be densely defined. $TS$ is the linear operator with domain $S\inv \domt$, and the obvious Vorschrift. The reader shoulb be aware, that with the just defined operations, $\ch$ does not admit the structure of an algebra, not even that, of a vector space. This is one of the reasons, why one has to be careful while working with unbounded operators. Since closed operators are not defined on all of $\hs$, there is no intrinsic defnition of an inverse to such an operator, since we do not want map from $I: \domt \to \domt$. Hence, we have the following
+\begin{defi}
+ \cancer Let $T \in \ch$. We say that $T$ is \textit{boundedly invertible} if there exists a bounded linear operator $S: \hs \to \hs$ such that $TS = \id$, and $ST \subset \id$. We call $S$ the \textit{bounded inverse} of $T$.
+\end{defi}
+
+\begin{lem}
+ If $T$ is boundedly invertible, the bounded inverse $S= T\inv$ is unique. 
+\end{lem}
+
+\begin{proof}
+
+ Let $S, S'$ be bounded inverses of $T \in \ch$. Then
+ \[
+  0 = TS - TS' = T(S - S').
+ \]
+Hence, $ \ran(S - S') \subset \ker(T)$. But $\ker(T) = 0$, since $ST \subset \id$, which implies that $S = S'$.
+\end{proof}
+
+
+\begin{lem}
+ If $T \in \ch$, $S \in \bh$ and $ TS = \id$ then $S$ is the bounded inverse of $T$.
+\end{lem}
+
+\begin{proof}
+ \begin{align*}
+ &\quad & TS &= \id &\\
+ &\Leftrightarrow & STS &= S &\\
+ &\Leftrightarrow & (ST - \id)S &= 0 &\\
+ &\Leftrightarrow & \ran(S) &\subset \ker(ST - \id). & 
+\end{align*}
+ But $\ran(S)$ is dense in $\hs$, and therefore $ST = \id|_{\domt}$, which implies $ST \subset \id$.
+\end{proof}
+
+
+
+
+\section{First things first}
+We want to construct a most general spectral theorem for linear opeartors between Hilbert spaces. To achieve said goal, we need some auxilliary results, derived by Gelfand's theorem. For each normal operator $T \in \lh$, we will consider the associated normal $^*$-subalgebra 
+\[
+ \A(T) \coloneqq \gen{I, A, B, B^*},~ A \coloneqq \frac{1}{1 + T \str T}, ~ B \coloneqq TA
+\]
+which is well defined, since $1 + T \str T$ is invertible. Gelfand gives us a somewhat o.k. understanding of bounded linear operators, so we might hope to get information about $T$ if we use our understanding of $A$ and $B$, and reconstruct $T$ via $T = BA\inv$.
+\newline First some corollaries from the Gelfand representation theorem
+\begin{prop}
+ Let $\A \subset \B$ be a unitary $^*$-subalgebra of $\B$. If $A \in \A$, $A \in \GL(\B)$, then $A \in \GL(\A)$. In other words 
+\[
+  \forall A \in \A: \spe_{\A}(A) = \spe_{\B}(A).
+\]
+
+\end{prop}
+\begin{proof}
+ First assume $A = A^* $. We have $\spe_\A(A) \subset \R$, implying that
+ \[
+  \forall \lambda \neq 0: (A + i \lambda I)\inv \in \A \subset \B.
+ \]
+ Let $A$ is invertible in $\B$. Since 
+ \[
+  \lim_{\lambda \to 0} (A + i \lambda I) = A,
+ \]
+ by continuity of the inverse map, we get
+ \[
+  \lim_{\lambda \to 0} (A + i \lambda I) \inv =A \inv \in \B.
+ \]
+Because for all $\lambda \neq 0$ we get $ (A + i \lambda I)\inv \in \A$, and $A$ is closed in $B$, the statement  holds for normal $A$. 
+
+For general in $\B$ invertible, $A \in \A$, one has the normal element $A\str A \in \B$, with inverse $(A\str A)\inv = A\inv (A\inv)^*$. Since $\A$ is a $^*$-algebra, $A\str A \in \A$, which implies that $A$ is left-invertible in $\A$ with inverse $(A\str A)\inv A^*$. Using the same argument with the normal element $AA^*$, one gets the right-invertibility of $A$. Now, by basic group theory, $A$ is invertible, and the inverses coincide.
+\end{proof}
+
+\begin{cor}
+ Let $\A$ be a $^*$-subalgebra of $\lh$, $T \in \A$. Then 
+\[
+ \spe_\A (T) = \spe_{\lh}(T) = \spe(T).
+\]
+\end{cor}
+
+\begin{prop}[Functional calculus for normal elements]
+ Let $\B$ be a $^*$-subalgebra with unit, and $A \in \B$ a normal element. Then the normal star-subalgebra generated by $A$ is isomorphic to $\cf (\spe A)$, where $\spe(A) \cong \spe(\A)$ via the Gelfandtransform.
+\end{prop}
+
+\begin{proof}
+ First, we show that $\G_A : \spe(\A) \to \C$ is injective. If $\chi_1 , \chi_2 \in \spe(\A)$, $\G_A(\chi_1) = \G_A(\chi_2)=\chi_2(A)=\chi_1(A)$, then also $\chi_1(A^*)=\chi_2(A^*)$. Since $\chi_1(I)=\chi_2(I)=1$, we see that $\chi_1 = \chi_2$ on all polynomials in $A$, $A^*$. Because $\chi_1$, $\chi_2$ are continous, they coincide on $\A$ and $\G_A(\A)=\spe(a)$ by Gelfand. $\G_A$ is a continous bijection from $\spe(\A)$ to $\spe(A)$, $\spe(\A)$ is compact and therefore
+\[
+ \G_A \text{ is a homeomorphism from } \spe(\A) \text{ to } \spe(A).
+\]
+By Gelfand--Neimark 
+\[
+ \G : \A \to \cf(\spe \A)
+\]
+is an isomorphism. We get the following commutative diagram, which yields the result
+\[
+\xymatrix{
+ \A \ar[rrr]^{{B \mapsto \G_B}} \ar[drrr]_{B \mapsto \G_B \circ \G_A \inv~~~} &&& \cf(\spe(\A)) \ar[d]^{\G_B \mapsto \G_B \circ \G_A \inv} \\
+   &&&  \cf(\spe(A))}
+\]
+
+
+
+
+\end{proof}
+
+\begin{rem}
+  Let $\Phi : \cf (\spe A) \to \A$ be the inverse of the isomorphism from the previous theorem defnied by $B \mapsto \G_B \circ \G_A \inv$.
+ 
+  For $f \in \cf(\spe A)$ get 
+  \[
+   \Phi (f) = \G \inv (f \circ \G_A)).
+  \]
+  Thus, one gets back the generators of $\A$ via
+   \begin{align*}
+      \Phi (1_{\spe(A)})   		&= \G \inv (1 _{\spe(A)} \circ \G_A ) \\
+				    &= \G \inv (1_{\spe(\A))} \\
+      \Phi (\id_{\spe (A)})		&= \G \inv (\id_{\spe (A)} \circ \G_A) \\
+				    &= \G \inv (\G_A) = A \\
+      \Phi (\overline{\id}_{\spe (A)}) 	&= A^*.
+   \end{align*}
+  $\Phi$ gives us the possibility to identify functions on the closure of polynomials in $z, \overline{z}$ on $\spe (A)$ with elements in $A$. By Stone-Weierstrass functions on the closure of polynomials in $z, \overline{z}$ on $\spe (A)$ are just continous functions on $\spe (A)$. $\Phi$ is completely determined by its values on $1_{\spe A}$ and $id_{\spe A}$
+\end{rem}
+
+\begin{expl}
+ Let $\B = \lh$ be the space of bounded linear opeartors on some Hilbert space $\hs$, $T \in \B$ a normal element and $\A$ the star-subalgebra generated by $T$. $\spe (T) \subset \C$ is a compact subset. Any entire function $f : \C \to \C$ is continous on $\spe (A)$, and hence gives us an element $f(A) \in \A$. 
+ 
+ In general, the square root does not give a holomorphic function on $\spe (A)$. However for normal $A$, we can still define a continous square root on $\spe (A)$:
+ \[
+  \sqrt{\phantom{z}} : \spe (A) \to \C, ~ z \mapsto 
+  \begin{cases}
+    \sqrt{z} 	& \text{if $z > 0$,} \\
+    i \sqrt{-z}	& \text{if $ z < 0$,} \\
+    0		& \text{if $ z = 0$.}
+  \end{cases}
+ \]
+
+ Another interesting example is the absolute value. For real numbers well known, one now has the possibility to take the absolute value of an operator.
+\end{expl}
+
+\begin{prop}
+ Let $\B$ be an involutive, unitary Banach algebra, $\A$ a unitary star-algebra, and let
+\[
+  \Phi : \B \to \A 
+\]
+be an involutive algebra homomorphism.
+Then $\Phi$ is continous and norm decreasing.
+\end{prop}
+\begin{proof}
+ Let $B \in \B$. We have
+\[
+  \spe_\A (\Phi (B)) \subset \spe_\B (B),
+\]
+since $\Phi(I)=I$. For the spectralradius one has
+\[
+ \rho (\Phi (B)) \leq \rho ( B) \leq \| B \|.
+\]
+And consequently
+\begin{align*}
+ \| \Phi (B) \|^2 &= \| (\Phi (B))\str \Phi (B) \| \\
+		  &= \| \Phi (B \str B) \| \\
+		  &= \rho ( \Phi(B \str B)) \leq \| B\str B \| \leq \| B \| ^2.
+\end{align*}
+
+This gives 
+\[
+ \| \Phi \| \leq 1.
+\]
+\end{proof}
+\begin{cor}
+ Using the same notation as before, the isomoprhism
+ \[
+  \Phi : \cf ( \spe \A) \to \A \text{ , } f \mapsto \G \inv (f \circ \G_A)
+ \]
+is the only involutive algebra homomorphism, with the property that \vspace{10 pt} $ \Phi ( 1_{\spe A} ) =  I$  and $\Phi ( \id _{ \spe A }) = A$.
+ 
+\end{cor}
+
+\begin{proof}
+ If $\Psi : \cf ( \spe A) \to \A$ is another algebra homomorphism with the properties above, then $\Psi = \Phi$ on all polynomials in $z$ and $\overline{z}$ on $\spe (A)$. We already know that both homomorphisms are continous, hence by Stone-Weierstrass they must coincide on $\cf ( \spe A )$
+\end{proof}
+
+
+
+
+
+
+\section{squirrel aids, antibioticresistant streptococci, ass cancer $\cancer$ and their benefits for weight loss}
+
+Since we have a functional calculus for bounded operators, one might hope that we can extend our results to unbounded operators. But the previous result relied on the Gelfandtransform, which in turn relied on the existence of certain structures, such as the operator being an element in an algebra. But as previously remarked, closed opeartors are not that nice. One might try to associate some bounded operator to $T$, apply the bounded functional calculus and then invert the process which gave the bounded counterpart. This is what we want to do now.
+
+From now on, let $T \in \lh$ be a closed normal operator. We denote by $\domt$ the domain of $T$.
+If $T$ is bounded then the closed graph theorem tells us that $\domt = \hs$. We endow $\domt$ with the graph scalar product
+\[
+ \gen{x,y}_T \coloneqq  \gen{x, y}_\hs + \gen{ Tx, Ty}_\hs \eqqcolon \gen{x, y} + \gen{Tx, Ty},
+\]
+making it a Hilbert space in itself. If there is no room for misinterpretation, we will omit the $\hs$ in the scalar product. The adjoint of $T$ as a closed operator from $\hs$ to itself, will be called $T^*$. Let $\iota : \domt \to \hs$ be the inclusion. We have two ways to interpret this map;
+\begin{enumerate}[\gemini]
+ \item as an operator on $\hs$, namely the identity with domain $\domt$, or
+ \item as a bounded linear operator $\iota : ( \domt , \gen{\cdot, \cdot}_T) \to ( \hs , \gen{\cdot, \cdot}_\hs)$.
+\end{enumerate}
+
+\begin{prop}
+ Using the second interpretation, we see $(\id + T \str T)$ is boundedly invertible, with inverse $\iota \iota \str$.
+\end{prop}
+\begin{proof}
+  For $x \in \domt$, $y \in \hs$,  we have
+  \begin{align*}
+  &\quad & \gen{x, \iota \str y}_T &= \gen{\iota x, y}_\hs  &\\
+  &\Leftrightarrow & \gen{\iota x ,\iota \str y}_\hs + \gen{Tx, T\iota \str y}_\hs &= \gen{\iota x, y}_\hs  &\\
+  &\Leftrightarrow & \gen{x, T ^* T \iota \str y} &= \gen{x, y - \iota \str y} &\\
+  &\Leftrightarrow & 0 &= \gen{x, y - \iota \str y - T ^* T \iota \str y}. & 
+  \end{align*}
+  Since this equality holds for all $x \in \domt$, we get that 
+
+  \begin{align*}
+  & \quad & 0&= y - \iota \str y - T ^* T \iota \str y  & \\
+  & \Leftrightarrow  & y &= \iota \str y + T \str T \iota \str y& \\
+  & \Leftrightarrow & y &= (\id + T \str T) \iota \str y, &
+  \end{align*}
+  which implies that $  \iota \str = ( \id + T \str T) \inv$, because $\iota \str \iota$ is bounded.
+\end{proof}
+
+Define $A \coloneqq \iota \iota \str$ and $B \coloneqq TA$. If we think of $A$ corresponding $\frac{1}{1 + |x|^2}$, then we would expect $B$ to be bounded as well. As it turns out, this is true proven by the following
+
+\begin{lem}
+ $B = TA = T(I + T \str T)\inv$ is a bounded operator, and we have $AT \subset TA$.
+\end{lem}
+
+\begin{rem}
+ For suggestion and better readability, from now on, we will write $I$ for $\id$.
+\end{rem}
+
+
+\begin{proof}
+ Let $y \in \dom(I + T \str T)$ such that $(I + T \str T)y = x \in \domt$. One has 
+ \begin{align*}
+   \|x + T \str T x\|^2 &= \gen{x + T \str T x, x + T \str T x}\\
+   &= \|x\|^2 +  \gen{x, T \str Tx} + \gen{T \str Tx, x}+ \|T \str Tx\|^2\\
+   &= \|x\|^2 + 2\|Tx\|^2 + \|T \str Tx\|^2 \geq \|Tx\|^2.
+ \end{align*}
+From that, $\| TAx\|^2 = \| Ty \| ^2 \leq \| (I + T \str T)y \|^2 = \| x \| ^2$, which proves that $B$ is bounded. 
+
+To show that $AT \subset TA$, take $y \in \dom(AT) = \domt$, $x \in \dom(T \str T)$ such that $y = ( I +  T \str T)x$. $T \str T x \in \domt$ which implies $Tx \in \dom(TT\str) = \dom(T\str T)$. Then 
+\[
+ ATy = A(Tx + T T\str T x) = A((I + T\str T)Tx)= A(I+ T\str T)Tx= Tx,
+\]
+and
+\[
+ TAy= T(I+ T\str T)\inv (I + T \str T)x=Tx,
+\]
+concluding that $AT = TA$ on $\domt$.
+
+\end{proof}
+
+The operator $AT$ is bounded but not defined on all of $\hs$. So we extend it in the following
+
+\begin{lem}
+ $AT$ admits a bounded linear extension $\overline{AT}$ to all of $\hs$. We then have $\overline{AT}=TA$.
+\end{lem}
+
+\begin{proof}
+ For $x \in \hs$ we can choose a sequence $x_n \in \domt$, with $x_n \rightarrow_\hs x$. Define $\overline{AT}(x) \coloneqq TA(x)$. This is linear, because $AT = TA$ on $\domt$ and $TA$ is linear bounded, so the limit does not depend on the chosen sequence.
+\end{proof}
+
+\begin{rem}
+ The previous two lemmata and proofs, still hold if we replace $T$ by $T\str$, giving us 
+ \[
+  AT\str = T\str \! A \text{ and hence } B\str = T\str \! A.
+ \]
+ One also has the identity
+ \begin{align*}
+  A^2 + B\str B &= (I + T\str T)^{-2} + T \str (I + T\str T)\inv T (I + T\str T) \inv \\
+		&= (I + T\str T)^{-2} + T \str T(I + T\str T)\inv (I + T\str T) \inv \\
+		&= (I + T\str T)(I + T\str T)^{-2} \\
+		&= (I + T\str T)\inv  \\
+		&= A \tag{\leo}
+  \end{align*}
+
+  
+
+\end{rem}
+
+From now on, we identify $B=\overline{AT}$ and $B\str =\overline{AT\str}$  with their bounded extensions.
+Let $\A \coloneqq \gen{I, A, B , B\str}$. Let $ \chi \in \spe (\A), \chi(A) =0$. By our previous indentity, we get
+\[
+ \chi(A)^2 + |\chi(B)|^2 = \chi(A),
+\]
+which implies that $\chi(B) =0$ as well. But for all $\chi \in \spe (\A), \chi(I)=1$. If such a $\chi$ exists, it is therefore unique. We call this character $\chi_\infty$.
+
+We define $\theta : \spe (\A) \to \cb$ by
+
+ \[
+ \chi \mapsto 
+  \begin{cases}
+    \frac{\chi(B)}{\chi(A)} &, \text{ if }\chi \neq \chi_\infty\\
+    \infty &, \text{ if } \chi = \chi_\infty.
+    \end{cases}
+ \]
+ 
+ Since $\chi$ is a star-algebrahomomorphism, $A^2 + B\str B = A$ implies for $\chi \neq \chi_\infty$
+ \begin{align*}
+  &  & \chi(A) &= \chi(A) \overline{\chi(A)} + \chi(B) \overline{\chi(B)} \\
+  &\Leftrightarrow& \frac{1}{\chi(A)} &= 1 + \frac{\chi(B)}{\chi(A)} \overline{\left( \frac{\chi(B)}{\chi(A)} \right)} = 1 + | \theta(\chi)|^2. 
+ \end{align*}
+
+Inverting the last equality gives
+\[
+ \chi(A) = \frac{1}{1 + |\theta (\chi)|^2} \tag{\blankone}.
+\]
+The definition of $\theta$ (and not $B= TA$ $\Leftrightarrow$ $T = `` \frac{B}{A} ")$, gives
+\[
+ \chi(B) = \chi(A) \frac{\chi(B)}{\chi(A)}= \chi(A)~ \theta(\chi) \tag{\blanktwo}.
+\]
+
+Recalling the defnition of the Gelfandtransformation, we see that our map
+\[
+ \theta : \spe(\A) \setminus \{\chi_\infty\} \to \C
+\]
+equals a fraction of two single Gelfandtransformations
+\[
+ \theta(\chi) = \frac{\chi(B)}{\chi(A)} = \frac{\G_B (\chi)}{\G_A (\chi)}= \frac{\G_B}{\G_A}(\chi).
+\]
+But $\G_A \neq 0$ on $\spe(\A) \setminus \{\chi_\infty\}$, which implies that $\theta$ is continious on $\spe(\A) \setminus \{\chi_\infty\}$.
+If $\chi_\infty$ exists, let $ \left( \chi_\lambda \right) _{\lambda \in \Lambda}$ be a net converging to $\chi_\infty$ and $\chi_\lambda \neq \chi_\infty$ for all $\lambda \in \Lambda$. By continuity of $\G_A$ we have
+\[
+ \G_A (\chi_\lambda) = \chi_\lambda (A) \to \chi_\infty (A) = 0.
+\]
+
+Equation $(\sagittarius)$ implies
+\[
+ | \theta( \chi_\lambda ) | ^2  + 1 = \frac{1}{\chi(A)} \to \infty,
+\]
+which is equivalent to 
+\[
+ | \theta (\chi_\lambda ) | \to \infty.
+\]
+We get the following 
+\begin{lem}
+$\theta$ extends to a continous map
+\[
+ \theta : \spe(\A) \to \cb,
+\]
+by $\theta (\chi_\infty) \coloneqq \infty$.
+Furthermore $\theta : \spe (\A) \to \cb$ is a homeomorphism onto its image.
+\end{lem}
+
+\begin{proof}
+The first claim is already proven. For the second claim we check $\theta$ is injective:
+Let $\chi_1 , \chi_2 \neq \chi_\infty$. $(\blankone)$ and $(\blanktwo)$ imply that if $\theta (\chi_1)= \theta( \chi_2)$, $\chi_1$ conincides with $\chi_2$. Furthermore, $\chi_\infty$ is unique, which implies that $\theta$ is injective. Since $\spe (\A)$ is compact and $\cb$ is Hausdorff,  this proves the second claim.
+\end{proof}
+
+
+  
+
+ 
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
