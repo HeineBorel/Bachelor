@@ -20,11 +20,13 @@
 
 \section{Preliminaries}
 Throughout this paper, I will use some theorems, which will be explained in this section.
-$\A$ will always denote a complex, unitary Banach algebra, with the unit denoted by $I$. We have the following
+$\A$ will always denote a complex, unitary Banach algebra, with the unit denoted by $I$. We have the 
+following
 \begin{defi}[Spectrum]
 For $A \in \A$ the \textit{spectrum} of $A$ in $\A$, is defined as 
 $\spe(A)\coloneqq \{ z \in \C \mid A-z  I \notin \GL(\A) \}$.
-The \textit{spectrum} of $\A$ is defined as $\spe(\A) \coloneqq \{ \chi :\A \to \C \mid \chi \in \Hom_{\cAlg{\C}}(\A, \C) \}  $.
+The \textit{spectrum} of $\A$ is defined as $\spe(\A) \coloneqq \{ \chi :\A \to \C \mid \chi \in
+\Hom_{\cAlg{\C}}(\A, \C) \}  $.
 \end{defi}
 
  
@@ -321,7 +323,7 @@ The operator $AT$ is bounded but not defined on all of $\hs$. So we extend it in
 \end{rem}
 
 From now on, we identify $B=\overline{AT}$ and $B\str =\overline{AT\str}$  with their bounded extensions.
-Let $\A \coloneqq \gen{I, A, B , B\str}$. Let $ \chi \in \spe (\A), \chi(A) =0$. By our previous indentity, we get
+Let $\A (T) = \A \coloneqq \gen{I, A, B , B\str}$. Let $ \chi \in \spe (\A), \chi(A) =0$. By our previous indentity, we get
 \[
  \chi(A)^2 + |\chi(B)|^2 = \chi(A),
 \]
@@ -386,10 +388,55 @@ Furthermore $\theta : \spe (\A) \to \cb$ is a homeomorphism onto its image.
 
 \begin{proof}
 The first claim is already proven. For the second claim we check $\theta$ is injective:
-Let $\chi_1 , \chi_2 \neq \chi_\infty$. $(\blankone)$ and $(\blanktwo)$ imply that if $\theta (\chi_1)= \theta( \chi_2)$, $\chi_1$ conincides with $\chi_2$. Furthermore, $\chi_\infty$ is unique, which implies that $\theta$ is injective. Since $\spe (\A)$ is compact and $\cb$ is Hausdorff,  this proves the second claim.s
+Let $\chi_1 , \chi_2 \neq \chi_\infty$. $(\blankone)$ and $(\blanktwo)$ imply that if $\theta (\chi_1)= \theta( \chi_2)$, $\chi_1$ conincides with $\chi_2$. Furthermore, $\chi_\infty$ is unique, which implies that $\theta$ is injective. Since $\spe (\A)$ is compact and $\cb$ is Hausdorff,  this proves the second claim.
 \end{proof}
 
+We have the Gelfandisomorphism $\G : \A \to \cf (\spe \A)$. Combining with $theta$, one has
 
+\begin{align*}
+ \A \longrightarrow  \cf (\spe& \A) \longrightarrow  \cf (\theta ( \spe \A )) \\
+ x \mapsto  \G_x &~;~ f \mapsto  f \circ \theta \inv \\
+ \G \inv f \mapsfrom f &~;~ g \circ \theta \mapsfrom g.
+\end{align*}
+
+Define
+\[
+ \Phi : \cf ( \theta (\spe \A)) \to \A,~ g \mapsto \G \inv (g \circ \theta).
+\]
+$\Phi$ is an involutive algebrahomomorphism since $\G$ is.
+
+\begin{prop}
+ Let $T$ be a normal operator on $\hs$, $\A = \gen{I, A, B}$ the staralgebra associated to $T$. Then $\Phi$ is the only involutive algebrahomomorphism from $\cf (\theta (\spe \A ))$ onto $\A$, such that
+ \[
+  \Phi \left(\frac{1}{1 + | z| ^2}\right) = A , ~ \Phi\left(\frac{z}{1+ |z|^2}\right) = B.
+ \]
+\end{prop}
+
+
+
+\begin{proof}
+ 
+ \begin{align*}
+  \Phi \inv (A)(z) &= \G_A \circ \theta \inv (z)\\
+		   &= \G_A (\theta \inv (z))\\
+		   &= \frac{1}{1+ |z|^2}
+\intertext{using $\G_A(\chi)=\chi(A)=\frac{1}{1+ |\theta(\chi)|^2}$. Moreover}
+\Phi \inv (B)(z) &= \G_B \circ \theta \inv (z) \\
+		   &= \G_B (\theta \inv (z)) \\
+		   &= \frac{z}{1 + |z|^2}.
+ \end{align*}
+ 
+ To proof uniqueness, let $\Psi : \cf (\theta (\spe \A)) \to \A$ be another involutive algebrahomomorphism  such that
+ \[
+  \Psi \left(\frac{1}{1 + | z| ^2}\right) = A , ~ \Psi\left(\frac{z}{1+ |z|^2}\right) = B.
+ \]
+ Then $\Phi$ coincides with $\Psi$ on all polynomials in $A, B, \overline{B}$. The polynomials form an involutive
+ algebra, which seperates points. By Stone-Weierstrass it is dense, and therefore $\Phi$ equals $\Psi$ since they are continious.
+\end{proof}
+
+Our goal is to construct a functional calculus for $T$. With respect to $\Phi$, $T$ corresponds to 
+$\id_{\theta (\spe \A)}$. But if $\chi_\infty \in \spe (\A)$, then $\id_{\theta ( \spe \A ))}
+\notin \cf (\spe \A)$ since $\infty \notin \C$.
   
 
  
