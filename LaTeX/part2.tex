@@ -1,0 +1,87 @@
+
+\section{Spectral measures}
+
+\begin{defi}[Spectral measure]
+ 
+ Let $X$ be a compact space and let
+ \[
+  \Phi : \cf (X) \to \lh
+ \]
+be a map. $\Phi$ is called a \textit{spectral measure}, if its image 
+$\A \coloneqq \Phi(\cf (X))$ is a commutative star-subalgebra of $\lh$ and 
+$\Phi$ induces an isomorphism onto its image.
+\end{defi}
+
+\begin{rem}
+ By isomorphism we mean that
+ \begin{enumerate}
+  \item $\Phi$ is an involutive algebrahomomorphism,
+  \item $\Phi$ is a bijection onto A,
+  \item $\Phi$ is an isometry: $\| \Phi f \| = \| f \|_\infty$.
+ \end{enumerate}
+
+\end{rem}
+
+% Hier noch das Beispiel uebernehmen ?
+
+Let $\m$ be a positive Radon measure on our compact space $X$, meaning a
+continous linear form on $\cf (X)$. Set $\hs \coloneqq L^2(\mathfrak{m})$. We define 
+\begin{align*}
+ \Phi : \cf(X) \to \mathscr{L}({\ltwom}) \\
+ f \mapsto (g \mapsto f\cdot g).
+\end{align*}
+
+For all $g , h \in \hs$ define
+\[
+ \m_{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
+\]
+We then have that the map 
+\[
+ f \mapsto \m_{g,h} (f)
+\]
+is a linear form on $\cf (X)$ for every pair $(g, h) \in \hs \times \hs$.
+
+\begin{thrm}
+For all $g, h,k \in \hs$, $\alpha, \beta \in \C$ and $f, \phi, \psi \in \cf(X)$,
+it holds that $\m_{g,h}$ is a Radon measure on $X$ with the following properties:
+\begin{enumerate}[{(}i{)}]
+ \item $\| \m_{g,h}\| \leq \|g\| \|h\|$
+ \item $\m_{\alpha g + h, \beta k} = \overline{\alpha}\beta \m_{g,k} + 
+ \beta \m_{h,k}$
+ \item $\overline{\m}_{g,h} = \m_{h,g}$, $\overline{\m}_{g,h} : 
+ f \mapsto \overline{\m}_{g,h}(f) = \overline{\m_{g,h}(\overline{f})}$
+ \item $\m_{g,g} \geq 0$
+ \item $\m_{\Phi_\phi g, \Phi_\psi h} = \overline{\phi} \psi \m_{g,h}.$
+\end{enumerate}
+
+\end{thrm}
+
+\begin{proof}
+ \begin{enumerate}[(i)]
+  \item \begin{align*}
+         \| \m_{g,h} \| &= \sup\limits_{\| f \| _\infty \leq 1} | \m_{g,h}(f) | \\
+			&= \sup\limits_{\| f \| _\infty \leq 1} | \gen{g, \Phi_f h} | \\
+			&\leq \sup\limits_{\| f \| _\infty \leq 1} \| g \| \|\Phi_f \| \| h\| \\
+			&= \|g\| \|h\|
+        \end{align*}
+  since $\|\Phi_f \| =\| f \|_\infty$.
+ \item obvious
+ \item $\overline{\m}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = \gen{\overline{f}h ,g} =
+ f\gen{h,g} = \gen{h, fg} = \m_{h,g}(f).$
+ \item Let $\phi \geq 0$. Because $\Phi$ is algebrahomomorphism we have 
+ \[
+  \Phi_\phi = \Phi_{\sqrt{\phi}} \Phi_{\sqrt{\phi}} = 
+  \Phi_{\overline{\sqrt{\phi}}} \Phi_{\sqrt{\phi}} =
+  \Phi_{\sqrt{\phi}}\str \Phi_{\sqrt{\phi}}.
+ \]
+ Therefore $\m_{g,g}(\phi) = \gen{g, \Phi_\phi g} = \gen{\Phi_{\sqrt{\phi}}g,
+ \Phi_{\sqrt{\phi}}g} \geq 0. $
+
+\end{enumerate}
+\end{proof}
+
+
+
+
+
+
