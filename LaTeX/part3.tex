@@ -1,0 +1,221 @@
+\section{squirrel aids, antibioticresistant streptococci, ass cancer $\cancer$ and their benefits for weight loss}
+
+\marginparr{Andere Ueberschrift}
+Since we have a functional calculus for bounded operators, one might hope that we can extend our results to unbounded operators. But the previous result relied on the Gelfandtransform, which in turn relied on the existence of certain structures, such as the operator being an element in an algebra. But as previously remarked, closed opeartors are not that nice. One might try to associate some bounded operator to $T$, apply the bounded functional calculus and then invert the process which gave the bounded counterpart. This is what we want to do now.
+
+From now on, let $T \in \lh$ be a closed normal operator. We denote by $\domt$ the domain of $T$.
+If $T$ is bounded then the closed graph theorem tells us that $\domt = \hs$. We endow $\domt$ with the graph scalar product
+\[
+ \gen{x,y}_T \coloneqq  \gen{x, y}_\hs + \gen{ Tx, Ty}_\hs \eqqcolon \gen{x, y} + \gen{Tx, Ty},
+\]
+making it a Hilbert space in itself. If there is no room for misinterpretation, we will omit the $\hs$ in the scalar product. The adjoint of $T$ as a closed operator from $\hs$ to itself, will be called $T^*$. Let $\iota : \domt \to \hs$ be the inclusion. We have two ways to interpret this map;
+\begin{enumerate}[\gemini]
+ \item as an operator on $\hs$, namely the identity with domain $\domt$, or
+ \item as a bounded linear operator $\iota : ( \domt , \gen{\cdot, \cdot}_T) \to ( \hs , \gen{\cdot, \cdot}_\hs)$.
+\end{enumerate}
+
+\marginparr{Definitif umschreiben!}
+
+\begin{prop}
+ Using the second interpretation, we see $(\id + T \str T)$ is boundedly invertible, with inverse $\iota \iota \str$.
+\end{prop}
+\begin{proof}
+  For $x \in \domt$, $y \in \hs$,  we have
+  \begin{align*}
+  &\quad & \gen{x, \iota \str y}_T &= \gen{\iota x, y}_\hs  &\\
+  &\Leftrightarrow & \gen{\iota x ,\iota \str y}_\hs + \gen{Tx, T\iota \str y}_\hs &= \gen{\iota x, y}_\hs  &\\
+  &\Leftrightarrow & \gen{x, T ^* T \iota \str y} &= \gen{x, y - \iota \str y} &\\
+  &\Leftrightarrow & 0 &= \gen{x, y - \iota \str y - T ^* T \iota \str y}. & 
+  \end{align*}
+  Since this equality holds for all $x \in \domt$, we get that 
+
+  \begin{align*}
+  & \quad & 0&= y - \iota \str y - T ^* T \iota \str y  & \\
+  & \Leftrightarrow  & y &= \iota \str y + T \str T \iota \str y& \\
+  & \Leftrightarrow & y &= (\id + T \str T) \iota \str y, &
+  \end{align*}
+  which implies that $  \iota \str = ( \id + T \str T) \inv$, because $\iota \str \iota$ is bounded.
+\end{proof}
+
+Define $A \coloneqq \iota \iota \str$ and $B \coloneqq TA$. If we think of $A$ corresponding $\frac{1}{1 + |x|^2}$, then we would expect $B$ to be bounded as well. As it turns out, this is true proven by the following
+
+\begin{lem}
+ $B = TA = T(I + T \str T)\inv$ is a bounded operator, and we have $AT \subset TA$.
+\end{lem}
+
+\marginparr{umschreiben?}
+\begin{rem}
+ For suggestion and better readability, from now on, we will write $I$ for $\id$.
+\end{rem}
+
+
+\begin{proof}
+ Let $y \in \dom(I + T \str T)$ such that $(I + T \str T)y = x \in \domt$. One has 
+ \begin{align*}
+   \|x + T \str T x\|^2 &= \gen{x + T \str T x, x + T \str T x}\\
+   &= \|x\|^2 +  \gen{x, T \str Tx} + \gen{T \str Tx, x}+ \|T \str Tx\|^2\\
+   &= \|x\|^2 + 2\|Tx\|^2 + \|T \str Tx\|^2 \geq \|Tx\|^2.
+ \end{align*}
+From that, $\| TAx\|^2 = \| Ty \| ^2 \leq \| (I + T \str T)y \|^2 = \| x \| ^2$, which proves that $B$ is bounded. 
+
+To show that $AT \subset TA$, take $y \in \dom(AT) = \domt$, $x \in \dom(T \str T)$ such that $y = ( I +  T \str T)x$. $T \str T x \in \domt$ which implies $Tx \in \dom(TT\str) = \dom(T\str T)$. Then 
+\[
+ ATy = A(Tx + T T\str T x) = A((I + T\str T)Tx)= A(I+ T\str T)Tx= Tx,
+\]
+and
+\[
+ TAy= T(I+ T\str T)\inv (I + T \str T)x=Tx,
+\]
+concluding that $AT = TA$ on $\domt$.
+
+\end{proof}
+
+The operator $AT$ is bounded but not defined on all of $\hs$. So we extend it in the following
+
+\begin{lem}
+ $AT$ admits a bounded linear extension $\overline{AT}$ to all of $\hs$. We then have $\overline{AT}=TA$.
+\end{lem}
+
+\begin{proof}
+ For $x \in \hs$ we can choose a sequence $x_n \in \domt$, with $x_n \rightarrow x$. Define $\overline{AT}(x) \coloneqq TA(x)$. This is linear, because $AT = TA$ on $\domt$ and $TA$ is linear bounded, so the limit does not depend on the chosen sequence.
+\end{proof}
+
+\begin{rem}
+ The previous two lemmata and proofs, still hold if we replace $T$ by $T\str$, giving us 
+ \[
+  AT\str = T\str \! A \text{ and hence } B\str = T\str \! A.
+ \]
+ One also has the identity
+ \begin{align*}
+  A^2 + B\str B &= (I + T\str T)^{-2} + T \str (I + T\str T)\inv T (I + T\str T) \inv \\
+		&= (I + T\str T)^{-2} + T \str T(I + T\str T)\inv (I + T\str T) \inv \\
+		&= (I + T\str T)(I + T\str T)^{-2} \\
+		&= (I + T\str T)\inv  \\
+		&= A \tag{\leo}
+  \end{align*}
+\marginparr{leo ersetzen}
+  
+
+\end{rem}
+
+From now on, we identify $B=\overline{AT}$ and $B\str =\overline{AT\str}$  with their bounded extensions.
+Let $\A (T) = \A \coloneqq \gen{I, A, B , B\str}$. Let $ \chi \in \spe (\A), \chi(A) =0$. By our previous indentity, we get
+\[
+ \chi(A)^2 + |\chi(B)|^2 = \chi(A),
+\]
+which implies that $\chi(B) =0$ as well. But for all $\chi \in \spe (\A), \chi(I)=1$. If such a $\chi$ exists, it is therefore unique. We call this character $\chi_\infty$.
+
+We define $\theta : \spe (\A) \to \cb$ by
+
+ \[
+ \chi \mapsto 
+  \begin{cases}
+    \frac{\chi(B)}{\chi(A)} &, \text{ if }\chi \neq \chi_\infty\\
+    \infty &, \text{ if } \chi = \chi_\infty.
+    \end{cases}
+ \]
+ 
+ Since $\chi$ is a star-algebrahomomorphism, $A^2 + B\str B = A$ implies for $\chi \neq \chi_\infty$
+ \begin{align*}
+  &  & \chi(A) &= \chi(A) \overline{\chi(A)} + \chi(B) \overline{\chi(B)} \\
+  &\Leftrightarrow& \frac{1}{\chi(A)} &= 1 + \frac{\chi(B)}{\chi(A)} \overline{\left( \frac{\chi(B)}{\chi(A)} \right)} = 1 + | \theta(\chi)|^2. 
+ \end{align*}
+ 
+\marginparr{Blanks ersetzen}
+
+Inverting the last equality gives
+\[
+ \chi(A) = \frac{1}{1 + |\theta (\chi)|^2} \tag{\blankone}.
+\]
+The definition of $\theta$ (and not $B= TA$ $\Leftrightarrow$ $T = `` \frac{B}{A} ")$, gives
+\[
+ \chi(B) = \chi(A) \frac{\chi(B)}{\chi(A)}= \chi(A)~ \theta(\chi) \tag{\blanktwo}.
+\]
+
+Recalling the defnition of the Gelfandtransformation, we see that our map
+\[
+ \theta : \spe(\A) \setminus \setl\chi_\infty\setr \to \C
+\]
+equals a fraction of two single Gelfandtransformations
+\[
+ \theta(\chi) = \frac{\chi(B)}{\chi(A)} = \frac{\G_B (\chi)}{\G_A (\chi)}= \frac{\G_B}{\G_A}(\chi).
+\]
+But $\G_A \neq 0$ on $\spe(\A) \setminus \setl\chi_\infty\setr$, which implies that $\theta$ is continious on $\spe(\A) \setminus \setl\chi_\infty\setr$.
+If $\chi_\infty$ exists, let $ \left( \chi_\lambda \right) _{\lambda \in \Lambda}$ be a net converging to $\chi_\infty$ and $\chi_\lambda \neq \chi_\infty$ for all $\lambda \in \Lambda$. By continuity of $\G_A$ we have
+\[
+ \G_A (\chi_\lambda) = \chi_\lambda (A) \to \chi_\infty (A) = 0.
+\]
+\marginparr{Schuetze entfernen}
+Equation $(\sagittarius)$ implies
+\[
+ | \theta( \chi_\lambda ) | ^2  + 1 = \frac{1}{\chi(A)} \to \infty,
+\]
+which is equivalent to 
+\[
+ | \theta (\chi_\lambda ) | \to \infty.
+\]
+We get the following 
+\begin{lem}
+$\theta$ extends to a continous map
+\[
+ \theta : \spe(\A) \to \cb,
+\]
+by $\theta (\chi_\infty) \coloneqq \infty$.
+Furthermore $\theta : \spe (\A) \to \cb$ is a homeomorphism onto its image.
+\end{lem}
+
+\begin{proof}
+The first claim is already proven. For the second claim we check $\theta$ is injective:
+Let $\chi_1 , \chi_2 \neq \chi_\infty$. $(\blankone)$ and $(\blanktwo)$ imply that if $\theta (\chi_1)= \theta( \chi_2)$, $\chi_1$ conincides with $\chi_2$. Furthermore, $\chi_\infty$ is unique, which implies that $\theta$ is injective. Since $\spe (\A)$ is compact and $\cb$ is Hausdorff,  this proves the second claim.
+\end{proof}
+\marginparr{Blanks ersetzen}
+We have the Gelfandisomorphism $\G : \A \to \cf (\spe \A)$. Combining with $theta$, one has
+
+\begin{align*}
+ \A \longrightarrow  \cf (\spe& \A) \longrightarrow  \cf (\theta ( \spe \A )) \\
+ x \mapsto  \G_x &~;~ f \mapsto  f \circ \theta \inv \\
+ \G \inv f \mapsfrom f &~;~ g \circ \theta \mapsfrom g.
+\end{align*}
+\marginparr{Anders formattieren?}
+Define
+\[
+ \Phi : \cf ( \theta (\spe \A)) \to \A,~ g \mapsto \G \inv (g \circ \theta).
+\]
+$\Phi$ is an involutive algebrahomomorphism since $\G$ is.
+
+\begin{prop}
+ Let $T$ be a normal operator on $\hs$, $\A = \gen{I, A, B}$ the staralgebra associated to $T$. Then $\Phi$ is the only involutive algebrahomomorphism from $\cf (\theta (\spe \A ))$ onto $\A$, such that
+ \[
+  \Phi \left(\frac{1}{1 + | z| ^2}\right) = A , ~ \Phi\left(\frac{z}{1+ |z|^2}\right) = B.
+ \]
+\end{prop}
+
+
+
+\begin{proof}
+ 
+ \begin{align*}
+  \Phi \inv (A)(z) &= \G_A \circ \theta \inv (z)\\
+		   &= \G_A (\theta \inv (z))\\
+		   &= \frac{1}{1+ |z|^2}
+\intertext{using $\G_A(\chi)=\chi(A)=\frac{1}{1+ |\theta(\chi)|^2}$. Moreover}
+\Phi \inv (B)(z) &= \G_B \circ \theta \inv (z) \\
+		   &= \G_B (\theta \inv (z)) \\
+		   &= \frac{z}{1 + |z|^2}.
+ \end{align*}
+ 
+ To proof uniqueness, let $\Psi : \cf (\theta (\spe \A)) \to \A$ be another involutive algebrahomomorphism  such that
+ \[
+  \Psi \left(\frac{1}{1 + | z| ^2}\right) = A , ~ \Psi\left(\frac{z}{1+ |z|^2}\right) = B.
+ \]
+ Then $\Phi$ coincides with $\Psi$ on all polynomials in $A, B, \overline{B}$. The polynomials form an involutive
+ algebra, which seperates points. By Stone-Weierstrass it is dense, and therefore $\Phi$ equals $\Psi$ since they are continious.
+\end{proof}
+
+Our goal is to construct a functional calculus for $T$. With respect to $\Phi$, $T$ corresponds to 
+$\id_{\theta (\spe \A)}$. But if $\chi_\infty \in \spe (\A)$, then $\id_{\theta ( \spe \A ))}
+\notin \cf (\spe \A)$ since $\infty \notin \C$.
+
+
+
+

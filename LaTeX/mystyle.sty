@@ -2,19 +2,21 @@
 
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{mathrsfs}
+\usepackage{mathrsfs} %Für das curly L der linearen Operatoren
 \usepackage{amssymb}
 \usepackage{appendix}
-\usepackage{pdfpages}
+\usepackage{pdfpages} %Zum Einhängen des BILDES
+\usepackage{braket}   %Fuer schoene sets
 \usepackage{amssymb}
 \usepackage[all]{xy}
 \usepackage{tikz}                       % Graphen und kommutative Diagramme
 \usepackage{tikz-cd}                    % Kommutative Diagramme effizient und übersichtlich texen.
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
-\usepackage{mystyle}
 \usepackage{wasysym}
 \usepackage{mathtools}
+\usepackage{marginnote} %Für Randnotizen
+\usepackage{color}
 \usepackage{stmaryrd} %für \mapsfrom
 \usepackage{extarrows} %für \xlongequal
 \usepackage{ellipsis} %für passende Auslangspunkte für \dots
@@ -29,7 +31,7 @@
 xelatex \tikzexternalcheckshellescape
 -halt-on-error -interaction=batchmode
 -jobname "\image" "\texsource"}}
-\usepackage{enumerate}
+\usepackage{enumerate} %Für diverse Aufzählungen
 %\usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
@@ -56,7 +58,6 @@ xelatex \tikzexternalcheckshellescape
 % die Umgebungen mit normaler Schrift
 \theoremstyle{definition}
 \newtheorem{defi}[prop]{Definition}
-%\newtheorem*{defi}{Definition}
 \newtheorem*{expl}{Example}
 \newtheorem*{expls}{Examples}
 \newtheorem{rem}[prop]{Remark}
@@ -90,26 +91,38 @@ xelatex \tikzexternalcheckshellescape
 \newcommand{\A}{\mathfrak{A}}
 \newcommand{\B}{\mathfrak{B}}
 \newcommand{\hs}{\mathcal{H}}
-\newcommand{\lh}{\mathscr{L}(\mathcal{H})}
-\newcommand{{\ch}}{\mathcal{C}(\mathcal{H})}
-\newcommand{\bh}{\mathcal{B}(\mathcal{H})}
-\newcommand{\cb}{\overline{\mathbb{C}}}
+\newcommand{\lh}{\mathscr{L}(\mathcal{H})}   %lineare Operatoren auf dem Hilbertraum
+\newcommand{{\ch}}{\mathcal{C}(\mathcal{H})} %geschlossene Operatoren auf dem Hilbertraum
+\newcommand{\bh}{\mathcal{B}(\mathcal{H})}   %Beschränkte Operatoren auf dem Hilbertraum
+\newcommand{\cb}{\overline{\mathbb{C}}}	     %Der Abschluss von \C, \C mit \infty
 
 % Abkürzungen für häufig benutzte Befehle
 \newcommand{\mc}{\mathcal}
 \newcommand{\mf}{\mathfrak}
-\newcommand{\inv}{^{-1}}
-\newcommand{\str}{^{*}}
-\newcommand{\m}{\mathfrak{m}}
-\newcommand{\ltwom}{L^2(\mathfrak{m})}
+\newcommand{\inv}{^{-1}}			%hoch minus 1
+\newcommand{\str}{^{*}}				%adjungiert	
+\newcommand{\m}{\mathfrak{m}}			%maß m
+\newcommand{\Ltwom}{L^2(\mathfrak{m})}
+\newcommand{\Ltwophi}{\mathscr{L}^2(\Phi)}
+\newcommand{\Lonephi}{\mathscr{L}^1(\Phi)}
+\newcommand{\Lzerophi}{\mathscr{L}^0(\Phi)}
+\newcommand{\Linftyphi}{\mathscr{L}^\infty (\Phi)}
+\newcommand{\mblsx}{\mathscr{E}(X)}
+\newcommand{\setl}{\left\lbrace}
+\newcommand{\setr}{\right\rbrace}
+\newcommand{\Ltwo}{\mathscr{L}^2}
+\newcommand{\Lone}{\mathscr{L}^1}
+\newcommand{\Lzero}{\mathscr{L}^0}
+\newcommand{\Linfty}{\mathscr{L}^\infty }
+\newcommand{\dm}{\de\! \m}
 
 
 %Abkürzungen für Operatoren
-\newcommand{\dom}{\mathfrak{D}}
-\newcommand{\domt}{\mathfrak{D}(T)}
-\newcommand{\ran}{\mathfrak{R}}
-\newcommand{\rant}{\mathfrak{R}(T)}
-\newcommand{\G}{\mathcal{G}}
+\newcommand{\dom}{\mathfrak{D}}			%Domain of an Operator
+\newcommand{\domt}{\mathfrak{D}(T)}		%Domain of the operator T
+\newcommand{\ran}{\mathfrak{R}}			%Range of an Operator
+\newcommand{\rant}{\mathfrak{R}(T)}		%Range of the operator T
+\newcommand{\G}{\mathcal{G}}			%Cal G for Gelfandtransformation
 \newcommand{\blankone}{\cancer}
 \newcommand{\blanktwo}{\uranus}
 
@@ -135,7 +148,8 @@ xelatex \tikzexternalcheckshellescape
 \DeclareMathOperator{\gr}{gr}
 \DeclareMathOperator{\cf}{C}
 \DeclareMathOperator{\spe}{Sp}
-% \DeclareMathOperator{\ker}{ker}
+\DeclareMathOperator{\de}{d}
+
 
 % Makros für bestimmte Funktionen
 \DeclareMathOperator{\id}{id}
@@ -155,6 +169,7 @@ xelatex \tikzexternalcheckshellescape
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\newcommand{\marginparr}[1]{\marginpar{\textcolor{red}{#1}}}
 
 % technischer Kram für \bigdotcup
 \makeatletter

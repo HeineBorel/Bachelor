@@ -1,0 +1,192 @@
+
+\section{Spectral measures}
+
+\begin{defi}[Spectral measure]
+ 
+ Let $X$ be a compact space and let
+ \[
+  \Phi : \cf (X) \to \lh
+ \]
+be a map. $\Phi$ is called a \textit{spectral measure}, if its image 
+$\A \coloneqq \Phi(\cf (X))$ is a commutative star-subalgebra of $\lh$ and 
+$\Phi$ induces an isomorphism onto its image.
+\end{defi}
+
+\begin{rem}
+ By isomorphism we mean that
+ \begin{enumerate}
+  \item $\Phi$ is an involutive algebrahomomorphism,
+  \item $\Phi$ is a bijection onto A,
+  \item $\Phi$ is an isometry: $\| \Phi f \| = \| f \|_\infty$.
+ \end{enumerate}
+
+\end{rem}
+
+% Hier noch das Beispiel uebernehmen ?
+
+Let $\m$ be a positive Radon measure on our compact space $X$, meaning a
+continuous linear form on $\cf (X)$. Set $\hs \coloneqq L^2(\mathfrak{m})$.
+We define 
+\begin{align*}
+ \Phi : \cf(X) \to \mathscr{L}({\Ltwom}) \\
+ f \mapsto (g \mapsto f\cdot g).
+\end{align*}
+
+For all $g , h \in \hs$ define
+\[
+ \m_{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
+\]
+We then have that the map 
+\[
+ f \mapsto \m_{g,h} (f)
+\]
+is a linear form on $\cf (X)$ for every pair $(g, h) \in \hs \times \hs$.
+
+\begin{thrm}
+For all $g, h,k \in \hs$, $\alpha, \beta \in \C$ and $f, \phi, \psi \in 
+\cf(X)$, it holds that $\m_{g,h}$ is a Radon measure on $X$ with the following 
+properties:
+\begin{enumerate}[{(}i{)}]
+ \item $\| \m_{g,h}\| \leq \|g\| \|h\|$
+ \item $\m_{\alpha g + h, \beta k} = \overline{\alpha}\beta \m_{g,k} + 
+ \beta \m_{h,k}$
+ \item $\overline{\m}_{g,h} = \m_{h,g}$, $\overline{\m}_{g,h} : 
+ f \mapsto \overline{\m}_{g,h}(f) = \overline{\m_{g,h}(\overline{f})}$
+ \item $\m_{g,g} \geq 0$
+ \item $\m_{\Phi_\phi g, \Phi_\psi h} = \overline{\phi} \psi \m_{g,h}.$
+\end{enumerate}
+
+\end{thrm}
+
+\begin{proof}
+ \begin{enumerate}[(i)]
+  \item \begin{align*}
+         \| \m_{g,h} \| &= \sup\limits_{\| f \| _\infty \leq 1} | \m_{g,h}(f) | \\
+			&= \sup\limits_{\| f \| _\infty \leq 1} | \gen{g, \Phi_f h} | \\
+			&\leq \sup\limits_{\| f \| _\infty \leq 1} \| g \| \|\Phi_f \| \| h\| \\
+			&= \|g\| \|h\|
+        \end{align*}
+  since $\|\Phi_f \| =\| f \|_\infty$.
+ \item follows immediatly from the linearrity of $\gen{\cdot , \cdot}$
+ 
+ \item $\overline{\m}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = 
+       \gen{\overline{f}h ,g} =	f\gen{h,g} = \gen{h, fg} = \m_{h,g}(f).$
+	
+ \item Let $\phi \geq 0$. Because $\Phi$ is algebrahomomorphism we have 
+	\[
+	  \Phi_\phi = \Phi_{\sqrt{\phi}} \Phi_{\sqrt{\phi}} = 
+	  \Phi_{\overline{\sqrt{\phi}}} \Phi_{\sqrt{\phi}} =
+	  \Phi_{\sqrt{\phi}}\str \Phi_{\sqrt{\phi}}.
+	\]
+	Therefore $\m_{g,g}(\phi) = \gen{g, \Phi_\phi g} = \gen{\Phi_{\sqrt{\phi}}g,
+	\Phi_{\sqrt{\phi}}g} \geq 0. $
+	
+ \item	$\m_{\Phi_\phi g, \Phi_\psi h} (f ) = \gen{\Phi_\phi g, \Phi_f 
+	\Phi_\psi h} = \gen{g , \Phi_{\overline{\phi} \psi f} h } = \overline{\phi}
+	\psi \m_{g,h}(f)$ 
+
+\end{enumerate}
+
+\end{proof}
+
+Let $\A ^c $ denote the commutant of $\A$.
+
+\begin{lem}
+ Let $S \in \lh$. $S \in \A ^c$ if and only if $\m_{g, Sh} = \m_{S \str g, h}$ 
+ for all $g, h \in \hs$. 
+\end{lem}
+
+\begin{proof}
+ Follows from definition.
+\end{proof}
+
+\begin{defi}
+ $N \subset X$ is called a $\Phi$-set of measure zero, or $\Phi$-zeroset, if
+ $N$ is a zeroset of $| \m_{g,h}|$ for all $g,h \in \hs$, that is 
+ \[
+  | \m_{g, h} | (N) =0.
+ \]
+ Note that $| \m_{g, h} |$ is a real valued Radon measure. Hence we can talk 
+ about measurability of sets in the sense of Pedersen.
+ \marginparr{Mehr erklaeren zu Messbarkeit?}
+ \marginparr{Hier noch Bibliographirefereny yu pedersen einfuegen}
+ 
+ A function $f: X \to \C$ is called $\Phi$-measurable if $f$ is 
+ $|\m_{g,h}|$-measurable. Denote the set of all measurable functions 
+ $\Lzerophi)$. 
+ \begin{align*}
+   \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty < \infty \setr
+  \intertext{where, }
+  \| f \| _\infty \coloneqq  \inf \setl \lambda > 0 \bigm |
+    |f| \leq \lambda \Phi-\text{a.e.}\setr.
+ \end{align*}
+ \[
+ \mblsx \coloneqq \setl A \subset X \bigm | 1_A \in \Lzerophi \setr
+ \]
+
+ We would like to expand $\Phi$ from just continuous functions.
+ Let $f \in \Lzerophi$,
+ \begin{align*}
+ D(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m_{g,h}) \text{ for all } g
+ \in \hs\\
+ &~~~~~~~~\text{ and } g \mapsto \int f \dm_{g, h} \text{ is continuous} 
+ \big\rbrace\\
+ &=  \big\lbrace h \in \hs \bigm | f \in \Lone (\m_{g,h}) \text{ for all } g \in
+ \hs \\
+ &~~~~~~~~\text{ and } \exists k \in \hs \text{ such that } \int f \dm_{g,h}
+ = \gen{g, k} \big\rbrace
+ \end{align*}
+where the second inequality is due to the Riesz representation theorem.
+Using this, we define 
+
+\[
+\Phi_f h \coloneqq k(h, f) = k \text{ for } h \in D(f).
+\]
+
+In other words we have 
+
+\[
+\int f \dm_{g,h} = \gen{g, k}.
+\]
+
+By linearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
+\marginparr{Dichtheit der richtige Begriff hier?}
+
+\begin{rem}
+
+If we want to proof claims about $\Lzerophi$ it is enough to show them for 
+$\cf(X)$, by denseness of the latter space.
+ 
+\end{rem}
+
+\begin{lem}
+ 
+  For all $f \in \Lzerophi$ and $h \in D(f)$, $g\in \hs$ it holds that
+ \[
+ \m_{g, \Phi_f h} = f\m_{g,h}
+ \]
+
+\end{lem}
+
+\begin{proof}
+ By the remark, let $\phi \in \cf(X)$.
+ \begin{align*}
+   \m_{g, \Phi_f h}(\phi) &= \gen{g, \Phi_\phi (\Phi_f h)} 
+			  = \gen{\Phi_{\overline{\phi}} , \Phi_f h}
+			  = \int f \dm_{\Phi_{\overline{\phi}} g, h}\\
+			  &= \int f \phi \dm_{g,h}
+			  = \left( f \m_{g,h} \right)(\phi)
+ \end{align*}
+
+\end{proof}
+
+
+
+
+\end{defi}
+
+
+
+
+
+
