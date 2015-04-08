@@ -7,10 +7,13 @@
 \usepackage{appendix}
 \usepackage{pdfpages} %Zum Einhängen des BILDES
 \usepackage{braket}   %Fuer schoene sets
-\usepackage{amssymb}
+
 \usepackage[all]{xy}
-\usepackage{tikz}                       % Graphen und kommutative Diagramme
-\usepackage{tikz-cd}                    % Kommutative Diagramme effizient und übersichtlich texen.
+                 % Graphen und kommutative Diagramme
+\usepackage{tikz}    
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+% Kommutative Diagramme effizient und übersichtlich texen.
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
 \usepackage{wasysym}
@@ -22,15 +25,7 @@
 \usepackage{ellipsis} %für passende Auslangspunkte für \dots
 \usepackage[centertableaux,boxsize=1.2em]{ytableau} % für Young-Diagramme
 \usepackage{color} % für Farben
-\usepackage{tikz} %für Diagrame
-\usetikzlibrary{positioning}
-\usetikzlibrary{arrows}
-\usetikzlibrary{external} %lagert TikZ-Bilder aus um die Kompilierzeit zu verringern
-\tikzexternalize[prefix=tikz/]
-\tikzset{external/system call={%
-xelatex \tikzexternalcheckshellescape
--halt-on-error -interaction=batchmode
--jobname "\image" "\texsource"}}
+ %für Diagrame
 \usepackage{enumerate} %Für diverse Aufzählungen
 %\usepackage{enumitem}
 \usepackage{fancyhdr}

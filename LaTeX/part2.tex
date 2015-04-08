@@ -52,12 +52,46 @@ By Gelfand--Neimark
  \G : \A \to \cf(\spe \A)
 \]
 is an isomorphism. We get the following commutative diagram, which yields the result
+
+\textbf{Mit xymatrix}
 \[
 \xymatrix{
  \A \ar[rrr]^{{B \mapsto \G_B}} \ar[drrr]_{B \mapsto \G_B \circ \G_A \inv~~~} &&& \cf(\spe(\A)) \ar[d]^{\G_B \mapsto \G_B \circ \G_A \inv} \\
    &&&  \cf(\spe(A))}
 \]
-\marginparr{irgendwo mit tikz compilieren oder so lassen?}
+
+
+ 
+\textbf{Mit Tikzpicture}
+
+\begin{center}
+ \begin{tikzpicture}[node distance = 2cm]
+  \node (frA) {$\A$};
+  \node (CSpfrA) [right= 3cm of frA] {$\cf (\spe \A)$};
+  %\node (pol) [below left= 2em and 2em of PWn] {$\Pol_k(W,V)$};
+  \node (CSpA) [below=1.3cm of CSpfrA] {$\cf (\spe A)$};
+  
+  \draw[->] (frA) to node [above] {$B \mapsto \G_B$} (CSpfrA);
+  \draw[->] (frA) to node [very near end, sloped,  below left]{$B \mapsto \G_B \circ \G_A \inv$} (CSpA);
+  \draw[->] (CSpfrA) to node  [right]{$\G_B \mapsto \G_B \circ \G_A \inv$} (CSpA);
+ \end{tikzpicture}
+ \end{center}
+
+ \begin{center}
+ \begin{tikzpicture}[node distance = 2cm]
+  \node (frA) {$\A$};
+  \node (CSpfrA) [right=  of frA] {$\cf (\spe \A)$};
+  %\node (pol) [below left= 2em and 2em of PWn] {$\Pol_k(W,V)$};
+  \node (CSpA) [below=1cm of CSpfrA] {$\cf (\spe A)$};
+  
+  \draw[->] (frA) to node [above] {$\scriptstyle B \mapsto \G_B$} (CSpfrA);
+  \draw[->] (frA) to node [very near end, sloped,  below left]{$\scriptstyle B \mapsto \G_B \circ \G_A \inv$} (CSpA);
+  \draw[->] (CSpfrA) to node  [right]{$\scriptstyle \G_B \mapsto \G_B \circ \G_A \inv$} (CSpA);
+ \end{tikzpicture}
+ \end{center}
+
+ 
+
 
 
 
