@@ -29,11 +29,15 @@ Let $\A$ be commutative staralgebra. Then $\spe(\A)$ with the supspace topology 
 The map in the theorem is the so called Gelfandtransform, named after Israel Moissejewitsch Gelfand (1941).
 
 \marginparr{ueberpruefen ob das stimmt}
-$T$ will always denote a closed operator between some Hilbert spaces $\hs$ and $ \tilde{\hs}$. Most of the time, we will be in the situation of $\hs = \tilde{\hs}$. The space of all such operators will be called $\ch$. By $\domt$ and $\rant$ we denote the domain respectively range of the operator. The bounded linear operators will be called $\bh$.
+$T$ will always denote a closed operator between some Hilbert spaces $\hs$ and $ \tilde{\hs}$. Most of the time, we will be in the situation of $\hs = \tilde{\hs}$. The space of all such operators will be called $\ch$. By $\domt$ and $\rant$ we denote the domain respectively range of the operator. The bounded linear operators will be called $\bh$ in contrast to $\lh$, which are linear operators which need not be bounded and therefore continous.
+\marginparr{Mehr ueber unbeschraenkte Operatoren?}
+
 \begin{defi}
   For $T, S \in \lh$ we say $T$ \textit{extends} $S$, if $\dom(S)\subset \domt$ and $ Tx = Sx$ for $x \in \dom (S)$. We write $S \subset T$.
 \end{defi}
+
 For $S, T \in \ch$, let $S + T$ be the operator with domain $\dom(S) \cap \domt$ and Vorschrift $(S + T)x = Sx + Tx$. Note that this does not give $\ch$ the structure of a vector space, since $S +T \notin \ch$ and  $(S + T) - T \neq S$ because $\dom(S) \cap \domt$ need not be densely defined. $TS$ is the linear operator with domain $S\inv \domt$, and the obvious Vorschrift. The reader shoulb be aware, that with the just defined operations, $\ch$ does not admit the structure of an algebra, not even that, of a vector space. This is one of the reasons, why one has to be careful while working with unbounded operators. Since closed operators are not defined on all of $\hs$, there is no intrinsic defnition of an inverse to such an operator, since we do not want map from $I: \domt \to \domt$. Hence, we have the following
+
 \begin{defi}
  Let $T \in \ch$. We say that $T$ is \textit{boundedly invertible} if there exists a bounded linear operator $S: \hs \to \hs$ such that $TS = \id$, and $ST \subset \id$. We call $S$ the \textit{bounded inverse} of $T$.
 \end{defi}
@@ -71,7 +75,7 @@ Hence, $ \ran(S - S') \subset \ker(T)$. But $\ker(T) = 0$, since $ST \subset \id
 
 
 
-% \newpage
+% \newpage nxfnsbxfvzmuphdw
 % 
 % \includepdf{Background.pdf}
 

@@ -25,7 +25,7 @@ $\Phi$ induces an isomorphism onto its image.
 % Hier noch das Beispiel uebernehmen ?
 
 Let $\m$ be a positive Radon measure on our compact space $X$, meaning a
-continuous linear form on $\cf (X)$. Set $\hs \coloneqq L^2(\mathfrak{m})$.
+continuous linear form on $\cf (X)$, such that $\m(f) = 0$ implies that $f=0$. Set $\hs \coloneqq L^2(\mathfrak{m})$.
 We define 
 \begin{align*}
  \Phi : \cf(X) \to \mathscr{L}({\Ltwom}) \\
@@ -67,7 +67,7 @@ properties:
 			&= \|g\| \|h\|
         \end{align*}
   since $\|\Phi_f \| =\| f \|_\infty$.
- \item follows immediatly from the linearrity of $\gen{\cdot , \cdot}$
+ \item follows immediately from the linearity of $\gen{\cdot , \cdot}$
  
  \item $\overline{\m}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = 
        \gen{\overline{f}h ,g} =	f\gen{h,g} = \gen{h, fg} = \m_{h,g}(f).$
@@ -118,7 +118,7 @@ Let $\A ^c $ denote the commutant of $\A$.
    \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty < \infty \setr
   \intertext{where, }
   \| f \| _\infty \coloneqq  \inf \setl \lambda > 0 \bigm |
-    |f| \leq \lambda \Phi-\text{a.e.}\setr.
+    |f| \leq \lambda,  \phiae\setr.
  \end{align*}
  \[
  \mblsx \coloneqq \setl A \subset X \bigm | 1_A \in \Lzerophi \setr
@@ -146,10 +146,11 @@ Using this, we define
 In other words we have 
 
 \[
-\int f \dm_{g,h} = \gen{g, k}.
+\int f \dm_{g,h} = \gen{g, \Phi_f h} = \gen{g, k}.
 \]
 
 By linearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
+\end{defi}
 \marginparr{Dichtheit der richtige Begriff hier?}
 
 \begin{rem}
@@ -181,9 +182,209 @@ $\cf(X)$, by denseness of the latter space.
 \end{proof}
 
 
+The proof of the theorem will be split into several smaller parts, each including their own lemmata.
 
 
-\end{defi}
+\begin{lem}
+ 
+ If $f \in \Linftyphi$, then $D(f) = \hs$, $ \Phi_f \in \lh$ and
+ \[
+ \| \Phi_f \| = \| f\|_\infty = \inf \setl \alpha > 0 \bigm | \alpha \geq |f|, \phiae\setr.
+ \]
+
+\end{lem}
+\begin{proof}
+   
+   
+   
+   Let $f \in \Linftyphi$.
+   We have to show that $D(f) = \hs$.
+   Let $h \in \hs$. For $g \in \hs$ one gets:
+   \begin{align*}
+     \left | \int f \dm_{g, h} \right | &\leq \int |f| \text{d}  |\m_{g,h}| \\
+			   &\leq \| f\| _\infty \int \text{d}  |\m_{g,h}|\\
+			   &= \| f\|_\infty \| \m_{g,h} \|  \\
+			   &\leq \| f\|_\infty \|h\| \|g\| 
+\shortintertext{which implies}
+g &\mapsto \int f \dm_{g,h}
+\end{align*}
+is continuous and $f$ an element of $ \mscr{L}^1(\m_{g,h})$.
+We used that 
+
+
+\[
+\|\m_{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m_{g,h}| = \sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m_{g,h}|
+ =  \int \text{d}  |\m_{g,h}| = |\m_{g,h}|(1) .
+\]
+
+This shows that the assignment $g \mapsto \int f \dm_{g,h}$ defines a continuous map.
+\marginparr{g,h aendern?}
+\begin{align*}
+  \| \Phi_f \| &= \sup_{\| g\|, \| h\| \leq 1}  \left| \gen{g, \Phi_f h} \right | \\
+  &= \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm_{g,h} \right | \\
+  &\leq \|f\|_\infty
+\end{align*}
+
+Other inequality, will be proved later.
+\marginparr{Den Beweis hier einfuegen}
+
+\begin{rem}
+ If$ f_n \to f \text{ in } \Linftyphi, $ then
+\[
+\Phi_f = \lim \Phi_{f_n} \text{ in } \lh.
+\]
+We can therefore define $f(T)$ for all bounded $f$.
+\end{rem}
+\marginparr{Unklar warum man das definieren kann}
+
+\end{proof}
+
+\begin{lem}
+ 
+Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and $\alpha, \beta \geq 0$ such that
+ \begin{align*}
+   | f_n | \leq \alpha |f| + \beta \text{ for all } n \\
+   f_n \to f \phiae.
+ \end{align*}
+Then the following statements about $h \in \hs$ are equivalent:
+\begin{enumerate}[(i)]
+ \item $h \in D(f)$
+ \item $\int \str | f| ^2 \dm_{h,h} < \infty$
+ \item $(\Phi_{f_n}h)$ converges in $ \hs$
+\end{enumerate}
+One then has
+\begin{align*}
+  \| \Phi_f h \| ^2 &= \int |f|^2 \dm_{h, h } \text{ and }\\
+  \Phi_{f }h &= \lim \Phi_{f_n} h.
+\end{align*}
+For example, one could take the net $f_n = 1_{A_n}$, where $A_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+\end{lem}
+
+\begin{proof}
+ $(i) \Rightarrow (ii)$
+ 
+ Let $h \in D(f)$.
+ \begin{align*}
+   \infty > \|\Phi_f h\| ^2 &= \gen{ \Phi_f , \Phi_f h} \\
+   &= \int f \dm_{\Phi_f h, h} \\
+   &= \int f \overline{f} \dm_{h,h} \\
+   &= \int | f | ^2 \dm_{h,h}.
+ \end{align*}
+
+ 
+  $(ii) \Rightarrow (iii)$
+  Let $f \in \Ltwophi$. Then 
+  \begin{align*}
+    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \int f_m \dm_{g,h} - \int f_n \dm{g,h} \\
+    &= \int (f_m - f_n) \dm{g,h} \\
+    &= \gen{g, \Phi_{(f_m - f_n)} h }
+  \end{align*}
+  
+  \begin{align*}
+    \|(\Phi_{f_m} - \Phi_{f_n}) h \| &=   \sup_{\|g\| \leq 1} 
+    |(\gen{g, (\Phi_{f_m} - \Phi_{f_n})h}|^2 \\
+    &= \sup_{\|g\| \leq 1} |\gen{g, \Phi_{(f_m - f_n)}h}| ^2 \\
+    &= \| \Phi_{(f_m - f_n)} \| ^2\\
+    &= \int |f_m - f_n|^2 \dm_{h,h}
+  \end{align*}
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thrm}[Main theorem]
+  \leavevmode
+  \begin{enumerate}
+   \item   
+
+ If $f \in \Linftyphi$, then $D(f) = \hs$, $ \Phi_f \in \lh$ and
+ \[
+ \| \Phi_f \| = \| f\|_\infty = \inf \setl \alpha > 0 \bigm | \alpha \geq |f|, \phiae\setr.
+ \]
+
+ 
+\item 
+Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and $\alpha, \beta \geq 0$ such that
+ \begin{align*}
+   | f_n | \leq \alpha |f| + \beta \text{ for all } n \\
+   f_n \to f \phiae.
+ \end{align*}
+Then the following statements about $h \in \hs$ are equivalent:
+\begin{enumerate}[(i)]
+ \item $h \in D(f)$
+ \item $\int \str | f| ^2 \dm_{h,h} < \infty$
+ \item $(\Phi_{f_n}h)$ converges in $ \hs$
+\end{enumerate}
+One then has
+\begin{align*}
+  \| \Phi_f h \| ^2 &= \int |f|^2 \dm_{h, h } \text{ and }\\
+  \Phi_{f }h &= \lim \Phi_{f_n} h.
+\end{align*}
+For example, one could take the net $f_n = 1_{A_n}$, where $A_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+
+\item
+For each $f \in \Lzerophi$, $\Phi_f$ is a normal Operator, and we have
+\[
+ \Phi_f \str = \Phi_f. 
+\]
+If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} \eqqcolon E_A$ for $ A \in \mblsx$ is an orthogonal projection. 
+
+\item 
+For each $f, g \in \Lzerophi$, $\alpha \in \C$, we have
+
+\begin{enumerate}[(i)]
+  \item $\Phi_{\alpha f} = \alpha \Phif$
+  \item $ \overline{\Phif + \Phi_g} = \Phi_{f + g}$
+  \item $D(\Phi_f \Phi_g) = D(fg) \cap D(g)$, and $\overline{\Phi_f \Phi_g} = \Phi_{fg}$
+  \item if $g \in \Linftyphi$ then $\Phi_f + \Phi_g = \Phi_{f+g}$, and $\Phi_f \Phi_g = \Phi_{fg}$.
+\end{enumerate}
+
+\item
+For $f \in \Lzerophi$, one has
+\[
+\Phi_f \in \lh \text{ if, and only if, } f \in \Linftyphi.
+\]
+
+\item
+For $f \in \Lzerophi$, we have
+\[
+\spe \Phi_f = \bigcap_{A \in \mblsx} \overline{f(A)};
+\]
+where, $A$ runs over all $A \in \mblsx$ such that $E_A = I$ and $A \subset D(f)$.
+
+
+\end{enumerate}
+
+\end{thrm}
+
+
+
+
+
+
 
 
 
