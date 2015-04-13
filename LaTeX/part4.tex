@@ -24,7 +24,7 @@ $\Phi$ induces an isomorphism onto its image.
 
 % Hier noch das Beispiel uebernehmen ?
 
-Let $\m$ be a positive Radon measure on our compact space $X$, meaning a
+Let $\m{}$ be a positive Radon measure on our compact space $X$, meaning a
 continuous linear form on $\cf (X)$, such that $\m(f) = 0$ implies that $f=0$. Set $\hs \coloneqq L^2(\mathfrak{m})$.
 We define 
 \begin{align*}
@@ -34,26 +34,26 @@ We define
 
 For all $g , h \in \hs$ define
 \[
- \m_{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
+ \m{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
 \]
 We then have that the map 
 \[
- f \mapsto \m_{g,h} (f)
+ f \mapsto \m{g,h} (f)
 \]
 is a linear form on $\cf (X)$ for every pair $(g, h) \in \hs \times \hs$.
 
 \begin{thrm}
 For all $g, h,k \in \hs$, $\alpha, \beta \in \C$ and $f, \phi, \psi \in 
-\cf(X)$, it holds that $\m_{g,h}$ is a Radon measure on $X$ with the following 
+\cf(X)$, it holds that $\m{g,h}$ is a Radon measure on $X$ with the following 
 properties:
 \begin{enumerate}[{(}i{)}]
- \item $\| \m_{g,h}\| \leq \|g\| \|h\|$
- \item $\m_{\alpha g + h, \beta k} = \overline{\alpha}\beta \m_{g,k} + 
- \beta \m_{h,k}$
- \item $\overline{\m}_{g,h} = \m_{h,g}$, $\overline{\m}_{g,h} : 
- f \mapsto \overline{\m}_{g,h}(f) = \overline{\m_{g,h}(\overline{f})}$
- \item $\m_{g,g} \geq 0$
- \item $\m_{\Phi_\phi g, \Phi_\psi h} = \overline{\phi} \psi \m_{g,h}.$
+ \item $\| \m{g,h}\| \leq \|g\| \|h\|$
+ \item $\m{\alpha g + h, \beta k} = \overline{\alpha}\beta \m{g,k} + 
+ \beta \m{h,k}$
+ \item $\overline{\mb}_{g,h} = \m{h,g}$, $\overline{\mb}_{g,h} : 
+ f \mapsto \overline{\mb}_{g,h}(f) = \overline{\m{g,h}(\overline{f})}$
+ \item $\m{g,g} \geq 0$
+ \item $\m{\Phi_\phi g, \Phi_\psi h} = \overline{\phi} \psi \m{g,h}.$
 \end{enumerate}
 
 \end{thrm}
@@ -61,7 +61,7 @@ properties:
 \begin{proof}
  \begin{enumerate}[(i)]
   \item \begin{align*}
-         \| \m_{g,h} \| &= \sup\limits_{\| f \| _\infty \leq 1} | \m_{g,h}(f) | \\
+         \| \m{g,h} \| &= \sup\limits_{\| f \| _\infty \leq 1} | \m{g,h}(f) | \\
 			&= \sup\limits_{\| f \| _\infty \leq 1} | \gen{g, \Phi_f h} | \\
 			&\leq \sup\limits_{\| f \| _\infty \leq 1} \| g \| \|\Phi_f \| \| h\| \\
 			&= \|g\| \|h\|
@@ -69,8 +69,8 @@ properties:
   since $\|\Phi_f \| =\| f \|_\infty$.
  \item follows immediately from the linearity of $\gen{\cdot , \cdot}$
  
- \item $\overline{\m}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = 
-       \gen{\overline{f}h ,g} =	f\gen{h,g} = \gen{h, fg} = \m_{h,g}(f).$
+ \item $\overline{\mb}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = 
+       \gen{\overline{f}h ,g} =	f\gen{h,g} = \gen{h, fg} = \m{h,g}(f).$
 	
  \item Let $\phi \geq 0$. Because $\Phi$ is algebrahomomorphism we have 
 	\[
@@ -78,12 +78,12 @@ properties:
 	  \Phi_{\overline{\sqrt{\phi}}} \Phi_{\sqrt{\phi}} =
 	  \Phi_{\sqrt{\phi}}\str \Phi_{\sqrt{\phi}}.
 	\]
-	Therefore $\m_{g,g}(\phi) = \gen{g, \Phi_\phi g} = \gen{\Phi_{\sqrt{\phi}}g,
+	Therefore $\m{g,g}(\phi) = \gen{g, \Phi_\phi g} = \gen{\Phi_{\sqrt{\phi}}g,
 	\Phi_{\sqrt{\phi}}g} \geq 0. $
 	
- \item	$\m_{\Phi_\phi g, \Phi_\psi h} (f ) = \gen{\Phi_\phi g, \Phi_f 
+ \item	$\m{\Phi_\phi g, \Phi_\psi h} (f ) = \gen{\Phi_\phi g, \Phi_f 
 	\Phi_\psi h} = \gen{g , \Phi_{\overline{\phi} \psi f} h } = \overline{\phi}
-	\psi \m_{g,h}(f)$ 
+	\psi \m{g,h}(f)$ 
 
 \end{enumerate}
 
@@ -92,7 +92,7 @@ properties:
 Let $\A ^c $ denote the commutant of $\A$.
 
 \begin{lem}
- Let $S \in \lh$. $S \in \A ^c$ if and only if $\m_{g, Sh} = \m_{S \str g, h}$ 
+ Let $S \in \lh$. $S \in \A ^c$ if and only if $\m{g, Sh} = \m{S \str g, h}$ 
  for all $g, h \in \hs$. 
 \end{lem}
 
@@ -102,17 +102,17 @@ Let $\A ^c $ denote the commutant of $\A$.
 
 \begin{defi}
  $N \subset X$ is called a $\Phi$-set of measure zero, or $\Phi$-zeroset, if
- $N$ is a zeroset of $| \m_{g,h}|$ for all $g,h \in \hs$, that is 
+ $N$ is a zeroset of $| \m{g,h}|$ for all $g,h \in \hs$, that is 
  \[
-  | \m_{g, h} | (N) =0.
+  | \m{g, h} | (N) =0.
  \]
- Note that $| \m_{g, h} |$ is a real valued Radon measure. Hence we can talk 
+ Note that $| \m{g, h} |$ is a real valued Radon measure. Hence we can talk 
  about measurability of sets in the sense of Pedersen.
  \marginparr{Mehr erklaeren zu Messbarkeit?}
  \marginparr{Hier noch Bibliographirefereny yu pedersen einfuegen}
  
  A function $f: X \to \C$ is called $\Phi$-measurable if $f$ is 
- $|\m_{g,h}|$-measurable. Denote the set of all measurable functions 
+ $|\m{g,h}|$-measurable for all $g,h \in \hs$. Denote the set of all measurable functions 
  $\Lzerophi)$. 
  \begin{align*}
    \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty < \infty \setr
@@ -127,13 +127,13 @@ Let $\A ^c $ denote the commutant of $\A$.
  We would like to expand $\Phi$ from just continuous functions.
  Let $f \in \Lzerophi$,
  \begin{align*}
- D(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m_{g,h}) \text{ for all } g
+ D(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m{g,h}) \text{ for all } g
  \in \hs\\
- &~~~~~~~~\text{ and } g \mapsto \int f \dm_{g, h} \text{ is continuous} 
+ &~~~~~~~~\text{ and } g \mapsto \int f \dm{g, h} \text{ is continuous} 
  \big\rbrace\\
- &=  \big\lbrace h \in \hs \bigm | f \in \Lone (\m_{g,h}) \text{ for all } g \in
+ &=  \big\lbrace h \in \hs \bigm | f \in \Lone (\m{g,h}) \text{ for all } g \in
  \hs \\
- &~~~~~~~~\text{ and } \exists k \in \hs \text{ such that } \int f \dm_{g,h}
+ &~~~~~~~~\text{ and } \exists k \in \hs \text{ such that } \int f \dm{g,h}
  = \gen{g, k} \big\rbrace
  \end{align*}
 where the second inequality is due to the Riesz representation theorem.
@@ -146,10 +146,10 @@ Using this, we define
 In other words we have 
 
 \[
-\int f \dm_{g,h} = \gen{g, \Phi_f h} = \gen{g, k}.
+\int f \dm{g,h} = \gen{g, \Phi_f h} = \gen{g, k}.
 \]
 
-By linearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
+By sesquilinearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
 \end{defi}
 \marginparr{Dichtheit der richtige Begriff hier?}
 
@@ -164,7 +164,7 @@ $\cf(X)$, by denseness of the latter space.
  
   For all $f \in \Lzerophi$ and $h \in D(f)$, $g\in \hs$ it holds that
  \[
- \m_{g, \Phi_f h} = f\m_{g,h}
+ \m{g, \Phi_f h} = f\m{g,h}
  \]
 
 \end{lem}
@@ -172,11 +172,11 @@ $\cf(X)$, by denseness of the latter space.
 \begin{proof}
  By the remark, let $\phi \in \cf(X)$.
  \begin{align*}
-   \m_{g, \Phi_f h}(\phi) &= \gen{g, \Phi_\phi (\Phi_f h)} 
+   \m{g, \Phi_f h}(\phi) &= \gen{g, \Phi_\phi (\Phi_f h)} 
 			  = \gen{\Phi_{\overline{\phi}} , \Phi_f h}
-			  = \int f \dm_{\Phi_{\overline{\phi}} g, h}\\
-			  &= \int f \phi \dm_{g,h}
-			  = \left( f \m_{g,h} \right)(\phi)
+			  = \int f \dm{\Phi_{\overline{\phi}} g, h}\\
+			  &= \int f \phi \dm{g,h}
+			  = \left( f \m{g,h} \right)(\phi)
  \end{align*}
 
 \end{proof}
@@ -186,7 +186,7 @@ The proof of the theorem will be split into several smaller parts, each includin
 
 
 \begin{lem}
- 
+  \label{maintheorem1}
  If $f \in \Linftyphi$, then $D(f) = \hs$, $ \Phi_f \in \lh$ and
  \[
  \| \Phi_f \| = \| f\|_\infty = \inf \setl \alpha > 0 \bigm | \alpha \geq |f|, \phiae\setr.
@@ -201,27 +201,27 @@ The proof of the theorem will be split into several smaller parts, each includin
    We have to show that $D(f) = \hs$.
    Let $h \in \hs$. For $g \in \hs$ one gets:
    \begin{align*}
-     \left | \int f \dm_{g, h} \right | &\leq \int |f| \text{d}  |\m_{g,h}| \\
-			   &\leq \| f\| _\infty \int \text{d}  |\m_{g,h}|\\
-			   &= \| f\|_\infty \| \m_{g,h} \|  \\
+     \left | \int f \dm{g, h} \right | &\leq \int |f| \text{d}  |\m{g,h}| \\
+			   &\leq \| f\| _\infty \int \text{d}  |\m{g,h}|\\
+			   &= \| f\|_\infty \| \m{g,h} \|  \\
 			   &\leq \| f\|_\infty \|h\| \|g\| 
 \shortintertext{which implies}
-g &\mapsto \int f \dm_{g,h}
+g &\mapsto \int f \dm{g,h}
 \end{align*}
-is continuous and $f$ an element of $ \mscr{L}^1(\m_{g,h})$.
+is continuous and $f$ an element of $ \mscr{L}^1(\m{g,h})$.
 We used that 
 
 
 \[
-\|\m_{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m_{g,h}| = \sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m_{g,h}|
- =  \int \text{d}  |\m_{g,h}| = |\m_{g,h}|(1) .
+\|\m{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m{g,h}| = \sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m{g,h}|
+ =  \int \text{d}  |\m{g,h}| = |\m{g,h}|(1) .
 \]
 
-This shows that the assignment $g \mapsto \int f \dm_{g,h}$ defines a continuous map.
+This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a continuous map.
 \marginparr{g,h aendern?}
 \begin{align*}
   \| \Phi_f \| &= \sup_{\| g\|, \| h\| \leq 1}  \left| \gen{g, \Phi_f h} \right | \\
-  &= \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm_{g,h} \right | \\
+  &= \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm{g,h} \right | \\
   &\leq \|f\|_\infty
 \end{align*}
 
@@ -239,8 +239,11 @@ We can therefore define $f(T)$ for all bounded $f$.
 
 \end{proof}
 
+
+
+
 \begin{lem}
- 
+  \label{maintheorem2}
 Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and $\alpha, \beta \geq 0$ such that
  \begin{align*}
    | f_n | \leq \alpha |f| + \beta \text{ for all } n \\
@@ -249,15 +252,15 @@ Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and $\alpha, \beta \geq 0$ s
 Then the following statements about $h \in \hs$ are equivalent:
 \begin{enumerate}[(i)]
  \item $h \in D(f)$
- \item $\int \str | f| ^2 \dm_{h,h} < \infty$
+ \item $\int \str | f| ^2 \dm{h,h} < \infty$
  \item $(\Phi_{f_n}h)$ converges in $ \hs$
 \end{enumerate}
 One then has
 \begin{align*}
-  \| \Phi_f h \| ^2 &= \int |f|^2 \dm_{h, h } \text{ and }\\
+  \| \Phi_f h \| ^2 &= \int |f|^2 \dm{h, h } \text{ and }\\
   \Phi_{f }h &= \lim \Phi_{f_n} h.
 \end{align*}
-For example, one could take the net $f_n = 1_{A_n}$, where $A_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+For example, one could take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
 \end{lem}
 
 \begin{proof}
@@ -266,33 +269,170 @@ For example, one could take the net $f_n = 1_{A_n}$, where $A_n = \setl x \in X 
  Let $h \in D(f)$.
  \begin{align*}
    \infty > \|\Phi_f h\| ^2 &= \gen{ \Phi_f , \Phi_f h} \\
-   &= \int f \dm_{\Phi_f h, h} \\
-   &= \int f \overline{f} \dm_{h,h} \\
-   &= \int | f | ^2 \dm_{h,h}.
+   &= \int f \dm{\Phi_f h, h} \\
+   &= \int f \overline{f} \dm{h,h} \\
+   &= \int | f | ^2 \dm{h,h}.
  \end{align*}
 
  
   $(ii) \Rightarrow (iii)$
-  Let $f \in \Ltwophi$. Then 
+  Let $h \in \mscr{L}^2(\m{h,h})$. Then 
   \begin{align*}
-    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \int f_m \dm_{g,h} - \int f_n \dm{g,h} \\
+    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \int f_m \dm{g,h} - \int f_n \dm{g,h} \\
     &= \int (f_m - f_n) \dm{g,h} \\
     &= \gen{g, \Phi_{(f_m - f_n)} h }
   \end{align*}
   
   \begin{align*}
     \|(\Phi_{f_m} - \Phi_{f_n}) h \| &=   \sup_{\|g\| \leq 1} 
-    |(\gen{g, (\Phi_{f_m} - \Phi_{f_n})h}|^2 \\
+    |\gen{g, (\Phi_{f_m} - \Phi_{f_n})h}|^2 \\
     &= \sup_{\|g\| \leq 1} |\gen{g, \Phi_{(f_m - f_n)}h}| ^2 \\
     &= \| \Phi_{(f_m - f_n)} \| ^2\\
-    &= \int |f_m - f_n|^2 \dm_{h,h}
+    &= \int |f_m - f_n|^2 \dm{h,h}
   \end{align*}
+where the last equality holds, because $h \in D(f_m - f_n)$. By our assumption, we have $f_m -f_n \to 0 \phiae$. Thus
+\[
+| f_m - f_n |^2 \leq (2(\alpha |f| + \beta))^2 \in \mscr{L}^1(\m{h,h}),
+\]
+since $X$ is compact. Therefore Lebegues theorem about dominated convergence yields the claim.
+
+$(iii) \Rightarrow (ii)$
+
+Using Fatous lemma, and the previous fact that 
+\begin{align*}
+  \infty & > \| \lim \Phi_{f_n} h \| ^2 = \lim \| \Phi_{f_n} h \| ^2 =
+  \lim \int | f_n | ^2 \dm{h,h} \\
+  & \geq \int \str \liminf |f_n | ^2 \dm{h,h} = \int \str |f|^2 \dm{h,h}
+\end{align*}
+
+$(ii) \Rightarrow (i)$
+
+ By Radon-Nikodym, there exists a Borel-measurable function 
+ $\phi : X \to \C$, $|\phi| = 1$, such that 
+ \[
+ | \m{g,h} | = \phi \m{g,h}.
+ \]
+ Now define $\tilde{f} \coloneqq \phi |f|$, $\tilde{f_n} \coloneqq
+ \phi |f_n|$. Thus 
+ \[
+ \int \str |\tilde{f} |^2 \dm{h,h} = \int \str |f|^2 \dm{h,h} < \infty.
+ \]
+ By $(ii) \Rightarrow (iii)$, $\lim \Phi_{\tilde{f_n}}$ exists. Hence, for $g \in \hs$
+ 
+ \begin{align*}
+   \gen{g, \lim \Phi_{\tilde{f_n}} h} &= \lim \int \tilde{f}_n \dm{g,h} \\
+   &= lim \int |f_n| \text{d}  |\m{g,h}| \\
+   &\geq \int \str \liminf |f_n| \text{d}  |\m{g,h}| \\
+   &= \int \str |f| \text{d}  |\m{g,h}|,
+ \end{align*}
+ which implies that $f \in \mscr{L}(\m{gh})$. 
+ Again by $(ii) \Rightarrow (iii)$ the limit $\lim \Phi_{f_n} h $ exists.
+ So again by Lebegues theorem
+ \[
+ \gen{g, \lim \Phi_{f_n} h } = \lim \int f_n \dm{g,h} = \int f \dm{g,h}
+ =\gen{g, \Phi_f h},
+ \]
+which means, $h \in D(f)$. 
 
 
 \end{proof}
 
 
 
+
+
+\begin{lem}
+  \label{maintheorem3}
+ For each $f \in \Lzerophi$, $\Phi_f$ is a normal Operator, and we have
+\[
+\Phi_f \str = \Phi_{\overline{f}}. 
+\]
+If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} \eqqcolon E_A$ for $ A \in \mblsx$ is an orthogonal projection. 
+\end{lem}
+
+
+\begin{proof}
+
+First we show that $\Phi_f$ ist densely defined. 
+$E_{\mc{A}_n}(\hs) \subset D(f)$, where $mc{A}_n = \setl |f| \leq n \setr$
+To show that, let $h \in \hs$. By Lemma \ref{maintheorem2} this is
+equivalent to 
+\[
+\int \str |f|^2 \dm{E_{\mc{A}_n}, E_{\mc{A}_n}} < \infty.
+\]
+We have 
+\begin{align*}
+  \int \str |f|^2 \dm{E_{\mc{A}_n}, E_{\mc{A}_n}} = 
+  \int \str \overline{1}_{\mc{A}_n} 1_{\mc{A}_n} \leq
+  n^2 \int \dm{h,h} \leq n^2 \| h\|^2 < \infty.
+\end{align*}
+
+For $h \in \hs$ we have $h = \lim_{n \to \infty} E_{\mc{A}_n} h$. 
+$f = 1$, $f_n 1_{\mc{A}_n}$. Then $|1_{\mc{A}_n} \leq 1$, and we have
+$1_{\mc{A}_n} \to 1 $ pointwise.
+Let $h \in \hs = D{1}$. By \ref{maintheorem2} we have
+\[
+h = \Phi_1 h = \lim \Phi_{1_{\mc{A}_n}} = \lim E_{\mc{A}_n} h , 
+\]
+which gives $D(f) \subset \hs$ is dense. 
+
+Now we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.
+
+Let  $g,h \in D(f) = D(\overline{f})$.
+\begin{align*}
+  \gen{g, \Phi_f h} &= \int f \dm{g,h} 
+  = \overline{ \int \overline{f} \text{d}\overline{\mf{m}_{g,h}}} 
+  = \overline{ \gen{h , \Phi_{\overline{f}} g }} 
+  = \gen{\Phi_{\overline{f} g , h}}
+\end{align*}
+
+So, $g \in D(\Phi_f \str)$ and $\Phi_f \str g = \Phi_{\overline{f}} g$.
+On the other hand, let $g\in D(\Phi_f \str)$.
+By \ref{maintheorem2}, we only have to show $g \Phi_{\overline{f}_n}g$
+converges in $\hs$. As a net, we could take the net $f_n = 1_{\mc{A}_n}$,
+where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+Let $h \in \hs$.
+
+\begin{align*}
+\gen{ \Phi_{\overline{f}_n} g, h }& = \int \dm{\Phi_{\overline{f}_n} g, h}
+= \int f_n \dm{g,h} 
+= \int f \dm{g, \Phi_{1_{\mc{A}_n }} h }
+= \int \dm{g, \Phi_f E_{\mc{A}_n} h} \\
+&= \gen{g, \Phi_1 \Phi_f E_{\mc{A}_n }h }
+= \gen{g, \Phi_f E_{\mc{A}_n} h} 
+= \gen{\Phi_f \str g, E_{\mc{A}_n} h}
+= \int 1_{\mc{A}_n} \dm{\Phi_f \str g, h}\\
+&= \int \dm{E_{\mc{A}_n} \Phi_f \str g, h}
+\end{align*}
+
+\[
+\Phi_{\overline{f}_n} g = E_{\mc{A}_n} \Phi_f \str g 
+\xrightarrow{n \to \infty} \Phi_f \str g \text{ , so  }
+\Phi_{\overline{f}} = \Phi_f \str.
+\]
+
+
+Now we claim $\Phi_f$ is a normal element. To show
+\[
+D(\overline{f}) = D(\Phi_f \str) = D(\Phi_{\overline{f}}) = D(f),
+\]
+ which is already proven. Also already proven is now
+\[
+ \| \Phi_f \str h \| = \| \Phi_f h \|,
+\]
+for example, by the norm formula of \ref{maintheorem2}.
+
+If now $f$ is real valued, we have that $f = \overline{f}$, which gives 
+the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
+
+\end{proof}
+
+
+
+
+
+
+\newpage
 
 
 
@@ -335,15 +475,15 @@ Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and $\alpha, \beta \geq 0$ s
 Then the following statements about $h \in \hs$ are equivalent:
 \begin{enumerate}[(i)]
  \item $h \in D(f)$
- \item $\int \str | f| ^2 \dm_{h,h} < \infty$
+ \item $\int \str | f| ^2 \dm{h,h} < \infty$
  \item $(\Phi_{f_n}h)$ converges in $ \hs$
 \end{enumerate}
 One then has
 \begin{align*}
-  \| \Phi_f h \| ^2 &= \int |f|^2 \dm_{h, h } \text{ and }\\
+  \| \Phi_f h \| ^2 &= \int |f|^2 \dm{h, h } \text{ and }\\
   \Phi_{f }h &= \lim \Phi_{f_n} h.
 \end{align*}
-For example, one could take the net $f_n = 1_{A_n}$, where $A_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+For example, one could take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
 
 \item
 For each $f \in \Lzerophi$, $\Phi_f$ is a normal Operator, and we have
