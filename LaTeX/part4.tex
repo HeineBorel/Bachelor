@@ -261,7 +261,7 @@ One then has
   \| \Phi_f h \| ^2 &= \int |f|^2 \dm{h, h } \text{ and }\\
   \Phi_{f }h &= \lim \Phi_{f_n} h.
 \end{align*}
-For example, one could take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+For example the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
 \end{lem}
 
 \begin{proof}
@@ -520,8 +520,8 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   \end{gather*}
   so $h \in D(\varphi+\psi)$. Furthermore, for  $\psi \in \hs$
   \[
-  \gen{g, (\Phi_\varphi + \Phi_\psi)h }= \int \varphi \dm{g,h} + \int \psi \dm{g,h}=
-  \int (\varphi+\psi) \dm{g,h} = \gen{g, \Phi_{\varphi+\psi} h},
+  \gen{g, (\Phi_\varphi + \Phi_\psi)h }= \int\! \varphi \dm{g,h} + \int \! \psi \dm{g,h}=
+  \int \! (\varphi+\psi) \dm{g,h} = \gen{g, \Phi_{\varphi+\psi} h},
   \]
   and thus $\Phi_\varphi + \Phi_\psi \subset \Phi_{\varphi+\psi}$.
   
@@ -556,14 +556,14 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   \]
   By Lemma \ref{lemlinm}, for $h \in D(\psi)$ $\m{g,\Phi_\psi h} = \psi \m{g,h}$
   \begin{align*}
-    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| = \int \str |\varphi \psi|
+    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| &= \int \str |\varphi \psi|
     \text{d}|\m{g,h}|,
     \shortintertext{so}
-    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| < \infty \Leftrightarrow
+    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| < \infty &\Leftrightarrow
   \int \str |\varphi \psi| \text{d}|\m{g,h}| < \infty
   \shortintertext{and }
   g \mapsto \int \str \varphi \dm{g, \Phi_\psi h} \text{ is continuous } 
-  \Leftrightarrow
+  &\Leftrightarrow
   g \mapsto \int \str \varphi \psi \dm{g,h} \text{ is continuous}.
   \end{align*}
 But the last statement, reformulates to 
@@ -637,9 +637,45 @@ In particular,
   \end{align*}
   For $\tilde{h} \coloneqq \frac{E_B h }{\| E_B h\|} \in D(f)$, we have
   $\| \Phi_f \tilde{h} \| \geq \lambda$. Since $\| \tilde{h} \| = 1$,
-  $\| \Phi_f\| \geq 1.$
+  $\| \Phi_f\| \geq \lambda.$
 \end{proof}
 
+
+\begin{lem} \label{maintheorem6}
+For $f \in \Lzerophi$
+\begin{align*}
+  \Phi_f \text{ is invertible} \Leftrightarrow &\setl f = 0 \setr \text{ is a } 
+  \Phi \text{-zeroset,} \\ &\text{ and } \frac{1}{f} \in \Linftyphi
+\end{align*}
+\marginparr{umformattieren?}
+One then has
+\[
+\Phi_f \inv = \Phi_{\frac{1}{f}}
+\]
+
+\end{lem}
+
+\begin{proof}
+ $\Leftarrow$: 
+ By the previous Lemma $\Phi_\frac{1}{f} \in \lh$, and by Lemma 
+ \ref{maintheorem4}
+ \[
+ \Phi_\frac{1}{f} \Phi_f \subset \Phi_{\frac{1}{f} f} = \Phi_1 = \id =
+ \Phi_{f \frac{1}{f}} = \Phi_f \Phi_\frac{1}{f}.
+ \]
+Hence, $\Phi_f$ is invertible.
+
+$\Rightarrow$:
+Let $h \in E_{\setl f = 0\setr}(\hs)$. Since $E_{\setl f = 0\setr}$ is a
+projection, $E_{\setl f = 0\setr} h = h$. Thus
+\[
+  \Phi_f h = \Phi_f E_{\setl f = 0\setr} h = \Phi_{f \cdot 
+    1_{\setl f = 0\setr}} h = \Phi_0 h = 0.
+\]
+Since $\Phi_f $ is invertible, $h =0$ and $E_{\setl f = 0\setr} =0$ are
+immediate consequences. Therefore $\setl f = 0\setr$ is a $\Phi$-zeroset. 
+
+\end{proof}
 
 
 
@@ -700,14 +736,16 @@ One then has
   \| \Phi_f h \| ^2 &= \int |f|^2 \dm{h, h } \text{ and }\\
   \Phi_{f }h &= \lim \Phi_{f_n} h.
 \end{align*}
-For example, one could take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+For example, one could take the net $f_n = 1_{\mc{A}_n}$, where
+$\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
 
 \item
 For each $f \in \Lzerophi$, $\Phi_f$ is a normal Operator, and we have
 \[
  \Phi_f \str = \Phi_f. 
 \]
-If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} \eqqcolon E_A$ for $ A \in \mblsx$ is an orthogonal projection. 
+If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} 
+\eqqcolon E_A$ for $ A \in \mblsx$ is an orthogonal projection. 
 
 \item 
 For each $f, g \in \Lzerophi$, $\alpha \in \C$, we have
@@ -715,8 +753,10 @@ For each $f, g \in \Lzerophi$, $\alpha \in \C$, we have
 \begin{enumerate}[(i)]
   \item $\Phi_{\alpha f} = \alpha \Phif$
   \item $ \overline{\Phif + \Phi_g} = \Phi_{f + g}$
-  \item $D(\Phi_f \Phi_g) = D(fg) \cap D(g)$, and $\overline{\Phi_f \Phi_g} = \Phi_{fg}$
-  \item if $g \in \Linftyphi$ then $\Phi_f + \Phi_g = \Phi_{f+g}$, and $\Phi_f \Phi_g = \Phi_{fg}$.
+  \item $D(\Phi_f \Phi_g) = D(fg) \cap D(g)$, and $\overline{\Phi_f \Phi_g}
+  = \Phi_{fg}$
+  \item if $g \in \Linftyphi$ then $\Phi_f + \Phi_g = \Phi_{f+g}$, and 
+  $\Phi_f \Phi_g = \Phi_{fg}$.
 \end{enumerate}
 
 \item
