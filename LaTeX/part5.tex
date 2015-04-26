@@ -1,0 +1,85 @@
+\section{Spectral theorem for unbounded operators}
+
+\begin{thrm}
+ Let $T$ be a normal operator on $\hs$.
+ \[ 
+ \overline{\spe T}^\cb = \spe T \cup \setl \infty \setr \Leftrightarrow T
+ \text{ is unbounded.}
+ \]
+ There exists a uniquely determined spectral measure
+ \[
+  \Phi : \cf\left( \overline{\spe T }^\cb \right) \to \lh
+ \]
+ such that
+ \begin{enumerate}[(i)]
+  \item $
+         \setl \infty \setr \text{ is a } \Phi\text{-zeroset}
+        $
+        
+       
+  \item $\Phi_{\id} = T$, where $\id(\infty) \coloneqq 0$, which is arbitrary.
+
+  
+ \end{enumerate}
+
+\end{thrm}
+
+\begin{proof}
+ 
+ In Proposition \ref{spectraluniqueness}, we defined the inverse Gelfandisomorphism 
+ \[
+  \Phi : \cf ( \theta (\spe \A)) \to \A \subset \lh,~ g \mapsto \G \inv
+  (g \circ \theta),
+ \]
+ where $\A(T) \coloneqq \gen{I, A, B, B^*},~ A \coloneqq (1 + T \str T)\inv,
+ ~ B \coloneqq TA$.
+ 
+ It follows that $\Phi$ is a spectral measure such that
+ \begin{align*}
+  A = \Phi_a, ~ a: \lambda \mapsto \frac{1}{1+ | \lambda| ^2 } \\
+  B = \Phi_b, ~ b: \lambda \mapsto \frac{\lambda}{1 + | \lambda | ^2}.
+ \end{align*}
+ 
+ We need to show that $\setl \infty \setr$ is a $\Phi$-zeroset. To do that,
+ it suffices to show that $E_{\setl \infty \setr} =0$. We have
+ \[
+  A E_{\setl \infty \setr} = \Phi_a \Phi_{1_{\setl \infty \setr}} =
+  \Phi_{a 1_{\setl \infty \setr}} = \Phi_0 =0.
+ \]
+Because $A$ is the inverse of $1 + T\str T$, we get
+\[
+ E_{\setl \infty \setr} = (1+T\str T)AE_{\setl \infty \setr} = 0.  
+\]
+Define $\id : \theta(\spe \A) \to \C$, via $\id(\infty) =0$. Thus,
+\[
+\id \in \Lzerophi\text{, and }(1 + | \id| ^2 ) a = 1~~\Phi\text{-a.e.}
+\]
+Using the fact that $a$ is bounded and Theorem \ref{maintheorem} $(v)$, we get
+\[
+  I = \Phi_1 = \Phi_{(1 +| \id|^2 ) a}= \Phi_{(1 + | \id| ^2 )} \Phi_a.
+\]
+\begin{align*}
+  I +TT\str =& \Phi_{(1 +| \id|^2 )} \Phi_a (I+ T T\str)\\
+	     & \Phi_{(1 +| \id|^2 )} A(I + T T\str) \\
+	     & \subset \Phi_{(1 +| \id|^2 )}
+\end{align*}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
