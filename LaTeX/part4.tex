@@ -112,10 +112,12 @@ Let $\A ^c $ denote the commutant of $\A$.
  \marginparr{Hier noch Bibliographirefereny yu pedersen einfuegen}
  
  A function $f: X \to \C$ is called $\Phi$-measurable if $f$ is 
- $|\m{g,h}|$-measurable for all $g,h \in \hs$. Denote the set of all measurable functions 
+ $|\m{g,h}|$-measurable for all $g,h \in \hs$. 
+ Denote the set of all measurable functions 
  $\Lzerophi)$. 
  \begin{align*}
-   \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty < \infty \setr
+   \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty 
+   < \infty \setr
   \intertext{where, }
   \| f \| _\infty \coloneqq  \inf \setl \lambda > 0 \bigm |
     |f| \leq \lambda,  \phiae\setr.
@@ -127,7 +129,8 @@ Let $\A ^c $ denote the commutant of $\A$.
  We would like to expand $\Phi$ from just continuous functions.
  Let $f \in \Lzerophi$,
  \begin{align*}
- D(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m{g,h}) \text{ for all } g
+ D(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m{g,h})
+ \text{ for all } g
  \in \hs\\
  &~~~~~~~~\text{ and } g \mapsto \int f \dm{g, h} \text{ is continuous} 
  \big\rbrace\\
@@ -182,14 +185,16 @@ $\cf(X)$, by denseness of the latter space.
 \end{proof}
 
 
-The proof of the theorem will be split into several smaller parts, each including their own lemmata.
+The proof of the theorem will be split into several smaller parts, 
+each including their own lemmata.
 
 
 \begin{lem}
   \label{maintheorem1}
  If $f \in \Linftyphi$, then $D(f) = \hs$, $ \Phi_f \in \lh$ and
  \[
- \| \Phi_f \| = \| f\|_\infty = \inf \setl \alpha > 0 \bigm | \alpha \geq |f|, \phiae\setr.
+ \| \Phi_f \| = \| f\|_\infty = \inf \setl \alpha > 0 \bigm |
+ \alpha \geq |f|, \phiae\setr.
  \]
 
 \end{lem}
@@ -218,10 +223,12 @@ We used that
  =  \int \text{d}  |\m{g,h}| = |\m{g,h}|(1) .
 \]
 
-This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a continuous map.
+This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a
+continuous map.
 \marginparr{g,h aendern?}
 \begin{align*}
-  \| \Phi_f \| &= \sup_{\| g\|, \| h\| \leq 1}  \left| \gen{g, \Phi_f h} \right | \\
+  \| \Phi_f \| &= \sup_{\| g\|, \| h\| \leq 1}  
+  \left| \gen{g, \Phi_f h} \right | \\
   &= \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm{g,h} \right | \\
   &\leq \|f\|_\infty
 \end{align*}
@@ -245,7 +252,8 @@ We can therefore define $f(T)$ for all bounded $f$.
 
 \begin{lem}
   \label{maintheorem2}
-Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and $\alpha, \beta \geq 0$ such that
+Let $f \in \Lzerophi, (f_n)$ a net in $\Linftyphi$, and 
+$\alpha, \beta \geq 0$ such that
  \begin{align*}
    | f_n | \leq \alpha |f| + \beta \text{ for all } n \\
    f_n \to f \phiae.
@@ -261,7 +269,8 @@ One then has
   \| \Phi_f h \| ^2 &= \int |f|^2 \dm{h, h } \text{ and }\\
   \Phi_{f }h &= \lim \Phi_{f_n} h.
 \end{align*}
-For example the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
+For example the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = 
+\setl x \in X \bigm | | f(x) | \leq n \setr$.
 \end{lem}
 
 \begin{proof}
@@ -288,7 +297,7 @@ For example the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n = \setl x \in X \bigm 
     \|(\Phi_{f_m} - \Phi_{f_n}) h \| &=   \sup_{\|g\| \leq 1} 
     |\gen{g, (\Phi_{f_m} - \Phi_{f_n})h}|^2 \\
     &= \sup_{\|g\| \leq 1} |\gen{g, \Phi_{(f_m - f_n)}h}| ^2 \\
-    &= \| \Phi_{(f_m - f_n)} \| ^2\\
+    &= \| \Phi_{(f_m - f_n)} h \| ^2\\
     &= \int |f_m - f_n|^2 \dm{h,h}
   \end{align*}
 where the last equality holds, because $h \in D(f_m - f_n)$. By our assumption, we have $f_m -f_n \to 0 \phiae$. Thus
@@ -383,7 +392,7 @@ Let  $g,h \in D(f) = D(\overline{f})$.
   \gen{g, \Phi_f h} &= \int f \dm{g,h} 
   = \overline{ \int \overline{f} \text{d}\overline{\mf{m}_{g,h}}} 
   = \overline{ \gen{h , \Phi_{\overline{f}} g }} 
-  = \gen{\Phi_{\overline{f} g , h}}
+  = \gen{\Phi_{\overline{f} }g , h}
 \end{align*}
 
 So, $g \in D(\Phi_f \str)$ and $\Phi_f \str g = \Phi_{\overline{f}} g$.
@@ -486,7 +495,7 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   \item $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$
   \item $D(\Phi_\varphi \Phi_\psi) = D(\varphi \psi) \cap D(\psi)$, and 
   $\overline{\Phi_\varphi \Phi_\psi} = \Phi_{\varphi \psi}$
-  \item if $\psi \in \Linftyphi$ then $\Phi_\varphi + \Phi_\psi =
+  \item $\psi \in \Linftyphi \Rightarrow \Phi_\varphi + \Phi_\psi =
   \Phi_{\varphi+\psi}$, and $\Phi_\varphi \Phi_\psi = \Phi_{\varphi \psi}$.
 \end{enumerate}
 
@@ -533,14 +542,16 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   $\mc{A}_n = \setl x \in X \bigm | |\varphi(x)| + |\psi(x)| \leq n\setr$.
   By \ref{maintheorem2}, we have
   
+  \marginparr{\vspace{2cm}
+    Das sollte so nicht stimmen da die Konvergenz iA nicth pktweise  ist}
   \begin{align*}
     E_{\mc{A}_n}(\hs) \subset D(\varphi)\cap D(\psi)
     \shortintertext{and}
     \cup \mc{A}_n = X,~\mc{A}_n \subset \mc{A}_{n+1}.
     \shortintertext{And thus}
-    1= \lim 1_{\mc{A}_n} \text{pointwise everywhere}    
+    1= \lim 1_{\mc{A}_n} \text{pointwise everywhere}  
   \end{align*}
-    \marginparr{But thats wrong!}
+
   For all $h \in D(\varphi + \psi)$, one has
   \begin{align*}
   h &= \lim E_{\mc{A}_n} h \eqqcolon \lim h_n
@@ -644,13 +655,14 @@ In particular,
 
 
 \begin{lem} \label{maintheorem6}
-For $f \in \Lzerophi$
+  For $f \in \Lzerophi$ \unsure{ Umformattieren.
+  \vspace{3cm}}
 \begin{align*}
   \Phi_f \text{ is invertible} \Leftrightarrow &\setl f = 0 \setr
   \text{ is a }   \Phi \text{-zeroset,} \\ &\text{ and } \frac{1}{f}
   \in \Linftyphi
 \end{align*}
-\marginparr{umformattieren?}
+
 One then has
 \[
 \Phi_f \inv = \Phi_{\frac{1}{f}}
@@ -723,7 +735,7 @@ Suppose $a)$ holds. Since $\mc{A}\complement$ is a $\Phi\text{-zeroset}$,
 \[
 \mc{A} \cap \setl f= \lambda \setr \neq \varnothing .
 \]
-\marginparr{Klar, da Schnitt mit A nichts tut}
+
 This means there exists a $x \in \mc{A}$ such that $f(x) = \lambda$, that is
 \[
 \lambda \in f(\mc{A}).

@@ -58,12 +58,122 @@ Using the fact that $a$ is bounded and Theorem \ref{maintheorem} $(v)$, we get
 \[
   I = \Phi_1 = \Phi_{(1 +| \id|^2 ) a}= \Phi_{(1 + | \id| ^2 )} \Phi_a.
 \]
+\unsure{ Nicht sicher. Muss ueberpruefen ob die letzte Gleichungskette richtig
+ist.
+\vspace{3cm}
+}
 \begin{align*}
   I +TT\str =& \Phi_{(1 +| \id|^2 )} \Phi_a (I+ T T\str)\\
-	     & \Phi_{(1 +| \id|^2 )} A(I + T T\str) \\
-	     & \subset \Phi_{(1 +| \id|^2 )}
+	    =& \Phi_{(1 +| \id|^2 )} A(I + T T\str) \\
+     \subset & \Phi_{(1 +| \id|^2 )}
+\shortintertext{and}
+	T= (I +T\str T )A T &\subset \Phi_{(1 + | \id |^2 )} TA =
+	\Phi_{(1 + | \id |^2 )} B.
 \end{align*}
 
+Since $T$ is normal and hence closed, and $\Phi_{(1 + | \id |^2 ) \cdot b} = 
+\Phi_{\id}$, we get that
+\[
+ T = \Phi_{\id}.
+\]
+It still remains to show that 
+\[
+ \theta ( \spe \A ) = \overline{\spe T}.
+\]
+
+By Theorem \ref{maintheorem} $(7)$, we have 
+\[
+ \spe T = \spe ( \Phi_{\id} ) = \bigcap_{E_U =I } \overline{\id(U)}^{\C}.
+\]
+
+Let $U \subset \theta \spe ( \A )$, such that $U\complement$ is a $\Phi$-zeroset.
+Then 
+\begin{alignat*}{2}
+ \id(U) &= U, &&\text{if } \infty \notin U \\
+        &= ( U \cup \setl 0 \setr )\setminus \setl \infty \setr, &&\text{if }
+        \infty \in U,
+\shortintertext{giving us}
+\overline{\id (U) }^{\C} &= \overline{U}^{\C} ,&&\text{ if } \infty \notin U \\
+			 &= (\overline{U}^{\C} \cup \setl \setr) \backslash \setl \infty \setr
+			  ,&&\text{ if }\infty \in U.
+\end{alignat*}
+
+By Theorem \ref{maintheorem} (4), $U\complement$ does not contain any open sets. Thus
+\[
+ \overline{U}^{\C}  = \theta (\spe \A ) \setminus \setl \infty \setr,
+\]
+and for each $U$, such that $E_U = I$
+\[
+ \theta (\spe \A ) \backslash \infty \subset \overline{\id ( U )}^{\C} 
+ \subset ( \theta ( \spe \A )\cup \setl 0 \setr ) \setminus
+ \setl \infty \setr.
+\]
+For $U_0 \coloneqq \theta ( \spe \A ) \setminus \setl \infty \setr$, it holds 
+that $E_{U_0}$ and $\id(U_0) = U_0$, and therefore It follows that
+\[
+ \spe T = \theta ( \spe \A ) \setminus \setl \infty \setr.
+\]
+
+If $T$ is bounded, $\spe T$ is bounded as well, and hence compact, which gives
+\[
+\overline{\spe T } = \spe T.
+\]
+
+Since $T$ is bounded, $I + T\str T = A\inv$ is bounded as well. Since 
+$I +T \str T$ is invertible in $\lh$ it is invertible in $\A$ by Proposition
+\ref{specinvariant}. 
+\unsure{
+Das ist unklar, ausser die Definition von der erzeugten * Algebra enthaelt
+auch Inverse.
+}
+Hence, $I + T \str T $ lies in $\A$. By $I = (I +T \str T )A$, we get
+\[
+ 1 = \chi_\infty (I) = \chi_\infty ( I+ T \str T) \chi_\infty ( A) = 
+ \chi_\infty ( I + T \str T) \cdot 0 = 0 ,
+\]
+a contradiction. Thus $ \spe T  = \theta ( \spe \A )$, if $T$  is bounded.
+
+If on the other hand, $\spe T$ is compact in $\C$, then 
+\[
+ \id \in \Linftyphi \text{, and so } T= \Phi_{\id} \in \lh.
+\]
+
+Thus, we have proven 
+\[
+ T \text{ is bounded } \Leftrightarrow \spe T \text{ compact in } \C.
+\]
+If now $T$ is unbounded, then $\spe T$ is not compact in $\C$, and hence
+\[
+\overline{\spe T}^{\cb} = \spe T \cup \setl \infty \setr.
+\]
+Since $\theta(\spe \A) \subset \cb$ is compact, we get
+\[
+ \overline{\spe T}^{\cb} = \theta ( \spe \A),
+\]
+and thus there exists a spectral measure
+\[
+ \Phi : \cf(\overline{\spe T}^{\cb}) \to \lh.
+\]
+
+To check uniqueness, let $\Phi'$ be another spectral measure, such that
+$\infty$ is a $\Phi'$-zeroset, and $\Phi'( \id) = T$. To prove $\Phi = \Phi'$,
+by Stone-Weierstraß we only need to show
+\[
+ \Phi'_a = \Phi_a = A,~ \Phi'_b = \Phi_b=B.
+\]
+We know
+\[
+ T\str T = (\Phi'_{\id}) \str \Phi'_{\id} \subset \Phi_{|\id|^2}.
+\]
+Since $T\str T$ is normal and hence closed, we have equality.
+\begin{alignat*}{2}
+ \Phi'_a ( I + T \str T ) &= \Phi'_a \Phi'_{1 +| \id | ^2} \subset 
+ \Phi'_{a (1 + |\id|^2)} &&= I \\&= \Phi'_{a (1 + |\id|^2)} 
+ = \Phi'_{a} \Phi'_{(1 + |\id|^2)} &&= (I - T \str T) \Phi'_a,
+ \shortintertext{that is}
+ &\Phi'_a = (I + T \str T)\inv = A \\
+ &\Phi'_b = \Phi'_{\id \cdot a} = \Phi'_{\id} A = TA = B.
+\end{alignat*}
 \end{proof}
 
 
