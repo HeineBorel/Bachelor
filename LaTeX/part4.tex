@@ -375,49 +375,55 @@ which means, $h \in D(f)$.
 \[
 \Phi_f \str = \Phi_{\overline{f}}. 
 \]
-If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} \eqqcolon E_A$ for $ A \in \mblsx$ is an orthogonal projection. 
+If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} 
+\eqqcolon E_A$ for $ A \in \mblsx$ is an orthogonal projection. 
 \end{lem}
 
 
 \begin{proof}
 
-First we show that $\Phi_f$ is densely defined. 
-We claim $E_{\mc{A}_n}(\hs) \subset D(f)$, where $\mc{A}_n = \setl |f| \leq n \setr$.
-To prove the claim, let $h \in \hs$. By Lemma \ref{maintheorem2} this is
+First we show that $\Phi_f$ is densely defined. \newline
+We claim $E_{\mc{A}_n}(\hs) \subset D(f)$, where $\mc{A}_n = 
+\setl x \in X \bigm | | f(x) | \leq n \setr$.
+Let $h \in \hs$. By Lemma \ref{maintheorem2} the claim is
 equivalent to 
 \[
-\int \str |f|^2 \dm{E_{\mc{A}_n}, E_{\mc{A}_n}} < \infty.
+\int \str |f|^2 \dm{E_{\mc{A}_n}h, E_{\mc{A}_n}h} < \infty.
 \]
 We have 
 \begin{align*}
-  \int \str |f|^2 \dm{E_{\mc{A}_n}, E_{\mc{A}_n}} = 
-  \int \str \overline{1}_{\mc{A}_n} 1_{\mc{A}_n} \leq
+  \int \str |f|^2 \dm{E_{\mc{A}_n}h, E_{\mc{A}_n}h} = 
+  \int \str \overline{1}_{\mc{A}_n} 1_{\mc{A}_n} \dm{h,h} \leq
   n^2 \int \dm{h,h} \leq n^2 \| h\|^2 < \infty.
 \end{align*}
 
 For $h \in \hs$ we have $h = \lim_{n \to \infty} E_{\mc{A}_n} h$. 
-$f = 1$, $f_n 1_{\mc{A}_n}$. Then $|1_{\mc{A}_n} \leq 1$, and we have
-$1_{\mc{A}_n} \to 1 $ pointwise.
-Let $h \in \hs = D{1}$. By \ref{maintheorem2} we have
+Then $|1_{\mc{A}_n}| \leq 1$, and we have
+$1_{\mc{A}_n} \to 1 $ pointwise $\phiae$
+Let $h \in \hs = D(1)$. By Lemma \ref{maintheorem2} we have
 \[
-h = \Phi_1 h = \lim \Phi_{1_{\mc{A}_n}} = \lim E_{\mc{A}_n} h , 
+h = \Phi_1 h = \lim_{n \to \infty} \Phi_{1_{\mc{A}_n}} =
+\lim_{n \to \infty} E_{\mc{A}_n} h , 
 \]
-which gives $D(f) \subset \hs$ is dense. 
+which gives $D(f) \subset \hs$ is dense, as $E_{\mc{A}_n} h \in D(f)$ by
+the claim. 
 
-Now we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.
-
-Let  $g,h \in D(f) = D(\overline{f})$.
+Now we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.\newline
+Let  $g,h \in D(f) = D(\overline{f})$. Using Theorem \ref{measureproperties} $
+(iii)$, one has
 \begin{align*}
   \gen{g, \Phi_f h} &= \int f \dm{g,h} 
   = \overline{ \int \overline{f} \text{d}\overline{\mf{m}_{g,h}}} 
   = \overline{ \gen{h , \Phi_{\overline{f}} g }} 
   = \gen{\Phi_{\overline{f} }g , h}
 \end{align*}
-
 So, $g \in D(\Phi_f \str)$ and $\Phi_f \str g = \Phi_{\overline{f}} g$.
-On the other hand, let $g\in D(\Phi_f \str)$.
-By \ref{maintheorem2}, we only have to show $g \Phi_{\overline{f}_n}g$
-converges in $\hs$. As a net, we could take the net $f_n = 1_{\mc{A}_n}$,
+
+On the other hand, to show that  $\Phi_{\overline{f}} \supset \Phi_f \str$
+let $g\in D(\Phi_f \str)$.
+By Lemma \ref{maintheorem2}, we only have to show $\Phi_{\overline{f}_n}g$
+converges in $\hs$, for some net satisfyig the conditions of Lemma
+\ref{maintheorem2}. As a net, we take $f_n = 1_{\mc{A}_n}$,
 where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
 Let $h \in \hs$.
 
@@ -430,7 +436,7 @@ Let $h \in \hs$.
 = \gen{g, \Phi_f E_{\mc{A}_n} h} 
 = \gen{\Phi_f \str g, E_{\mc{A}_n} h}
 = \int 1_{\mc{A}_n} \dm{\Phi_f \str g, h}\\
-&= \int \dm{E_{\mc{A}_n} \Phi_f \str g, h}
+&= \int \dm{E_{\mc{A}_n} \Phi_f \str g, h} = \gen{E_{\mc{A}_n}  \Phi_f \str g, h}
 \end{align*}
 
 \[
@@ -449,6 +455,8 @@ D(\overline{f}) = D(\Phi_f \str) = D(\Phi_{\overline{f}}) = D(f),
  \| \Phi_f \str h \| = \| \Phi_f h \|,
 \]
 for example, by the norm formula of Lemma \ref{maintheorem2}.
+Thus $D(\Phi_f \str) = D(\Phi_{\overline{f}})$ and 
+$\| \Phi_f \str h \| = \| \Phi_f h \|$, which proves that $\Phi_f$ is normal.
 
 If now $f$ is real valued, we have that $f = \overline{f}$, which gives 
 the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
