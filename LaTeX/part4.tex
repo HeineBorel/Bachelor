@@ -457,6 +457,8 @@ D(\overline{f}) = D(\Phi_f \str) = D(\Phi_{\overline{f}}) = D(f),
 for example, by the norm formula of Lemma \ref{maintheorem2}.
 Thus $D(\Phi_f \str) = D(\Phi_{\overline{f}})$ and 
 $\| \Phi_f \str h \| = \| \Phi_f h \|$, which proves that $\Phi_f$ is normal.
+To show that this implies the usual definition of a normal operator,
+is left as an easy excercise using the polarization identity.
 
 If now $f$ is real valued, we have that $f = \overline{f}$, which gives 
 the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
@@ -485,30 +487,31 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
 
 \end{lem}
 
-\marginparr{Beweis oder kommplett weglassen?}
+
 
 \begin{proof}
-  \leavevmode
- \begin{enumerate}
-   \item By Lemma \ref{measureproperties} (iv), $\m{h,h}$ is a positive
-   measure. Thus 
-   \[
-      \gen{h, \Phi_f h } = \int f \dm{h,h} \geq 0
-   \]
-
-   \item   \begin{align*}
-     E_\mc{A} =0 & \Leftrightarrow E_\mc{A} h =0 \text{ for all } h \in \hs \\
-     &\Leftrightarrow \gen{g, E_\mc{A} h } =0 \text{ for all } h \in \hs \\
-     &\Leftrightarrow \int 1_\mc{A} \dm{g,h} =0 \text{ for all } h \in \hs \\
-     &\Leftrightarrow \mc{A} \text{ is a } \Phi\text{-zeroset}.
-   \end{align*}
-   \marginparr{Fuer alle aendern?}
-   \item 
-   If $U$ open $\neq \varnothing$, then by Tieze-Uryson, there exists a
-   positive fucntion $f : X \to \R_+$, such that $f\neq 0$, and 
-   $f\restriction U^c = 0$. Without loss of generality, we may assume 
-   that $0< f \leq 1_{U}$. Then by $(i)$, $E_{U}= \Phi_{1_{U}} \geq \Phi_f > 0$.
- \end{enumerate}
+  Left as an exercise.
+%   \leavevmode
+%  \begin{enumerate}
+%    \item By Lemma \ref{measureproperties} (iv), $\m{h,h}$ is a positive
+%    measure. Thus 
+%    \[
+%       \gen{h, \Phi_f h } = \int f \dm{h,h} \geq 0
+%    \]
+% 
+%    \item   \begin{align*}
+%      E_\mc{A} =0 & \Leftrightarrow E_\mc{A} h =0 \text{ for all } h \in \hs \\
+%      &\Leftrightarrow \gen{g, E_\mc{A} h } =0 \text{ for all } h \in \hs \\
+%      &\Leftrightarrow \int 1_\mc{A} \dm{g,h} =0 \text{ for all } h \in \hs \\
+%      &\Leftrightarrow \mc{A} \text{ is a } \Phi\text{-zeroset}.
+%    \end{align*}
+%    \marginparr{Fuer alle aendern?}
+%    \item 
+%    If $U$ open $\neq \varnothing$, then by Tieze-Uryson, there exists a
+%    positive fucntion $f : X \to \R_+$, such that $f\neq 0$, and 
+%    $f\restriction U^c = 0$. Without loss of generality, we may assume 
+%    that $0< f \leq 1_{U}$. Then by $(i)$, $E_{U}= \Phi_{1_{U}} \geq \Phi_f > 0$.
+%  \end{enumerate}
 
 \end{proof}
 
@@ -519,9 +522,9 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
 
 \begin{enumerate}[(i)]
   \item $\Phi_{\alpha \varphi} = \alpha \Phi_\varphi$
-  \item $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$
   \item $D(\Phi_\varphi \Phi_\psi) = D(\varphi \psi) \cap D(\psi)$, and 
   $\overline{\Phi_\varphi \Phi_\psi} = \Phi_{\varphi \psi}$
+  \item $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$
   \item $\psi \in \Linftyphi \Rightarrow \Phi_\varphi + \Phi_\psi =
   \Phi_{\varphi+\psi}$, and $\Phi_\varphi \Phi_\psi = \Phi_{\varphi \psi}$.
 \end{enumerate}
@@ -534,67 +537,18 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   \item 
   \begin{align*}
   D(\alpha \varphi) = \setl h \in \hs \bigm | \int \str |\alpha \varphi|^2
-  \dm{h,h}  \setr = D(\varphi)   \shortintertext{ and,}
-  \gen{\psi, \Phi_{\alpha \varphi} h } = \int \alpha \varphi \dm{g,h} = 
+  \dm{h,h} < \infty  \setr = D(\varphi)   \shortintertext{ and,}
+  \gen{g, \Phi_{\alpha \varphi} h } = \int \alpha \varphi \dm{g,h} = 
   \alpha \int \varphi \dm{g,h} = \gen{\psi, \alpha \Phi_\varphi h}
   \end{align*}
-  for all $\psi \in \hs$. 
-  
-  \item
-  To show
-  \[
-   D(\varphi) \cap D(\psi) \subset D(\varphi + \psi).
-  \]
-  Let $h \in D(\varphi) \cap D(\psi)$. By \ref{maintheorem2}, and Minkowskys
-  inequality
-  \begin{gather*}
-    \int \str |\varphi|^2 \dm{h,h},~ \int \str |\psi|^2 \dm{h,h} < \infty \\
-    \left( \int \str | \varphi+\psi|^2 \dm{h,h} \right)^{\frac{1}{2}} \leq
-    \left( \int \str | \varphi|^2 \dm{h,h} \right)^{\frac{1}{2}} +
-    \left( \int \str |\psi|^2 \dm{h,h} \right)^{\frac{1}{2}}
-  \end{gather*}
-  so $h \in D(\varphi+\psi)$. Furthermore, for  $\psi \in \hs$
-  \[
-  \gen{g, (\Phi_\varphi + \Phi_\psi)h }= \int\! \varphi \dm{g,h} +
-  \int \! \psi \dm{g,h}=
-  \int \! (\varphi+\psi) \dm{g,h} = \gen{g, \Phi_{\varphi+\psi} h},
-  \]
-  and thus $\Phi_\varphi + \Phi_\psi \subset \Phi_{\varphi+\psi}$.
-  
-  For $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$, 
-  we need to show that for
-  $h \in D(\varphi + \psi)$, there exists a net 
-  $(h_n) \in D(\varphi)\cap D(\psi)$, such that
-  $\lim h_n = \psi$, and $\lim (\Phi_\varphi h_n +\Phi_\psi h_n)$. Set
-  $\mc{A}_n = \setl x \in X \bigm | |\varphi(x)| + |\psi(x)| \leq n\setr$.
-  By \ref{maintheorem2}, we have
-  
-  \marginparr{\vspace{2cm}
-    Das sollte so nicht stimmen da die Konvergenz iA nicth pktweise  ist}
-  \begin{align*}
-    E_{\mc{A}_n}(\hs) \subset D(\varphi)\cap D(\psi)
-    \shortintertext{and}
-    \cup \mc{A}_n = X,~\mc{A}_n \subset \mc{A}_{n+1}.
-    \shortintertext{And thus}
-    1= \lim 1_{\mc{A}_n} \text{pointwise everywhere}  
-  \end{align*}
+  for all $g \in \hs$. 
 
-  For all $h \in D(\varphi + \psi)$, one has
-  \begin{align*}
-  h &= \lim E_{\mc{A}_n} h \eqqcolon \lim h_n
-  \shortintertext{and}
-  \Phi_{\varphi+\psi} h  &=\lim E_{\mc{A}_n} (\Phi_{\varphi+\psi}) \\
-  &= \lim \Phi_{\mc{A}_n (\varphi+\psi)} h \\
-  &= \lim \Phi_{(\varphi + \psi) 1_{\mc{A}_n}} h \\
-  &= \lim \Phi_{\varphi+\psi} E_{\mc{A}_n} h = \lim \Phi_{\varphi+\psi} h_n 
-  \end{align*}
-  
-  \item 
+\item 
   \[
   h \in D(\Phi_\varphi \Phi_\psi ) \Leftrightarrow h \in D(\psi) \text{ and }
   \Phi_\psi h  \in D(\varphi).
   \]
-  By Lemma \ref{lemlinm}, for $h \in D(\psi)$ $\m{g,\Phi_\psi h} = \psi \m{g,h}$
+  By Lemma \ref{lemlinm}, for $h \in D(\psi)$, $\m{g,\Phi_\psi h} = \psi \m{g,h}$
   \begin{align*}
     \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| &= \int \str |\varphi \psi|
     \text{d}|\m{g,h}|,
@@ -609,13 +563,69 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
 But the last statement, reformulates to 
 
 \begin{gather*}
-   h \in D(\psi) \text{, and } \Phi_\psi h \in D(\varphi) \Leftrightarrow
-   h \in D(\psi) \text{, and } h \in D(\varphi \psi).\\
+   h \in D(\psi) \text{ and } \Phi_\psi h \in D(\varphi) \Leftrightarrow
+   h \in D(\psi) \text{ and } h \in D(\varphi \psi).\\
   \gen{g, \Phi_\varphi \Phi_\psi h } = \int \varphi \dm{g, \Phi_\psi h} = 
-  \int \varphi \psi \dm{g,h} = \gen{g, \Phi_{\varphi \psi h }}
+  \int \varphi \psi \dm{g,h} = \gen{g, \Phi_{\varphi \psi} h }
 \end{gather*}
 
-Rest the same as for $\varphi = \psi$.
+Thus $\Phi_\varphi \Phi_\psi \subset \Phi_{\varphi \psi}$. The prove of 
+$\overline{\Phi_\varphi \Phi_\psi} = \Phi_{\varphi \psi}$ is analogous to the
+prove of $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$ and
+will be omitted.
+
+  
+  \item
+  To show
+  \[
+   D(\varphi) \cap D(\psi) \subset D(\varphi + \psi).
+  \]
+  Let $h \in D(\varphi) \cap D(\psi)$. By Lemma \ref{maintheorem2}, 
+  \begin{gather*}
+    \int \str |\varphi|^2 \dm{h,h},~ \int \str |\psi|^2 \dm{h,h} < \infty ,
+    \shortintertext{and by Minkowskys
+  inequality}
+    \left( \int \str | \varphi+\psi|^2 \dm{h,h} \right)^{\frac{1}{2}} \leq
+    \left( \int \str | \varphi|^2 \dm{h,h} \right)^{\frac{1}{2}} +
+    \left( \int \str |\psi|^2 \dm{h,h} \right)^{\frac{1}{2}}.
+  \end{gather*}
+  Thus $h \in D(\varphi+\psi)$. Furthermore, for  $g \in \hs$
+  \[
+  \gen{g, (\Phi_\varphi + \Phi_\psi)h }= \int\! \varphi \dm{g,h} +
+  \int \! \psi \dm{g,h}=
+  \int \! (\varphi+\psi) \dm{g,h} = \gen{g, \Phi_{\varphi+\psi} h},
+  \]
+  and thus $\Phi_\varphi + \Phi_\psi \subset \Phi_{\varphi+\psi}$.
+  
+  
+  For $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$, 
+  we need to show that for
+  $h \in D(\varphi + \psi)$, there exists a net 
+  $(h_n) \in D(\varphi)\cap D(\psi)$, such that
+  $\lim h_n = h$, and $\lim (\Phi_\varphi h_n +\Phi_\psi h_n) =
+  \Phi_{\varphi + \psi}h$. Set
+  $\mc{A}_n = \setl x \in X \bigm | |\varphi(x)| + |\psi(x)| \leq n\setr$.
+  By Lemma \ref{maintheorem2}, we have
+  
+  \begin{gather*}
+    E_{\mc{A}_n}(\hs) \subset D(\varphi)\cap D(\psi)
+    \shortintertext{and}
+    \cup \mc{A}_n = X,~\mc{A}_n \subset \mc{A}_{n+1}.
+    \shortintertext{And thus}
+    \lim E_{\mc{A}_n} = \id  
+  \end{gather*}
+
+  For all $h \in D(\varphi + \psi)$, one has
+  \begin{align*}
+  h &= \lim E_{\mc{A}_n} h \eqqcolon \lim h_n
+  \shortintertext{and}
+  \Phi_{\varphi+\psi} h  &=\lim E_{\mc{A}_n} (\Phi_{\varphi+\psi})h \\
+  &= \lim \Phi_{1_{\mc{A}_n} (\varphi+\psi)} h \\
+  &= \lim \Phi_{(\varphi + \psi) 1_{\mc{A}_n}} h \\
+  &= \lim \Phi_{\varphi+\psi} E_{\mc{A}_n} h \\
+  &= \lim \Phi_{\varphi+\psi} h_n = \lim (\Phi_\varphi h_n + \Phi_\psi h_n)
+  \end{align*}
+  
 
 \item 
 $\psi \in \Linftyphi$ implies that $D(\psi)$ is already the whole space.
