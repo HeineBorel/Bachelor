@@ -1,6 +1,10 @@
 
 \section{Spectral measures}
 
+We now want to extend a given spectral measure for continuous functions, like the one we obtained
+by the Gelfand-Neimark theorem, to 
+measurable ones. To do so, we need to check whether the operators we attain
+are bounded, or densely defined.
 \begin{defi}[Spectral measure]
  
  Let $X$ be a compact space and let
@@ -23,16 +27,18 @@ $\Phi$ induces an isomorphism onto its image.
 \end{rem}
 
 % Hier noch das Beispiel uebernehmen ?
-
+\begin{expl}
 Let $\m{}$ be a positive Radon measure on our compact space $X$, meaning a
-continuous linear form on $\cf (X)$, such that $\m(f) = 0$ implies that $f=0$. Set $\hs \coloneqq L^2(\mathfrak{m})$.
+continuous linear functional on $\cf (X)$, such that $\m{}(f) = 0$ implies 
+that $f=0$. Set $\hs \coloneqq L^2(\mathfrak{m})$.
 We define 
 \begin{align*}
  \Phi : \cf(X) \to \mathscr{L}({\Ltwom}) \\
  f \mapsto (g \mapsto f\cdot g).
 \end{align*}
-
-For all $g , h \in \hs$ define
+$\Phi$ is a spectral measure. This claim is not obvious, and the proof
+that $\Phi$ is an isometry requires a bit of work, but is omitted here.
+It can be found in \cite{LesHaupt}. For all $g , h \in \hs$ define
 \[
  \m{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
 \]
@@ -41,6 +47,17 @@ We then have that the map
  f \mapsto \m{g,h} (f)
 \]
 is a linear form on $\cf (X)$ for every pair $(g, h) \in \hs \times \hs$.
+\end{expl}
+
+Departing from this explicit example, we note that the previous construction
+of a positive Radon measure, can be extended to any spectral measure. 
+Let $\hs$ be any Hilbert space, and $\Phi$ be a spectral measure.
+Then the mapping
+\begin{align*}
+  \m{g,h} : &\cf(X) \to \C \\
+  &f \mapsto \gen{g, \Phi_f(h)}
+\end{align*}
+is a linear form on $\hs$.
 
 \begin{thrm} \label{measureproperties}
 For all $g, h,k \in \hs$, $\alpha, \beta \in \C$ and $f, \phi, \psi \in 
@@ -89,17 +106,18 @@ properties:
 
 \end{proof}
 
-Let $\A ^c $ denote the commutant of $\A$.
-
-\begin{lem}
- Let $S \in \lh$. $S \in \A ^c$ if and only if $\m{g, Sh} = \m{S \str g, h}$ 
- for all $g, h \in \hs$. 
-\end{lem}
-
-\begin{proof}
- Follows from definition.
-\end{proof}
-
+% Let $\A ^c $ denote the commutant of $\A$.
+% 
+% \begin{lem}
+%  Let $S \in \lh$. $S \in \A ^c$ if and only if $\m{g, Sh} = \m{S \str g, h}$ 
+%  for all $g, h \in \hs$. 
+% \end{lem}
+% 
+% \begin{proof}
+%  Follows from definition.
+% \end{proof}
+We now extend $\m{g,h}$ to measurable functions in the sense of \cite{PedAnaN}
+Chapter 4.5.
 \begin{defi}
  $N \subset X$ is called a $\Phi$-set of measure zero, or $\Phi$-zeroset, if
  $N$ is a zeroset of $| \m{g,h}|$ for all $g,h \in \hs$, that is 
@@ -107,27 +125,31 @@ Let $\A ^c $ denote the commutant of $\A$.
   | \m{g, h} | (N) =0.
  \]
  Note that $| \m{g, h} |$ is a real valued Radon measure. Hence we can talk 
- about measurability of sets in the sense of Pedersen.
- \marginparr{Mehr erklaeren zu Messbarkeit?}
- \marginparr{Hier noch Bibliographirefereny yu pedersen einfuegen}
- 
- A function $f: X \to \C$ is called $\Phi$-measurable if $f$ is 
+ about measurability of sets in the sense of Pedersen, found in \cite{PedAnaN}
+ \marginparr{Kapitelzitierung aendern?}. \newline
+ A function $f: X \to \C$ is called $\Phi$-measurable, if $f$ is 
  $|\m{g,h}|$-measurable for all $g,h \in \hs$. 
- Denote the set of all measurable functions 
- $\Lzerophi)$. 
- \begin{align*}
+ Denote the set of all measurable functions  $\Lzerophi$. \newline \indent
+  For technical 
+ reasons, we restrict the previous definition
+ to functions that do not take the value $\infty$ on a nonzero set. As it turns
+out, the operators one gets from those functions are not even densely defined,
+and hence of no interest to us. 
+
+ \begin{gather*}
+   \Lonephi \coloneqq \setl f \in \Lzerophi \bigm | f \in \Lone (\m{g,h}) 
+   \text{ for all }g,h \in \hs \setr \\
    \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty 
-   < \infty \setr
-  \intertext{where, }
+   < \infty \setr\\
+   \shortintertext{where, }
   \| f \| _\infty \coloneqq  \inf \setl \lambda > 0 \bigm |
     |f| \leq \lambda,  \phiae\setr.
- \end{align*}
+ \end{gather*}
+  By $\mblsx$ we denote the measurable subsets of $X$:
  \[
- \mblsx \coloneqq \setl A \subset X \bigm | 1_A \in \Lzerophi \setr
+ \mblsx \coloneqq \setl A \subset X \bigm | 1_A \in \Lzerophi \setr.
  \]
-
- We would like to expand $\Phi$ from just continuous functions.
- Let $f \in \Lzerophi$,
+ Let $f \in \Lzerophi$.
  \begin{align*}
  D(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m{g,h})
  \text{ for all } g
@@ -139,27 +161,25 @@ Let $\A ^c $ denote the commutant of $\A$.
  &~~~~~~~~\text{ and } \exists k \in \hs \text{ such that } \int f \dm{g,h}
  = \gen{g, k} \big\rbrace
  \end{align*}
-where the second inequality is due to the Riesz representation theorem.
-Using this, we define 
-
+where the second equality is due to the Riesz representation theorem. The 
+reader familiar with unbounded operators, will recognize the similarity
+with the definition of the adjoint operator.
+Using the second equality, we define 
 \[
 \Phi_f h \coloneqq k(h, f) = k \text{ for } h \in D(f).
 \]
-
 In other words we have 
-
 \[
 \int f \dm{g,h} = \gen{g, \Phi_f h} = \gen{g, k}.
 \]
-
 By sesquilinearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
 \end{defi}
-\marginparr{Dichtheit der richtige Begriff hier?}
+
 
 \begin{rem}
 
 If we want to proof claims about $\Lzerophi$ it is enough to show them for 
-$\cf(X)$, by denseness of the latter space.
+$\cf(X)$, by since the expansion of measure is unique.
  
 \end{rem}
 
@@ -184,10 +204,10 @@ $\cf(X)$, by denseness of the latter space.
 
 \end{proof}
 
-
-The proof of the theorem will be split into several smaller parts, 
-each including their own lemmata.
-
+We now want to know, whether the operator we obtain from our expanded measure
+is bounded, and if not, is it densely defined. This will be done in the next
+lemmata, which are going to be summarized in a theorem at the end of the
+chapter.
 
 \begin{lem}
   \label{maintheorem1}
@@ -214,18 +234,14 @@ each including their own lemmata.
 g &\mapsto \int f \dm{g,h}
 \end{align*}
 is continuous and $f$ an element of $ \mscr{L}^1(\m{g,h})$.
-We used that 
-
-
+The third equality follows from
 \[
 \|\m{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m{g,h}| =
 \sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m{g,h}|
  =  \int \text{d}  |\m{g,h}| = |\m{g,h}|(1) .
 \]
-
 This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a
 continuous map.
-\marginparr{g,h aendern?}
 \begin{align*}
   \| \Phi_f \| &= \sup_{\| g\|, \| h\| \leq 1}  
   \left| \gen{g, \Phi_f h} \right | \\
@@ -233,19 +249,19 @@ continuous map.
   &\leq \|f\|_\infty
 \end{align*}
 
-Other inequality, will be proved later.
-\marginparr{Den Beweis hier einfuegen}
+Other inequality, will be proved in Lemma \ref{maintheorem5}.
+\end{proof}
 
 \begin{rem}
- If$ f_n \to f \text{ in } \Linftyphi, $ then
+ If $ f_n \to f \text{ in } \Linftyphi, $ then
 \[
 \Phi_f = \lim \Phi_{f_n} \text{ in } \lh.
 \]
-We can therefore define $f(T)$ for all bounded $f$.
+We can therefore define our spectral measure for all 
+bounded measurable functions.
 \end{rem}
-\marginparr{Unklar warum man das definieren kann}
 
-\end{proof}
+
 
 
 
@@ -274,7 +290,7 @@ For example the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
 \end{lem}
 
 \begin{proof}
- $(i) \Rightarrow (ii)$
+ $(i) \Rightarrow (ii)$:
  
  Let $h \in D(f)$.
  \begin{align*}
@@ -283,40 +299,41 @@ For example the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
    &= \int f \overline{f} \dm{h,h} \\
    &= \int | f | ^2 \dm{h,h}.
  \end{align*}
-
- 
-  $(ii) \Rightarrow (iii)$
-  Let $h \in \mscr{L}^2(\m{h,h})$. Then 
-  \begin{align*}
-    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \int f_m \dm{g,h} - \int f_n \dm{g,h} \\
-    &= \int (f_m - f_n) \dm{g,h} \\
-    &= \gen{g, \Phi_{(f_m - f_n)} h }
-  \end{align*}
+  $(ii) \Rightarrow (iii)$:
   
+  Let $h \in \mscr{L}^2(\m{h,h})$. Then for $g \in \hs$
   \begin{align*}
-    \|(\Phi_{f_m} - \Phi_{f_n}) h \| &=   \sup_{\|g\| \leq 1} 
-    |\gen{g, (\Phi_{f_m} - \Phi_{f_n})h}|^2 \\
-    &= \sup_{\|g\| \leq 1} |\gen{g, \Phi_{(f_m - f_n)}h}| ^2 \\
-    &= \| \Phi_{(f_m - f_n)} h \| ^2\\
-    &= \int |f_m - f_n|^2 \dm{h,h}
+    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \gen{g, \Phi_{f_m}} 
+    - \gen{g, \Phi_{f_n}}\\
+					&=\int f_m \dm{g,h} - \int f_n \dm{g,h} \\
+					&= \int (f_m - f_n) \dm{g,h} \\
+					&= \gen{g, \Phi_{(f_m - f_n)} h }
+    \intertext{Since $g$ was arbitrary, we get 
+      $(\Phi_{f_m} - \Phi_{f_n})h= \Phi_{(f_m - f_n)}h$}
+    \|(\Phi_{f_m} - \Phi_{f_n}) h \|^2  &= \| \Phi_{(f_m - f_n)} h \| ^2\\
+					&= \int |f_m - f_n|^2 \dm{h,h}.
   \end{align*}
-where the last equality holds, because $h \in D(f_m - f_n)$. By our assumption, we have $f_m -f_n \to 0 \phiae$. Thus
+where the last equality holds, because $h \in D(f_m - f_n)$ and thus $f \in \Ltwophi$. 
+By our assumption, we have $f_m -f_n \to 0 \phiae$ Thus
 \[
 | f_m - f_n |^2 \leq (2(\alpha |f| + \beta))^2 \in \mscr{L}^1(\m{h,h}),
 \]
-since $X$ is compact. Therefore Lebegues theorem about dominated convergence yields the claim.
+because $\mscr{L}^2(\m{h,h}) \subset \mscr{L}^1(\m{h,h}) $
+by compactness of $X$, and
+$\cf(X) \in \mscr{L}^1(\m{h,h})$ by definition.
+Therefore Lebegues theorem about dominated convergence yields the claim.
 
-$(iii) \Rightarrow (ii)$
-
-Using Fatous lemma, and the previous fact that 
+$(iii) \Rightarrow (ii)$:\newline
+Using Fatous lemma, and again as above
+$\| \Phi_{f_n} h \|^2 = \int | f_n | ^2 \dm{h,h} $, we get 
 \begin{align*}
-  \infty & > \| \lim \Phi_{f_n} h \| ^2 = \lim \| \Phi_{f_n} h \| ^2 =
-  \lim \int | f_n | ^2 \dm{h,h} \\
-  & \geq \int \str \liminf |f_n | ^2 \dm{h,h} = \int \str |f|^2 \dm{h,h}
+  \infty & > \| \lim_{n \to \infty} \Phi_{f_n} h \| ^2 = \lim_{n \to \infty}
+  \| \Phi_{f_n} h \| ^2 =
+  \lim_{n \to \infty} \int | f_n | ^2 \dm{h,h} \\
+  & \geq \int \str \liminf_{n \to \infty} |f_n | ^2 \dm{h,h} = \int \str |f|^2 \dm{h,h}
 \end{align*}
 
-$(ii) \Rightarrow (i)$
-
+$(ii) \Rightarrow (i)$: \newline
  By Radon-Nikodym, there exists a Borel-measurable function 
  $\phi : X \to \C$, $|\phi| = 1$, such that 
  \[
@@ -330,16 +347,18 @@ $(ii) \Rightarrow (i)$
  By $(ii) \Rightarrow (iii)$, $\lim \Phi_{\tilde{f_n}}$ exists. Hence, for $g \in \hs$
  
  \begin{align*}
-   \gen{g, \lim \Phi_{\tilde{f_n}} h} &= \lim \int \tilde{f}_n \dm{g,h} \\
-   &= lim \int |f_n| \text{d}  |\m{g,h}| \\
-   &\geq \int \str \liminf |f_n| \text{d}  |\m{g,h}| \\
-   &= \int \str |f| \text{d}  |\m{g,h}|,
+   \infty &> \|g\|^2 \| \lim_{n \to \infty} \Phi_{\tilde{f}_n}h \|^2 \geq
+   \left|\gen{g, \lim_{n \to \infty} \Phi_{\tilde{f_n}} h} \right| =
+   \left|\lim_{n \to \infty} \int \tilde{f}_n \dm{g,h} \right| \\
+	  &= \lim_{n \to \infty} \int |f_n| \text{d}  |\m{g,h}| 
+	  \geq \int \str \liminf_{n \to \infty} |f_n| \text{d}  |\m{g,h}| 
+	  = \int \str |f| \text{d}  |\m{g,h}|,
  \end{align*}
- which implies that $f \in \mscr{L}(\m{gh})$. 
- Again by $(ii) \Rightarrow (iii)$ the limit $\lim \Phi_{f_n} h $ exists.
- So again by Lebegues theorem
+ which implies that $f \in \mscr{L}^1(\m{g,h})$. 
+ So once more by Lebegues theorem
  \[
- \gen{g, \lim \Phi_{f_n} h } = \lim \int f_n \dm{g,h} = \int f \dm{g,h}
+ \gen{g, \lim_{n \to \infty} \Phi_{f_n} h } = 
+ \lim_{n \to \infty} \int f_n \dm{g,h} = \int f \dm{g,h}
  =\gen{g, \Phi_f h},
  \]
 which means, $h \in D(f)$. 
@@ -362,9 +381,9 @@ If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A} \eqqcolon 
 
 \begin{proof}
 
-First we show that $\Phi_f$ ist densely defined. 
-$E_{\mc{A}_n}(\hs) \subset D(f)$, where $mc{A}_n = \setl |f| \leq n \setr$
-To show that, let $h \in \hs$. By Lemma \ref{maintheorem2} this is
+First we show that $\Phi_f$ is densely defined. 
+We claim $E_{\mc{A}_n}(\hs) \subset D(f)$, where $\mc{A}_n = \setl |f| \leq n \setr$.
+To prove the claim, let $h \in \hs$. By Lemma \ref{maintheorem2} this is
 equivalent to 
 \[
 \int \str |f|^2 \dm{E_{\mc{A}_n}, E_{\mc{A}_n}} < \infty.
