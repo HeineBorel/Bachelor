@@ -1,5 +1,8 @@
 \section{Spectral theorem for unbounded operators}
 
+Using the results from Chapter 4, we construct a spectral measure,
+for unbounded normal operators, completing the process started in chapter
+3. 
 \begin{thrm}
  Let $T$ be a normal operator on $\hs$.
  \[ 
@@ -34,7 +37,7 @@
  where $\A(T) \coloneqq \gen{I, A, B, B^*},~ A \coloneqq (1 + T \str T)\inv,
  ~ B \coloneqq TA$.
  
- It follows that $\Phi$ is a spectral measure such that
+ It followed that $\Phi$ is a spectral measure such that
  \begin{align*}
   A = \Phi_a, ~ a: \lambda \mapsto \frac{1}{1+ | \lambda| ^2 } \\
   B = \Phi_b, ~ b: \lambda \mapsto \frac{\lambda}{1 + | \lambda | ^2}.
@@ -54,23 +57,19 @@ Define $\id : \theta(\spe \A) \to \C$, via $\id(\infty) =0$. Thus,
 \[
 \id \in \Lzerophi\text{, and }(1 + | \id| ^2 ) a = 1~~\Phi\text{-a.e.}
 \]
-Using the fact that $a$ is bounded and Theorem \ref{maintheorem} $(v)$, we get
+Using the fact that $a$ is bounded and Lemma \ref{maintheorem5} , we get
 \[
   I = \Phi_1 = \Phi_{(1 +| \id|^2 ) a}= \Phi_{(1 + | \id| ^2 )} \Phi_a.
 \]
-\unsure{ Nicht sicher. Muss ueberpruefen ob die letzte Gleichungskette richtig
-ist.
-\vspace{3cm}
-}
+Furthermore
 \begin{align*}
   I +TT\str =& \Phi_{(1 +| \id|^2 )} \Phi_a (I+ T T\str)\\
 	    =& \Phi_{(1 +| \id|^2 )} A(I + T T\str) \\
-     \subset & \Phi_{(1 +| \id|^2 )}
+     \subset & \Phi_{(1 +| \id|^2 )},
 \shortintertext{and}
 	T= (I +T\str T )A T &\subset \Phi_{(1 + | \id |^2 )} TA =
 	\Phi_{(1 + | \id |^2 )} B.
 \end{align*}
-
 Since $T$ is normal and hence closed, and $\Phi_{(1 + | \id |^2 ) \cdot b} = 
 \Phi_{\id}$, we get that
 \[
@@ -78,55 +77,47 @@ Since $T$ is normal and hence closed, and $\Phi_{(1 + | \id |^2 ) \cdot b} =
 \]
 It still remains to show that 
 \[
- \theta ( \spe \A ) = \overline{\spe T}.
+ \theta ( \spe \A ) = \overline{\spe T}^{\cb}.
 \]
-
-By Theorem \ref{maintheorem} $(7)$, we have 
+By Lemma \ref{maintheorem7} , we have 
 \[
  \spe T = \spe ( \Phi_{\id} ) = \bigcap_{E_U =I } \overline{\id(U)}^{\C}.
 \]
-
-Let $U \subset \theta \spe ( \A )$, such that $U\complement$ is a $\Phi$-zeroset.
-Then 
+Let $U \subset \theta \spe ( \A ) \subset \cb$, such that $U\complement$ 
+is a $\Phi$-zeroset. Then 
 \begin{alignat*}{2}
- \id(U) &= U, &&\text{if } \infty \notin U \\
-        &= ( U \cup \setl 0 \setr )\setminus \setl \infty \setr, &&\text{if }
+ \id(U) &= U &&\text{if } \infty \notin U \\
+        &= ( U \cup \setl 0 \setr )\setminus \setl \infty \setr &&\text{if }
         \infty \in U,
 \shortintertext{giving us}
-\overline{\id (U) }^{\C} &= \overline{U}^{\C} ,&&\text{ if } \infty \notin U \\
-			 &= (\overline{U}^{\C} \cup \setl \setr) \backslash \setl \infty \setr
-			  ,&&\text{ if }\infty \in U.
+\overline{\id (U) }^{\C} &= \overline{U}^{\C} &&\text{ if } \infty \notin U \\
+			 &= (\overline{U}^{\C} \cup \setl 0 \setr) \backslash \setl \infty \setr
+			  &&\text{ if }\infty \in U.
 \end{alignat*}
-
-By Theorem \ref{maintheorem} (4), $U\complement$ does not contain any open sets. Thus
+By Lemma \ref{maintheorem4} , $U\complement$ does not contain any open sets. Thus
 \[
  \overline{U}^{\C}  = \theta (\spe \A ) \setminus \setl \infty \setr,
 \]
 and for each $U$, such that $E_U = I$
 \[
- \theta (\spe \A ) \backslash \infty \subset \overline{\id ( U )}^{\C} 
+ \theta (\spe \A ) \backslash \setl \infty \setr \subset
+ \overline{\id ( U )}^{\C} 
  \subset ( \theta ( \spe \A )\cup \setl 0 \setr ) \setminus
  \setl \infty \setr.
 \]
 For $U_0 \coloneqq \theta ( \spe \A ) \setminus \setl \infty \setr$, it holds 
-that $E_{U_0}$ and $\id(U_0) = U_0$, and therefore It follows that
+that $E_{U_0} = I$ and $\id(U_0) = U_0$, and therefore It follows that
 \[
  \spe T = \theta ( \spe \A ) \setminus \setl \infty \setr.
 \]
-
 If $T$ is bounded, $\spe T$ is bounded as well, and hence compact, which gives
 \[
 \overline{\spe T } = \spe T.
 \]
-
-Since $T$ is bounded, $I + T\str T = A\inv$ is bounded as well. Since 
+Since $T$ is bounded, $I + T\str T = A\inv$ is bounded as well, and since 
 $I +T \str T$ is invertible in $\lh$ it is invertible in $\A$ by Proposition
-\ref{specinvariant}. 
-\unsure{
-Das ist unklar, ausser die Definition von der erzeugten * Algebra enthaelt
-auch Inverse.
-}
-Hence, $I + T \str T $ lies in $\A$. By $I = (I +T \str T )A$, we get
+\ref{specinvariant}. Thus $I + T \str T $ lies in $\A$. $I = (I +T \str T )A$
+now implies
 \[
  1 = \chi_\infty (I) = \chi_\infty ( I+ T \str T) \chi_\infty ( A) = 
  \chi_\infty ( I + T \str T) \cdot 0 = 0 ,
@@ -135,7 +126,7 @@ a contradiction. Thus $ \spe T  = \theta ( \spe \A )$, if $T$  is bounded.
 
 If on the other hand, $\spe T$ is compact in $\C$, then 
 \[
- \id \in \Linftyphi \text{, and so } T= \Phi_{\id} \in \lh.
+ \id \in \Linftyphi \text{, and so } T= \Phi_{\id} \in \bh.
 \]
 
 Thus, we have proven 
@@ -148,9 +139,9 @@ If now $T$ is unbounded, then $\spe T$ is not compact in $\C$, and hence
 \]
 Since $\theta(\spe \A) \subset \cb$ is compact, we get
 \[
- \overline{\spe T}^{\cb} = \theta ( \spe \A),
+ \overline{\spe T}^{\cb} = \theta ( \spe \A).
 \]
-and thus there exists a spectral measure
+Thus there exists a spectral measure
 \[
  \Phi : \cf(\overline{\spe T}^{\cb}) \to \lh.
 \]
