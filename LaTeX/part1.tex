@@ -5,55 +5,99 @@
  
 
 \section{Preliminaries}
-Throughout this paper, I will use some theorems, which will be explained in this section.
-$\A$ will always denote a complex, unitary Banach algebra, with the unit denoted by $I$. We have the 
-following
+In this section, I want to state a few theorems and definitions, which will be
+used later on. If no proof is given, a reference will be stated nevertheless.
 \begin{defi}[Spectrum]
-For $A \in \A$ the \textit{spectrum} of $A$ in $\A$, is defined as 
-$\spe(A)\coloneqq \setl z \in \C \mid A-z  I \notin \GL(\A) \setr$.
-The \textit{spectrum} of $\A$ is defined as $\spe(\A) \coloneqq \setl \chi :\A \to \C \mid \chi \in
-\Hom_{\cAlg{\C}}(\A, \C) \setr  $.
+Let $\A$ be a unital commutative Banach algebra $A \in \A$ the 
+\textit{spectrum} of $A$ in $\A$, is defined as 
+\begin{gather*}
+\spe(A)\coloneqq \setl z \in \C \mid A-z  I \notin \GL(\A) \setr
+\shortintertext{The \textit{spectrum} of $\A$ is defined as}
+\spe(\A) \coloneqq \setl \chi :\A \to \C \mid \chi \in 
+\Hom_{\cAlg{\C}}(\A, \C), \chi \neq 0 \setr
+\end{gather*}
 \end{defi}
-
  
-With $\A'$ we denote the dual space $\Hom_\C(\A, \C)$, and by $\A''$ the double dual $\Hom_\C(\Hom_\C(\A, \C))$. 
+% and by $\A''$ the double dual $\Hom_\C(\Hom_\C(\A, \C))$. 
+\begin{prop}
+Using the notation above, 
+\[
+\spe A = \setl \chi(A) \bigm | \chi \in \spe \A \setr .
+\]
+\end{prop}
+The proof can be found in \cite{PedAnaN} chapter 4.2.
+With $\A'$ we denote the dual space $\Hom_\C(\A, \C)$.
 
-\marginparr{umschreiben}
+
 \begin{thrm}[Gelfand--Naimark] 
 
-Let $\A$ be commutative staralgebra. Then $\spe(\A)$ with the supspace topology of $\A'$ is a compact space, with a canonical isometric, involutive, surjective algebra homomorphism
+Let $\A$ be commutative C$\str$-algebra. Then $\spe(\A)$ with the supspace
+topology of $\A'$ is a compact space, with a canonical isometric, involutive,
+surjective algebra homomorphism
 \[
-  \G : \A \to \cf(\spe(\A)), ~ A \mapsto ( \hat{A} \coloneqq \G(A): \spe(\A) \to \C , ~ \gamma \mapsto \gamma(A)).
+  \G : \A \to \cf(\spe(\A)), ~ A \mapsto ( \hat{A} \coloneqq \G(A):
+  \spe(\A) \to \C , ~ \gamma \mapsto \gamma(A)).
 \]
 \end{thrm}
-The map in the theorem is the so called Gelfandtransform, named after Israel Moissejewitsch Gelfand (1941).
+The poof can be found in \cite{PedAnaN} chapter 4.3. The map in the theorem is
+the so called Gelfandtransform.% named after Israel Moissejewitsch Gelfand (1941).
 
-\marginparr{ueberpruefen ob das stimmt}
-$T$ will always denote a closed operator between some Hilbert spaces $\hs$ and $ \tilde{\hs}$. Most of the time, we will be in the situation of $\hs = \tilde{\hs}$. The space of all such operators will be called $\ch$. By $\domt$ and $\rant$ we denote the domain respectively range of the operator. The bounded linear operators will be called $\bh$ in contrast to $\lh$, which are linear operators which need not be bounded and therefore continous.
-\marginparr{Mehr ueber unbeschraenkte Operatoren?}
+A nice reference for $C^*$ algebras, and the above mentioned theorem is 
+
+The reader not familiar with closed operators, is advised to revisit the
+basic definitions found in \cite{ConFuncAna} chapter 10. 
+Let $T$ be a linear operator on some Hilbert space $\hs$.
+We will adopt the notation from \cite{ConFuncAna}, that is $T$ is not even
+assumed to be defined outside of 0. Later on, we will of course only 
+concern ourselfs with densly defined, closed operators. By $\domt$ and
+$\rant$ we denote the domain respectively range
+of the operator. The bounded linear operators will be called $\bh$ in
+contrast to $\lh$, which are linear operators which need not be bounded.
+The closed operators are denoted $\ch \subset \lh$.
 
 \begin{defi}
-  For $T, S \in \lh$ we say $T$ \textit{extends} $S$, if $\dom(S)\subset \domt$ and $ Tx = Sx$ for $x \in \dom (S)$. We write $S \subset T$.
+  For $T, S \in \lh$ we say $T$ \textit{extends} $S$, if $\dom(S)\subset
+  \domt$ and $ Tx = Sx$ for $x \in \dom (S)$. We write $S \subset T$.
 \end{defi}
 
-For $S, T \in \ch$, let $S + T$ be the operator with domain $\dom(S) \cap \domt$ and Vorschrift $(S + T)x = Sx + Tx$. Note that this does not give $\ch$ the structure of a vector space, since $S +T \notin \ch$ and  $(S + T) - T \neq S$ because $\dom(S) \cap \domt$ need not be densely defined. $TS$ is the linear operator with domain $S\inv \domt$, and the obvious Vorschrift. The reader shoulb be aware, that with the just defined operations, $\ch$ does not admit the structure of an algebra, not even that, of a vector space. This is one of the reasons, why one has to be careful while working with unbounded operators. Since closed operators are not defined on all of $\hs$, there is no intrinsic defnition of an inverse to such an operator, since we do not want map from $I: \domt \to \domt$. Hence, we have the following
+For $S, T \in \lh$, let $S + T$ be the operator with domain 
+$\dom(S) \cap \domt$ and rule $(S + T)x = Sx + Tx$. Note that this does
+not give $\lh$ the structure of a vector space, for 
+$(S + T) - T \neq S$ since
+$\dom(T)\cap \dom(S) \neq \dom(S)$.
+$TS$ is the linear operator with domain $S\inv \domt$. The reader should
+be aware, that with the just defined operations, $\lh$ does not admit the
+structure of an algebra, not even that, of a vector space. This is one
+of the reasons, why one has to be careful while working with unbounded
+operators. 
+
+Since closed operators are not defined on all of $\hs$,
+there is no obvious definition of an inverse to such an operator.
+Hence, we have the following
 
 \begin{defi}
- Let $T \in \ch$. We say that $T$ is \textit{boundedly invertible} if there exists a bounded linear operator $S: \hs \to \hs$ such that $TS = \id$, and $ST \subset \id$. We call $S$ the \textit{bounded inverse} of $T$.
+ Let $T \in \ch$. We say that $T$ is \textit{boundedly invertible} if
+ $T:\dom(T) \to \ran(T)= \hs$ is a bijection, and $T\inv :\hs \to \dom(T)$
+ is continuous.
 \end{defi}
 
-\begin{lem}
- If $T$ is boundedly invertible, the bounded inverse $S= T\inv$ is unique. 
-\end{lem}
+\begin{rem}
+ If $T$ is boundedly invertible, then the inverse is unique.
+\end{rem}
 
-\begin{proof}
-
- Let $S, S'$ be bounded inverses of $T \in \ch$. Then
- \[
-  0 = TS - TS' = T(S - S').
- \]
-Hence, $ \ran(S - S') \subset \ker(T)$. But $\ker(T) = 0$, since $ST \subset \id$, which implies that $S = S'$.
-\end{proof}
+% 
+% \begin{lem}
+%  If $T$ is boundedly invertible, the bounded inverse $S= T\inv$ is unique. 
+% \end{lem}
+% 
+% \begin{proof}
+% 
+%  Let $S, S'$ be bounded inverses of $T \in \ch$. Then
+%  \[
+%   0 = TS - TS' = T(S - S').
+%  \]
+% Hence, $ \ran(S - S') \subset \ker(T)$. But $\ker(T) = 0$, since $ST \subset \id$, which implies that $S = S'$.
+% \end{proof}
 
 
 \begin{lem}
@@ -61,18 +105,11 @@ Hence, $ \ran(S - S') \subset \ker(T)$. But $\ker(T) = 0$, since $ST \subset \id
 \end{lem}
 
 \begin{proof}
- \begin{align*}
- &\quad & TS &= \id &\\
- &\Leftrightarrow & STS &= S &\\
- &\Leftrightarrow & (ST - \id)S &= 0 &\\
- &\Leftrightarrow & \ran(S) &\subset \ker(ST - \id). & 
-\end{align*}
- But $\ran(S)$ is dense in $\hs$, and therefore $ST = \id|_{\domt}$, which implies $ST \subset \id$.
-\end{proof}
+ It remains to show that $T$ is a bijection.
+ Surjectivity is obvious. Note that $\ker(S) =0$, which implies that 
+ $\ker(T)=0$ as well.
+ \end{proof}
 
-
-\marginparr{star-subalgebra, oder sub-staralgebra, oder starsubalgebra, oder *-subagebra...? 
-antilinearity of scalar product}
 
 
 
