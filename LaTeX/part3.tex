@@ -16,12 +16,10 @@ This is what we want to do now.
 From now on, let $T \in \lh$ be a closed normal operator. 
 We endow $\domt$ with the graph scalar product
 \[
- \gen{x,y}_T \coloneqq  \gen{x, y}_\hs + \gen{ Tx, Ty}_\hs,
+ \gen{x,y}_T \coloneqq  \gen{\iota x, \iota y}_\hs +
+ \gen{ T \iota x, T \iota y}_\hs,
 \]
-making it a Hilbert space in itself. Note that graph norm is weaker than the
-usual Hilbert space norm: 
-$T : ( \domt , \gen{\cdot, \cdot}_T) \to ( \hs , \gen{\cdot, \cdot}_\hs)$
-is continuous. Furthermore $\|x_n\|_\hs \to 0$ implies $  \| x_n\|_T \to 0$.
+making it a Hilbert space in itself. 
 If there is no room for misinterpretation,
 we will omit the $\hs$ in the scalar product. The adjoint of $T$ as a closed 
 operator from $\hs$ to itself, will be called $T^*$. 
@@ -32,36 +30,69 @@ We have two ways to interpret this map;
  \item as a bounded linear operator $\iota : ( \domt , \gen{\cdot, \cdot}_T)
  \to ( \hs , \gen{\cdot, \cdot}_\hs)$.
 \end{enumerate}
-Using the second interpretation, we note that by $\ran(i\str) = \ker(i)^\perp$
-and $\ker(i\str) = \ran(i)^\perp$, $i\str$ is a bijection, as $\dom(T)$ is 
-dense in $\hs$.
+Using the second interpretation, we note that by $\ran(\iota\str) = \ker(\iota)^\perp$
+and $\ker(\iota\str) = \ran(\iota)^\perp$, $\iota\str$ is a bijection,
+as $\dom(T)$ is dense in $\hs$. 
+\begin{lem}
+ $\dom(T\str T)$ is dense in $( \domt , \gen{\cdot, \cdot}_T)$.
+\end{lem}
+\begin{proof}
+ We show that $\dom(T \str T)^{\perp_T} = 0$. Let $x \in \dom(T \str T), 
+ ~y \in \dom(T \str T)^{\perp_T}$. Then
+ \begin{align*}
+  0 &=\gen{x, y}_T = \gen{\iota x, \iota y}_\hs + \gen{T\iota x, T\iota y}
+  _\hs \\
+  &=\gen{\iota x, \iota y}_\hs + \gen{T\str T\iota x, \iota y}_\hs
+  = \gen{(1 + T \str T) \iota x, \iota y}_\hs.
+ \end{align*}
+Therefore, if we prove $\ran(1 + T\str T)$ is dense in $\hs$, the claim is
+proven as well. Since $\ran(1 + T\str T)^{\perp_\hs} = \ker(1 + T\str T)$, we prove
+injectivity of $(1 + T\str T) \in \lh$,
+\begin{align*}
+ \| (1 + T\str T)x \| ^2  
+ &= \|x \| ^2 + \| T \str T x\| ^2 + \gen{x, T\str T x}
+ + \gen{T \str T x, x}\\
+ &=\|x \| ^2 + \| T \str T x\| ^2 + 2\gen{Tx,  T x} \\
+ &= \|x \| ^2 + \| T \str T x\| ^2 + 2\|T x\|^2 \geq \|x\|^2.
+\end{align*}
+
+\end{proof}
+
+
 \begin{prop}
  $(I + T \str T)$ is boundedly
  invertible, with inverse $\iota \iota \str$.
 \end{prop}
 \begin{proof}
-  For $x \in \domt$, $y \in \hs$ such that $i \str y \in \dom(T\str T)$
-  ,  we have
+  For $x \in \domt$, $y \in \hs$ such that 
+  $\iota  \iota \str y \in \dom(T\str T)$.
+  By definition 
   \begin{align*}
-  &\quad & \gen{x, \iota \str y}_T &= \gen{\iota x, y}_\hs  &\\
-  &\Leftrightarrow & \gen{\iota x ,\iota \str y}_\hs +
-  \gen{Tx, T\iota \str y}_\hs 
-  &= \gen{\iota x, y}_\hs  &\\
-  &\Leftrightarrow & \gen{x, T ^* T \iota \str y} &= \gen{x, y - \iota \str y}&\\
-  &\Leftrightarrow & 0 &= \gen{x, y - \iota \str y - T ^* T \iota \str y}. & 
+\gen{\iota x, y}_\hs &= \gen{x, \iota \str y}_T = 
+  \gen{\iota x,\iota \iota \str y}_\hs +
+  \gen{ T \iota x, T \iota \iota \str y}_\hs \\
+  &=\gen{\iota x, \iota \iota \str y}_\hs  +
+  \gen{\iota x , T \str T \iota \iota \str y}_\hs  =
+  \gen{\iota x, \iota \iota \str y + T\str T \iota \iota \str y}_\hs .
   \end{align*}
-  Note that since $i \str$ is a continuous bijection and $\dom(T \str T)
+  
+  Substracting the left hand side, we get
+  \[
+   0 = \gen{\iota x , \iota \iota \str y + T\str T \iota \iota \str y - y}.
+  \]
+
+  
+  Note that since $\iota \str$ is a continuous bijection and $\dom(T \str T)
   \subset \dom(T)$ is a
   dense subset of both $\dom(T)$ and $\hs$, $(i \str) \inv (\dom(T \str T))$ is dense
-  in $\hs$. Since this equality holds for all $x \in \domt$, we get that 
+  in $\hs$. Since this equality holds for all $x \in \domt$, we get
 
   \begin{align*}
-  & \quad & 0&= y - \iota \str y - T ^* T \iota \str y  & \\
-  & \Leftrightarrow  & y &= \iota \str y + T \str T \iota \str y& \\
-  & \Leftrightarrow & y &= (I + T \str T) \iota \str y, &
+  y=\iota \iota \str y + T\str T \iota \iota \str y 
+  = (1+ T \str T) \iota \iota \str y,
   \end{align*}
-  which implies that $  \iota \str = ( I + T \str T) \inv$,
-  because $\iota \str \iota$ is bounded.
+  which implies that $ \iota \iota \str = ( I + T \str T) \inv$,
+  as $\iota \iota\str $ is bounded.
 \end{proof}
 
 Define $A \coloneqq \iota \iota \str$ and $B \coloneqq TA$. 
