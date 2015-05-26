@@ -1,0 +1,29 @@
+\section{Examples}
+
+Our examples are motivated by quantum physics. Two fundamental operators
+in quantum mechanics are the momentum operator $P\coloneqq 
+i \frac{\partial}{\partial x}$
+, and the position operator $M_x(f)(x) = xf(x)$. 
+
+\begin{rem}
+The study of these operators relies heavily on the chosen Hilbert space $\hs$, 
+as $\spe M_x$ depends on it.
+\end{rem}
+Let $\hs \coloneqq \Ltwo(\left[ 0, 1 \right])$. $M_x \in \bh$ by Hölder's 
+inequality: Let $f \in \hs$
+\[
+ \| M_x(f) \|^2 = \int _0 ^1 x^2 | f^2| \de x \leq 
+ 1 \cdot \int _0 ^1 | f^2 | \de x = \| f \| ^2
+\]
+Thus $\| M_x\| \leq 1$. Furthermore $M_x$ is selfadjoint, which implies that
+$\spe M_x \subset \left[ -1 , 1 \right]$. But for $\lambda > 0$,
+$M_{x-\lambda}$ is invertible as $M_{\frac{1}{x - \lambda}} \in \bh$, again by
+Hölder. Therefore $\spe M_x \subset \left[ 0, 1\right]$. To show 
+$\spe M_x \supset \left[ 0, 1\right]$, let $\lambda \in  \left[ 0, 1\right]$.
+Again the inverse of $M_{x+ \lambda}$ would be $M_\frac{1}{x + \lambda}$,
+the latter not being bounded, as $\frac{1}{x + \lambda} \notin 
+\Ltwo(\left[ 0, 1\right])$. We conclude that $x$ does not a have a preimage
+in $\hs$ under $M_{x + \lambda}$. Hence $\spe M_x = \left[ 0 , 1\right]$.
+
+Our spectral theorem \ref{boundedfunccalc} now states, that we have
+an isometry \newline$\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$
