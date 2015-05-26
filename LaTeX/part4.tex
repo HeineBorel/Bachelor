@@ -1,9 +1,9 @@
 
 \section{Extension Of Continuous Spectral Measures}
 
-In this section we follow 
-We now want to extend a given spectral measure for continuous functions, like the one we obtained
-by the Gelfand-Neimark theorem, to 
+In this section we follow \cite{LesHaupt}.
+We want to extend a given spectral measure for continuous functions, like the one we obtained
+, to 
 measurable ones. To do so, we need to check whether the operators we attain
 are bounded, or densely defined.
 \begin{defi}[Spectral measure]
@@ -39,27 +39,19 @@ We define
 \end{align*}
 $\Phi$ is a spectral measure. This claim is not obvious, and the proof
 that $\Phi$ is an isometry requires a bit of work, but is omitted here.
-It can be found in \cite{LesHaupt}. For all $g , h \in \hs$ define
+It can be found in \cite{LesHaupt}. 
+\end{expl}
+
+Departing from this example, let $\hs$ be a Hilbert space.
+For all $g , h \in \hs$ define
 \[
  \m{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
 \]
-We then have that the map 
+We then conclude, that the map 
 \[
  f \mapsto \m{g,h} (f)
 \]
 is a linear form on $\cf (X)$ for every pair $(g, h) \in \hs \times \hs$.
-\end{expl}
-
-Departing from this explicit example, we note that the previous construction
-of a positive Radon measure, can be extended to any spectral measure. 
-Let $\hs$ be any Hilbert space, and $\Phi$ be a spectral measure.
-Then the mapping
-\begin{align*}
-  \m{g,h} : &\cf(X) \to \C \\
-  &f \mapsto \gen{g, \Phi_f(h)}
-\end{align*}
-is a linear form on $\hs$.
-
 \begin{thrm} \label{measureproperties}
 For all $g, h,k \in \hs$, $\alpha, \beta \in \C$ and $f, \phi, \psi \in 
 \cf(X)$, it holds that $\m{g,h}$ is a Radon measure on $X$ with the following 
@@ -90,18 +82,17 @@ properties:
  \item $\overline{\mb}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = 
        \gen{\overline{f}h ,g} =	f\gen{h,g} = \gen{h, fg} = \m{h,g}(f).$
 	
- \item Let $\phi \geq 0$. Because $\Phi$ is algebrahomomorphism we have 
-	\[
-	  \Phi_\phi = \Phi_{\sqrt{\phi}} \Phi_{\sqrt{\phi}} = 
-	  \Phi_{\overline{\sqrt{\phi}}} \Phi_{\sqrt{\phi}} =
-	  \Phi_{\sqrt{\phi}}\str \Phi_{\sqrt{\phi}}.
-	\]
-	Therefore $\m{g,g}(\phi) = \gen{g, \Phi_\phi g} = \gen{\Phi_{\sqrt{\phi}}g,
-	\Phi_{\sqrt{\phi}}g} \geq 0. $
+       \item Let $\phi \geq 0$. Because $\Phi$ is algebrahomomorphism, and 
+       $\overline{\sqrt{\phi}} = \sqrt{\phi},$ we have 
+	$ \Phi_\phi = \Phi_{\sqrt{\phi}} \Phi_{\sqrt{\phi}} =
+	  \Phi\str_{\sqrt{\phi}} \Phi_{\sqrt{\phi}}.$
+	Therefore 
+	\[\m{g,g}(\phi) = \gen{g, \Phi_\phi g} = \gen{\Phi_{\sqrt{\phi}}g,
+	\Phi_{\sqrt{\phi}}g} \geq 0. \]
 	
  \item	$\m{\Phi_\phi g, \Phi_\psi h} (f ) = \gen{\Phi_\phi g, \Phi_f 
 	\Phi_\psi h} = \gen{g , \Phi_{\overline{\phi} \psi f} h } = \overline{\phi}
-	\psi \m{g,h}(f)$ 
+	\psi \m{g,h}(f)$ .
 
 \end{enumerate}
 
@@ -125,9 +116,7 @@ Chapter 4.5.
  \[
   | \m{g, h} | (N) =0.
  \]
- Note that $| \m{g, h} |$ is a real valued Radon measure. Hence we can talk 
- about measurability of sets in the sense of Pedersen, found in \cite{PedAnaN}
- \marginparr{Kapitelzitierung aendern?}. \newline
+ Note that $| \m{g, h} |$ is a real valued Radon measure. 
  A function $f: X \to \C$ is called $\Phi$-measurable, if $f$ is 
  $|\m{g,h}|$-measurable for all $g,h \in \hs$. 
  Denote the set of all measurable functions  $\Lzerophi$. \newline \indent
