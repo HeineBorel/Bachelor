@@ -1,10 +1,13 @@
 
-\section{Extension Of Continuous Spectral Measures}
+\section{Extension of Continuous Spectral Measures}
 
-In this section we follow \cite{LesHaupt}.
-We want to extend a given spectral measure for continuous functions, like the one we obtained
-, to 
-measurable ones. To do so, we need to check whether the operators we attain
+This section will closely follow \cite{LesHaupt}. The reader not familiar
+with complex measures, is advised to review the basic facts in 
+\cite[Ch. 6]{RudinRealComp}.
+
+We want to extend a given spectral measure for continuous functions,
+like the one we obtained in Proposition \ref{boundedfunccalc}, to measurable ones. 
+To do so, we need to check whether the operators we attain
 are bounded, or densely defined.
 \begin{defi}[Spectral measure]
  
@@ -108,22 +111,24 @@ properties:
 % \begin{proof}
 %  Follows from definition.
 % \end{proof}
-We now extend $\m{g,h}$ to measurable functions in the sense of \cite{PedAnaN}
-Chapter 4.5.
+We now extend $\m{g,h}$ to measurable functions in the sense of 
+\cite[Ch. 4.5]{PedAnaN}.  The definition
+ of measurability without using $\sigma$-algebras, can be found in
+ \cite[Ch. 6.3]{PedAnaN}.
 \begin{defi}
  $N \subset X$ is called a $\Phi$-set of measure zero, or $\Phi$-null set, if
- $N$ is a null set of $| \m{g,h}|$ for all $g,h \in \hs$, that is 
- \[
-  | \m{g, h} | (N) =0.
- \]
+ $N$ is a null set of $| \m{g,h}|$ for all $g,h \in \hs$, that is  
+  $| \m{g, h} | (N) =0.$
+  
  Note that $| \m{g, h} |$ is a real valued Radon measure. 
  A function $f: X \to \C$ is called $\Phi$-measurable, if $f$ is 
  $|\m{g,h}|$-measurable for all $g,h \in \hs$. 
- Denote the set of all measurable functions  $\Lzerophi$. \newline \indent
+ Denote the set of all measurable functions  $\Lzerophi$.
+ 
   For technical 
  reasons, we restrict the previous definition
  to functions that do not take the value $\infty$ on a nonzero set. As it turns
-out, the operators one gets from those functions are not even densely defined,
+out, the operators obtained from these functions are not densely defined,
 and hence of no interest to us. 
 
  \begin{gather*}
@@ -170,7 +175,7 @@ By sesquilinearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
 \begin{rem}
 
 If we want to proof claims about $\Lzerophi$ it is enough to show them for 
-$\cf(X)$, by since the expansion of measure is unique.
+$\cf(X)$, since  \unsure{richtige Formulierung?}the expansion of measure is unique.
  
 \end{rem}
 
@@ -178,7 +183,7 @@ $\cf(X)$, by since the expansion of measure is unique.
  
   For all $f \in \Lzerophi$ and $h \in \dom(f)$, $g\in \hs$ it holds that
  \[
- \m{g, \Phi_f h} = f\m{g,h}
+ \m{g, \Phi_f h} = f\m{g,h}.
  \]
 
 \end{lem}
@@ -187,16 +192,20 @@ $\cf(X)$, by since the expansion of measure is unique.
  By the remark, let $\phi \in \cf(X)$.
  \begin{align*}
    \m{g, \Phi_f h}(\phi) &= \gen{g, \Phi_\phi (\Phi_f h)} 
-			  = \gen{\Phi_{\overline{\phi}} , \Phi_f h}
+			  = \gen{\Phi_{\overline{\phi}}g , \Phi_f h}
 			  = \int f \dm{\Phi_{\overline{\phi}} g, h}\\
-			  &= \int f \phi \dm{g,h}
-			  = \left( f \m{g,h} \right)(\phi)
+			  &= \int f \dm{g, \Phi_\phi h}
+			  = \int f \phi \dm{g,h}
+			  = \left( f \m{g,h} \right)(\phi).
  \end{align*}
-
+ Since $h$ being in the domain of $f$ means, that for all $g \in \hs$,
+ $f$ is an element of $ \Lone(\m{g,h})$, the expression  $f \m{g,h} $ 
+ makes sense.
+ 
 \end{proof}
 
 We now want to know, whether the operator we obtain from our expanded measure
-is bounded, and if not, is it densely defined. This will be done in the next
+is bounded, or at least densely defined, if not bounded. This will be done in the next
 lemmata, which are going to be summarized in a theorem at the end of the
 chapter.
 
@@ -233,14 +242,13 @@ The third equality follows from
 \]
 This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a
 continuous map.
-\begin{align*}
-  \| \Phi_f \| &= \sup_{\| g\|, \| h\| \leq 1}  
-  \left| \gen{g, \Phi_f h} \right | \\
-  &= \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm{g,h} \right | \\
-  &\leq \|f\|_\infty
-\end{align*}
-
-Other inequality, will be proved in Lemma \ref{maintheorem5}.
+\begin{gather*}
+  \| \Phi_f \| = \sup_{\| g\|, \| h\| \leq 1}  
+  \left| \gen{g, \Phi_f h} \right | 
+  = \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm{g,h} \right | 
+  \leq \|f\|_\infty.
+\end{gather*}
+The other inequality, will be proved in Lemma \ref{maintheorem5}.
 \end{proof}
 
 \begin{rem}
@@ -248,8 +256,6 @@ Other inequality, will be proved in Lemma \ref{maintheorem5}.
 \[
 \Phi_f = \lim \Phi_{f_n} \text{ in } \lh.
 \]
-We can therefore define our spectral measure for all 
-bounded measurable functions.
 \end{rem}
 
 
@@ -290,9 +296,9 @@ For example, one can take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
    &= \int f \overline{f} \dm{h,h} \\
    &= \int | f | ^2 \dm{h,h}.
  \end{align*}
-  $(ii) \Rightarrow (iii)$:
-  
-  Let $h \in \mscr{L}^2(\m{h,h})$. Then for $g \in \hs$
+ 
+  $(ii) \Rightarrow (iii)$: \newline
+    Let $h \in \mscr{L}^2(\m{h,h})$. Then for $g \in \hs$
   \begin{align*}
     \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \gen{g, \Phi_{f_m}} 
     - \gen{g, \Phi_{f_n}}\\
@@ -305,14 +311,12 @@ For example, one can take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
 					&= \int |f_m - f_n|^2 \dm{h,h}.
   \end{align*}
 where the last equality holds, because $h \in \dom(f_m - f_n)$ and thus $f \in \Ltwophi$. 
-By our assumption, we have $f_m -f_n \to 0 \phiae$ Thus
+By our assumption, we have $f_m -f_n \to 0 \phiae$ Therefore
 \[
 | f_m - f_n |^2 \leq (2(\alpha |f| + \beta))^2 \in \mscr{L}^1(\m{h,h}),
 \]
-because $\mscr{L}^2(\m{h,h}) \subset \mscr{L}^1(\m{h,h}) $
-by compactness of $X$, and
-$\cf(X) \in \mscr{L}^1(\m{h,h})$ by definition.
-Therefore Lebegues theorem about dominated convergence yields the claim.
+as constant functions are contained $\Lonephi$.
+Now, Lebegues theorem about dominated convergence yields the claim.
 
 $(iii) \Rightarrow (ii)$:\newline
 Using Fatous lemma, and again as above
@@ -325,7 +329,7 @@ $\| \Phi_{f_n} h \|^2 = \int | f_n | ^2 \dm{h,h} $, we get
 \end{align*}
 
 $(ii) \Rightarrow (i)$: \newline
- By Radon-Nikodym, there exists a Borel-measurable function 
+ By the theorem of Radon-Nikodym, there exists a Borel-measurable function 
  $\phi : X \to \C$, $|\phi| = 1$, such that 
  \[
  | \m{g,h} | = \phi \m{g,h}.
@@ -335,7 +339,7 @@ $(ii) \Rightarrow (i)$: \newline
  \[
  \int \str |\tilde{f} |^2 \dm{h,h} = \int \str |f|^2 \dm{h,h} < \infty.
  \]
- By $(ii) \Rightarrow (iii)$, $\lim \Phi_{\tilde{f_n}}$ exists. Hence, for $g \in \hs$
+ As shown in $(ii) \Rightarrow (iii)$, the limit of $\Phi_{\tilde{f_n}}$ exists. Hence, for $g \in \hs$
  
  \begin{align*}
    \infty &> \|g\|^2 \| \lim_{n \to \infty} \Phi_{\tilde{f}_n}h \|^2 \geq
@@ -373,7 +377,7 @@ If $f$ is real valued, then $\Phi_f$ is self-adjoint, and $\Phi_{1_A}
 
 \begin{proof}
 
-First we show that $\Phi_f$ is densely defined. \newline
+First we show that $\Phi_f$ is densely defined. 
 We claim $E_{\mc{A}_n}(\hs) \subset \dom(f)$, where $\mc{A}_n = 
 \setl x \in X \bigm | | f(x) | \leq n \setr$.
 Let $h \in \hs$. By Lemma \ref{maintheorem2} the claim is
@@ -387,7 +391,6 @@ We have
   \int \str \overline{1}_{\mc{A}_n} 1_{\mc{A}_n} \dm{h,h} \leq
   n^2 \int \dm{h,h} \leq n^2 \| h\|^2 < \infty.
 \end{align*}
-
 For $h \in \hs$ we have $h = \lim_{n \to \infty} E_{\mc{A}_n} h$. 
 Then $|1_{\mc{A}_n}| \leq 1$, and we have
 $1_{\mc{A}_n} \to 1 $ pointwise $\phiae$
@@ -399,7 +402,7 @@ h = \Phi_1 h = \lim_{n \to \infty} \Phi_{1_{\mc{A}_n}} =
 which gives $\dom(f) \subset \hs$ is dense, as $E_{\mc{A}_n} h \in \dom(f)$ by
 the claim. 
 
-Now we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.\newline
+Now we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.
 Let  $g,h \in \dom(f) = \dom(\overline{f})$. Using Theorem \ref{measureproperties} $
 (iii)$, one has
 \begin{align*}
@@ -414,49 +417,64 @@ On the other hand, to show that  $\Phi_{\overline{f}} \supset \Phi_f \str$
 let $g\in \dom(\Phi_f \str)$.
 By Lemma \ref{maintheorem2}, we only have to show $\Phi_{\overline{f}_n}g$
 converges in $\hs$, for some net satisfyig the conditions of Lemma
-\ref{maintheorem2}. As a net, we take $f_n = 1_{\mc{A}_n}$,
+\ref{maintheorem2}. As a net, we take $f_n = f \cdot 1_{\mc{A}_n}$,
 where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
-Let $h \in \hs$.
+Let $h \in \hs$. For better readability, we write $E_n$ for 
+$\Phi_{\mc{A}_n}$, $F_n$, $F_n\str$ for $\Phi_{f_n}$ 
+respectively $\Phi_{\overline{f}_n}$, and 
+$F$ for $\Phi_f$.
 
 \begin{align*}
-\gen{ \Phi_{\overline{f}_n} g, h }& = \int \dm{\Phi_{\overline{f}_n} g, h}
+\gen{ F_n\str g, h }& = \int \dm{F_n\str g, h}
 = \int f_n \dm{g,h} 
-= \int f \dm{g, \Phi_{1_{\mc{A}_n }} h }
-= \int \dm{g, \Phi_f E_{\mc{A}_n} h} \\
-&= \gen{g, \Phi_1 \Phi_f E_{\mc{A}_n }h }
-= \gen{g, \Phi_f E_{\mc{A}_n} h} 
-= \gen{\Phi_f \str g, E_{\mc{A}_n} h}
-= \int 1_{\mc{A}_n} \dm{\Phi_f \str g, h}\\
-&= \int \dm{E_{\mc{A}_n} \Phi_f \str g, h} = \gen{E_{\mc{A}_n}  \Phi_f \str g, h}
+= \int f \dm{g, E_{n} h }
+= \int \dm{g, F E_{n} h} \\
+&= \gen{g, F E_{n} h} 
+= \gen{F \str g, E_{n} h}
+= \int 1_{\mc{A}_n} \dm{F \str g, h}\\
+&= \int \dm{E_{n} F \str g, h} = \gen{E_{\mc{A}_n}  F \str g, h}
 \end{align*}
 
-\[
-\Phi_{\overline{f}_n} g = E_{\mc{A}_n} \Phi_f \str g 
-\xrightarrow{n \to \infty} \Phi_f \str g \text{ , so  }
-\Phi_{\overline{f}} = \Phi_f \str.
-\]
+% 
+% \begin{align*}
+% \gen{ F_n\str g, h }& = \int \dm{F_n\str g, h}
+% = \int f_n \dm{g,h} 
+% = \int f \dm{g, E_{n} h }
+% = \int \dm{g, \Phi_f E_{n} h} \\
+% &= \gen{g, \Phi_f E_{n} h} 
+% = \gen{\Phi_f \str g, E_{n} h}
+% = \int 1_{\mc{A}_n} \dm{\Phi_f \str g, h}\\
+% &= \int \dm{E_{\mc{A}_n} \Phi_f \str g, h} = \gen{E_{\mc{A}_n}  \Phi_f \str g, h}
+% \end{align*}
 
 
-Now we claim $\Phi_f$ is a normal element. To show
-\[
-\dom(\overline{f}) = \dom(\Phi_f \str) = \dom(\Phi_{\overline{f}}) = \dom(f),
-\]
- which is already proven. Also already proven is now
-\[
- \| \Phi_f \str h \| = \| \Phi_f h \|,
-\]
-for example, by the norm formula of Lemma \ref{maintheorem2}.
+Now $\Phi_{\overline{f}_n} g = E_{\mc{A}_n} \Phi_f \str g 
+\xrightarrow{n \to \infty} \Phi_f \str g$, as $E_{\mc{A}_n}$ converges
+to the identity. It follows, that $\Phi_{\overline{f}} \supset \Phi_f \str$,
+completing the proof of $\Phi_{\overline{f}} = \Phi_f \str.$
+
+
+
+Next, we claim $\Phi_f$ is a normal element. We have to show, that
+$\dom(\Phi_f) = \dom(\Phi_f \str)$ and $\| \Phi_f \str h \| = \| \Phi_f h \|$.
+The first claim is already proven, because 
+$\dom(f) = \dom(\overline{f})$. The second condition is also fulfilled,
+which can be seen by the norm formula of Lemma \ref{maintheorem2}.
 Thus $\dom(\Phi_f \str) = \dom(\Phi_{\overline{f}})$ and 
 $\| \Phi_f \str h \| = \| \Phi_f h \|$, which proves that $\Phi_f$ is normal.
 To show that this implies the usual definition of a normal operator,
-is left as an easy excercise using the polarization identity.
+can be easily seen, using the polarization identity, found in 
+\cite[Ch. 4.6]{LinOps}.
 
-If now $f$ is real valued, we have that $f = \overline{f}$, which gives 
-the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
+If $f$ is real valued, we have that $f = \overline{f}$, which gives 
+the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$. 
+As $(E_\mc{A})^2 = E_\mc{A}$, we get that $E_\mc{A}$ is an orthogonal
+projection.
 
 \end{proof}
 
-\begin{lem}
+
+\begin{cor}
   \leavevmode
   \label{maintheorem3+}
  \begin{enumerate}
@@ -476,12 +494,13 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
 
  \end{enumerate}
 
-\end{lem}
+\end{cor}
 
 
 
 \begin{proof}
-  Left as an exercise.
+  Immediate consequence of the previous lemmata. Full proof
+  found in \cite{LesHaupt}.
 %   \leavevmode
 %  \begin{enumerate}
 %    \item By Lemma \ref{measureproperties} (iv), $\m{h,h}$ is a positive
@@ -524,19 +543,21 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   
 \end{lem}
 
-\begin{proof}
-  \begin{enumerate}[(i)]
-  \item 
+\begin{proof} 
+  $(i)$ By definition of $\dom$, we get
+  \begin{adjustwidth}{0.85cm}{}
+  
   \begin{align*}
   \dom(\alpha \varphi) = \setl h \in \hs \bigm | \int \str |\alpha \varphi|^2
   \dm{h,h} < \infty  \setr = \dom(\varphi)   \shortintertext{ and,}
   \gen{g, \Phi_{\alpha \varphi} h } = \int \alpha \varphi \dm{g,h} = 
-  \alpha \int \varphi \dm{g,h} = \gen{\psi, \alpha \Phi_\varphi h}
+  \alpha \int \varphi \dm{g,h} = \gen{\psi, \alpha \Phi_\varphi h},
   \end{align*}
   for all $g \in \hs$. 
-
-\item 
-  \[
+\end{adjustwidth}
+\begin{enumerate}[(i)]
+  \setcounter{enumi}{1}
+\item   \[
   h \in \dom(\Phi_\varphi \Phi_\psi ) \Leftrightarrow h \in \dom(\psi) \text{ and }
   \Phi_\psi h  \in \dom(\varphi).
   \]
@@ -552,18 +573,20 @@ the selfadjointness of $\Phi_f$. Furthermore $E_\mc{A} \str = E_\mc{A}$.
   &\Leftrightarrow
   g \mapsto \int \str \varphi \psi \dm{g,h} \text{ is continuous}.
   \end{align*}
-But the last statement, reformulates to 
-
-\begin{gather*}
-   h \in \dom(\psi) \text{ and } \Phi_\psi h \in \dom(\varphi) \Leftrightarrow
-   h \in \dom(\psi) \text{ and } h \in \dom(\varphi \psi).\\
+The last statement, reformulates to
+   $h \in \dom(\psi) $ and $ \Phi_\psi h \in \dom(\varphi) 
+   $  which is equivalent to $
+   h \in \dom(\psi) $ and $  h \in \dom(\varphi \psi).$
+   
+   
+   As
+  $
   \gen{g, \Phi_\varphi \Phi_\psi h } = \int \varphi \dm{g, \Phi_\psi h} = 
-  \int \varphi \psi \dm{g,h} = \gen{g, \Phi_{\varphi \psi} h }
-\end{gather*}
-
-Thus $\Phi_\varphi \Phi_\psi \subset \Phi_{\varphi \psi}$. The prove of 
+  \int \varphi \psi \dm{g,h} = \gen{g, \Phi_{\varphi \psi} h },
+  $
+we get $\Phi_\varphi \Phi_\psi \subset \Phi_{\varphi \psi}$. The proof of 
 $\overline{\Phi_\varphi \Phi_\psi} = \Phi_{\varphi \psi}$ is analogous to the
-prove of $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$ and
+proof of $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$ and
 will be omitted.
 
   
@@ -764,7 +787,7 @@ by Lemma \ref{maintheorem5}.
  Fix $\lambda \in \spe \Phi_f$, $\mc{A} \subset X$ such that $E_\mc{A} = I$.
  We claim that $\lambda \in \overline{f(\mc{A})}$. By Lemmata \ref{maintheorem4}
  and \ref{maintheorem6}, $\Phi_f - \lambda I= \Phi_{f - \lambda}$ is 
- not invertible impies that either
+ not invertible implies that either
 \begin{align*}
   \left.  a\right)& \setl f- \lambda = 0 \setr \text{ is not a }\Phi
   \text{-null set}.\\
@@ -782,14 +805,14 @@ This means there exists a $x \in \mc{A}$ such that $f(x) = \lambda$, that is
 \lambda \in f(\mc{A}).
 \]
 
-Suppose now that $b)$ holds. By Lemma \ref{maintheorem6} $\frac{1}{f- \lambda}
-\notin \Linftyphi$ implies that $\frac{1}{f- \lambda}$ is unbounded on
-$\mc{A} \backslash \setl f= \lambda \setr$. Thus, there exists a sequence
-$(x_n) \in \mc{A} \backslash \setl f= \lambda \setr$, such that
+Suppose now that $b)$ holds. By Lemma \ref{maintheorem6} $\nicefrac{1}{(f- \lambda)}
+\notin \Linftyphi$ implies that $\nicefrac{1}{(f- \lambda)}$ is unbounded on
+$\mc{A} \setminus \setl f= \lambda \setr$. Thus, there exists a sequence
+$(x_n) \in \mc{A} \setminus \setl f= \lambda \setr$, such that
 \[
  \lim | f(x_n) - \lambda| =0,
 \]
-which impies that
+which implies that
 \[
 \lambda = \lim f(x_n) \in \overline{f(\mc{A})}.
 \]
@@ -799,12 +822,12 @@ Fix $\lambda \notin \spe (\Phi_f)$. We have to show that there exists a set
 $\mc{A}_0$, $E_{\mc{A}_0} = I$ and $\lambda \notin \overline{f(\mc{A}_0)}.$
 By Lemma \ref{maintheorem6}, $\Phi_f - \lambda I= \Phi_{f- \lambda}$ is 
 invertible implies that $ \setl f = \lambda \setr  \text{ is a }   \Phi
-\text{-null set,} \text{ and } \frac{1}{f - \lambda }  \in \Linftyphi$. Thus with 
-$M \coloneqq \| \frac{1}{f - \lambda} \|_\infty$,
-$\setl | f- \lambda | < \frac{1}{M} \setr$ is a $\Phi$-null set. Therefore,
-we can set $\mc{A}_0 \coloneqq \setl | f- \lambda | \geq \frac{1}{M} \setr $.
+\text{-null set,} \text{ and } \nicefrac{1}{f - \lambda }  \in \Linftyphi$. Thus with 
+$M \coloneqq \| \nicefrac{1}{f - \lambda} \|_\infty$,
+$\setl | f- \lambda | < \nicefrac{1}{M} \setr$ is a $\Phi$-null set. Therefore,
+we can set $\mc{A}_0 \coloneqq \setl | f- \lambda | \geq \nicefrac{1}{M} \setr $.
 Then $E_{\mc{A}_0} = I$ and $d(\lambda, \overline{f(\mc{A}_0)}) \geq
-\frac{1}{M}$, that is 
+\nicefrac{1}{M}$, that is 
 \[
 \lambda \notin \overline{f(\mc{A}_0)}.
 \]
@@ -814,7 +837,7 @@ Then $E_{\mc{A}_0} = I$ and $d(\lambda, \overline{f(\mc{A}_0)}) \geq
 
 
 Summing up the previous lemmata, we get our
-\newpage
+
 \begin{thrm}[Main theorem] \label{maintheorem}
   \leavevmode
   \begin{enumerate}[\normalfont 1.]
