@@ -9,21 +9,58 @@ i \frac{\partial}{\partial x}$
 The study of these operators relies heavily on the chosen Hilbert space $\hs$, 
 as $\spe M_x$ depends on it.
 \end{rem}
+\begin{expl}
+ 
+
 Let $\hs \coloneqq \Ltwo(\left[ 0, 1 \right])$. $M_x \in \bh$ by Hölder's 
 inequality: Let $f \in \hs$
 \[
  \| M_x(f) \|^2 = \int _0 ^1 x^2 | f^2| \de x \leq 
- 1 \cdot \int _0 ^1 | f^2 | \de x = \| f \| ^2
+ 1 \cdot \int _0 ^1 | f^2 | \de x = \| f \| ^2.
 \]
 Thus $\| M_x\| \leq 1$. Furthermore $M_x$ is selfadjoint, which implies that
 $\spe M_x \subset \left[ -1 , 1 \right]$. But for $\lambda > 0$,
-$M_{x-\lambda}$ is invertible as $M_{\frac{1}{x - \lambda}} \in \bh$, again by
+$M_{x-\lambda}$ is invertible as $M_{\nicefrac{1}{(x - \lambda)}} \in \bh$, again by
 Hölder. Therefore $\spe M_x \subset \left[ 0, 1\right]$. To show 
 $\spe M_x \supset \left[ 0, 1\right]$, let $\lambda \in  \left[ 0, 1\right]$.
-Again the inverse of $M_{x+ \lambda}$ would be $M_\frac{1}{x + \lambda}$,
+Again the inverse of $M_{x+ \lambda}$ would be $M_{\nicefrac{1}{(x + \lambda)}}$,
 the latter not being bounded, as $\frac{1}{x + \lambda} \notin 
 \Ltwo(\left[ 0, 1\right])$. We conclude that $x$ does not a have a preimage
 in $\hs$ under $M_{x + \lambda}$. Hence $\spe M_x = \left[ 0 , 1\right]$.
 
 Our spectral theorem \ref{boundedfunccalc} now states, that we have
-an isometry \newline$\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$
+an isometry $\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$. This 
+isometry sends $\id$ to $M_x$, and the constant function $1$ to $I$.
+We conclude that $\phi$ is mapped via $\Phi$ to 
+$M_{\phi(x)}: g \mapsto \phi \cdot g$. In this example, it is obvious that,
+$\Linfty$ is mapped to $\bh$. If we take $\phi(x) = \nicefrac{1}{x}$, 
+$\dom(\phi)$ is by definition, all elements $f \in \hs$, such that
+$g \mapsto \gen{g, M_\phi f}$ is continuous in $g$ for all $g \in \hs$.
+Since we have such an explicit form of the operator, one readily sees via 
+Lemma \ref{maintheorem2} $(ii)$ that
+$\dom(\phi) = \setl f \in \hs \bigm | \|M_\phi (f)\|^2 < \infty \setr$.
+As seen in Example \ref{ExplFuncCalc}, or by direct calculation, 
+$M_\phi$ is the inverse to $M_x$. $M_\phi$ is unbounded, and $M_x$ is 
+the bounded inverse to $M_x$. This is an example, where we started with
+a bounded operator, and via the Functional Calculus for measurable 
+functions, got an unbounded operator
+
+If we change the Hilbert space to $\hs = \Ltwo (\R)$, the spectrum
+of our multiplication operator changes to $\spe(M_x) = \R$. Thus, $M_x$ 
+is unbounded. Its inverse is again $M_{\nicefrac{1}{x}}$. Note that 
+both operators are unbounded, and hence, neither is boundedly invertible.
+\end{expl}
+
+\begin{expl}
+ Let $\hs \coloneqq \Ltwo(\left[ 0, 1 \right])$. 
+ $P = i \frac{\partial}{\partial x}$ is defined on $W^{1,2}(\left[ 0,1 \right])$.
+ $P\str = -i\frac{\partial}{\partial x}$
+\end{expl}
+
+
+
+
+
+
+
+
