@@ -288,8 +288,7 @@ For example, one can take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
 
 \begin{proof}
  $(i) \Rightarrow (ii)$:
- 
- Let $h \in \dom(f)$.
+  Let $h \in \dom(f)$.
  \begin{align*}
    \infty > \|\Phi_f h\| ^2 &= \gen{ \Phi_f , \Phi_f h} \\
    &= \int f \dm{\Phi_f h, h} \\
@@ -297,7 +296,7 @@ For example, one can take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
    &= \int | f | ^2 \dm{h,h}.
  \end{align*}
  
-  $(ii) \Rightarrow (iii)$: \newline
+  $(ii) \Rightarrow (iii)$:
     Let $h \in \mscr{L}^2(\m{h,h})$. Then for $g \in \hs$
   \begin{align*}
     \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \gen{g, \Phi_{f_m}} 
@@ -318,7 +317,7 @@ By our assumption, we have $f_m -f_n \to 0 \phiae$ Therefore
 as constant functions are contained $\Lonephi$.
 Now, Lebegues theorem about dominated convergence yields the claim.
 
-$(iii) \Rightarrow (ii)$:\newline
+$(iii) \Rightarrow (ii)$:
 Using Fatous lemma, and again as above
 $\| \Phi_{f_n} h \|^2 = \int | f_n | ^2 \dm{h,h} $, we get 
 \begin{align*}
@@ -328,7 +327,7 @@ $\| \Phi_{f_n} h \|^2 = \int | f_n | ^2 \dm{h,h} $, we get
   & \geq \int \str \liminf_{n \to \infty} |f_n | ^2 \dm{h,h} = \int \str |f|^2 \dm{h,h}
 \end{align*}
 
-$(ii) \Rightarrow (i)$: \newline
+$(ii) \Rightarrow (i)$:
  By the theorem of Radon-Nikodym, there exists a Borel-measurable function 
  $\phi : X \to \C$, $|\phi| = 1$, such that 
  \[
@@ -402,7 +401,7 @@ h = \Phi_1 h = \lim_{n \to \infty} \Phi_{1_{\mc{A}_n}} =
 which gives $\dom(f) \subset \hs$ is dense, as $E_{\mc{A}_n} h \in \dom(f)$ by
 the claim. 
 
-Now we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.
+Now, we claim $ \Phi_{\overline{f}} \subset \Phi_f \str$.
 Let  $g,h \in \dom(f) = \dom(\overline{f})$. Using Theorem \ref{measureproperties} $
 (iii)$, one has
 \begin{align*}
@@ -411,7 +410,8 @@ Let  $g,h \in \dom(f) = \dom(\overline{f})$. Using Theorem \ref{measurepropertie
   = \overline{ \gen{h , \Phi_{\overline{f}} g }} 
   = \gen{\Phi_{\overline{f} }g , h}
 \end{align*}
-So, $g \in \dom(\Phi_f \str)$ and $\Phi_f \str g = \Phi_{\overline{f}} g$.
+Thus, $g \in \dom(\Phi_f \str)$ and $\Phi_f \str g = \Phi_{\overline{f}} g$
+for all $g \in \dom(f)$.
 
 On the other hand, to show that  $\Phi_{\overline{f}} \supset \Phi_f \str$
 let $g\in \dom(\Phi_f \str)$.
@@ -463,7 +463,8 @@ which can be seen by the norm formula of Lemma \ref{maintheorem2}.
 Thus $\dom(\Phi_f \str) = \dom(\Phi_{\overline{f}})$ and 
 $\| \Phi_f \str h \| = \| \Phi_f h \|$, which proves that $\Phi_f$ is normal.
 To show that this implies the usual definition of a normal operator,
-can be easily seen, using the polarization identity, found in 
+i.e. $\Phi_f \Phi_f \str = \Phi_f \str \Phi_f$,
+can easily be seen, using the polarization identity, found in 
 \cite[Ch. 4.6]{LinOps}.
 
 If $f$ is real valued, we have that $f = \overline{f}$, which gives 
@@ -544,42 +545,173 @@ projection.
 \end{lem}
 
 \begin{proof} 
-  $(i)$ By definition of $\dom$, we get
-  \begin{adjustwidth}{0.85cm}{}
+  $(i)$: By definition, we get 
   
   \begin{align*}
   \dom(\alpha \varphi) = \setl h \in \hs \bigm | \int \str |\alpha \varphi|^2
-  \dm{h,h} < \infty  \setr = \dom(\varphi)   \shortintertext{ and,}
+  \dm{h,h} < \infty  \setr = \dom(\varphi)  ,
+  \shortintertext{and}
   \gen{g, \Phi_{\alpha \varphi} h } = \int \alpha \varphi \dm{g,h} = 
-  \alpha \int \varphi \dm{g,h} = \gen{\psi, \alpha \Phi_\varphi h},
+  \alpha \int \varphi \dm{g,h} = \gen{g, \alpha \Phi_\varphi h},
   \end{align*}
-  for all $g \in \hs$. 
-\end{adjustwidth}
-\begin{enumerate}[(i)]
-  \setcounter{enumi}{1}
-\item   \[
-  h \in \dom(\Phi_\varphi \Phi_\psi ) \Leftrightarrow h \in \dom(\psi) \text{ and }
-  \Phi_\psi h  \in \dom(\varphi).
-  \]
-  By Lemma \ref{lemlinm}, for $h \in \dom(\psi)$, $\m{g,\Phi_\psi h} = \psi \m{g,h}$
-  \begin{align*}
-    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| &= \int \str |\varphi \psi|
+  for all $g \in \hs$ and $h \in \dom(\phi)$.
+
+
+
+$(ii)$:
+  $h \in \dom(\Phi_\varphi \Phi_\psi )$ reformulates to  $ h \in \dom(\psi)$
+  and $  \Phi_\psi h  \in \dom(\varphi).$  
+  By Lemma \ref{lemlinm},  $\m{g,\Phi_\psi h} = \psi \m{g,h}$ 
+  for $h \in \dom(\psi)$. We compute
+  \begin{gather*}
+    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| = \int \str |\varphi \psi|
     \text{d}|\m{g,h}|,
     \shortintertext{so}
-    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| < \infty &\Leftrightarrow
-  \int \str |\varphi \psi| \text{d}|\m{g,h}| < \infty
-  \shortintertext{and }
+    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| < \infty 
+    \text{ is equivalent to }
+  \int \str |\varphi \psi| \text{d}|\m{g,h}| < \infty.
+  \shortintertext{Therefore, }
   g \mapsto \int \str \varphi \dm{g, \Phi_\psi h} \text{ is continuous } 
-  &\Leftrightarrow
+  \Leftrightarrow
   g \mapsto \int \str \varphi \psi \dm{g,h} \text{ is continuous}.
-  \end{align*}
+  \end{gather*}
 The last statement, reformulates to
    $h \in \dom(\psi) $ and $ \Phi_\psi h \in \dom(\varphi) 
    $  which is equivalent to $
    h \in \dom(\psi) $ and $  h \in \dom(\varphi \psi).$
    
    
-   As
+As
+  $
+  \gen{g, \Phi_\varphi \Phi_\psi h } = \int \varphi \dm{g, \Phi_\psi h} = 
+  \int \varphi \psi \dm{g,h} = \gen{g, \Phi_{\varphi \psi} h },
+  $
+we get $\Phi_\varphi \Phi_\psi \subset \Phi_{\varphi \psi}$. The proof of 
+$\overline{\Phi_\varphi \Phi_\psi} = \Phi_{\varphi \psi}$ is analogous to the
+proof of $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$ and
+will be omitted.
+
+  
+  $(iii)$:   
+  To show
+  \[
+   \dom(\varphi) \cap \dom(\psi) \subset \dom(\varphi + \psi).
+  \]
+  Let $h \in \dom(\varphi) \cap \dom(\psi)$. By Lemma \ref{maintheorem2}, 
+  \begin{gather*}
+    \int \str |\varphi|^2 \dm{h,h},~ \int \str |\psi|^2 \dm{h,h} < \infty ,
+    \shortintertext{and by Minkowskys
+  inequality}
+    \left( \int \str | \varphi+\psi|^2 \dm{h,h} \right)^{\frac{1}{2}} \leq
+    \left( \int \str | \varphi|^2 \dm{h,h} \right)^{\frac{1}{2}} +
+    \left( \int \str |\psi|^2 \dm{h,h} \right)^{\frac{1}{2}}.
+  \end{gather*}
+  Thus $h \in \dom(\varphi+\psi)$. Furthermore, for  $g \in \hs$
+  \[
+  \gen{g, (\Phi_\varphi + \Phi_\psi)h }= \int\! \varphi \dm{g,h} +
+  \int \! \psi \dm{g,h}=
+  \int \! (\varphi+\psi) \dm{g,h} = \gen{g, \Phi_{\varphi+\psi} h},
+  \]
+  and thus $\Phi_\varphi + \Phi_\psi \subset \Phi_{\varphi+\psi}$.
+  The rest of the proof will follow after part $(iv)$.
+  
+  
+
+$(iv)$:
+$\psi \in \Linftyphi$ implies that $\dom(\psi)$ is already the whole space.
+Thus
+\begin{align*}
+ \dom(\Phi_\varphi \Phi_\psi) = \dom(\varphi \psi)\cap \hs = \dom(\varphi \psi),
+ \shortintertext{and}
+ \dom(\Phi_\varphi + \Phi_\psi) = \dom(\varphi) \cap \hs = \dom(\varphi).
+%  \end{align*}  
+%  \begin{align*}
+%  \intertext{For $\dom(\psi \varphi)$ we calculate}
+%   \int \str | \psi \varphi |^2 \dm{h,h} \leq 
+%   \| \psi\|_\infty ^2 \int \str |\varphi|^2 \dm{h,h}\\
+%   \intertext{and thus get using $(i)$,}
+%   \dom(\varphi) \subset \dom(\psi \varphi) \Rightarrow \dom(\Phi_\varphi \Phi_\psi)
+%   = \dom(\varphi).
+  \shortintertext{Therefore, we have proven}
+  \Phi_\varphi \Phi_\psi = \Phi_{\varphi \psi} \text{ and }
+ \Phi_\varphi \Phi_\psi = \Phi_{\varphi + \psi}.
+\end{align*}
+In particular, 
+\[
+\mc{A} \in \mscr{E}(\Phi) \Rightarrow E_{\mc{A}} \text{ is a projection.}
+\]
+  
+Rest of $(ii)$:
+  For $ \overline{\Phi_\varphi + \Phi_\psi} = \Phi_{\varphi + \psi}$, 
+  we need to show that for
+  $h \in \dom(\varphi + \psi)$, there exists a net 
+  $(h_n) \in \dom(\varphi)\cap \dom(\psi)$, such that
+  $\lim h_n = h$, and $\lim (\Phi_\varphi h_n +\Phi_\psi h_n) =
+  \Phi_{\varphi + \psi}h$. Set
+  $\mc{A}_n = \setl x \in X \bigm | |\varphi(x)| + |\psi(x)| \leq n\setr$.
+  By Lemma \ref{maintheorem2}, we have
+  
+  \begin{gather*}
+    E_{\mc{A}_n}(\hs) \subset \dom(\varphi)\cap \dom(\psi)
+    \shortintertext{and}
+    \cup \mc{A}_n = X,~\mc{A}_n \subset \mc{A}_{n+1}.
+    \shortintertext{And thus}
+    \lim E_{\mc{A}_n} = \id  
+  \end{gather*}
+
+  For all $h \in \dom(\varphi + \psi)$, one has
+  \begin{align*}
+  h &= \lim E_{\mc{A}_n} h \eqqcolon \lim h_n,
+  \intertext{and using $(iv)$ combined with the fact that $E_{\mc{A}_n} $
+    is bounded, we get}
+  \Phi_{\varphi+\psi} h  &=\lim E_{\mc{A}_n} (\Phi_{\varphi+\psi})h \\
+  &= \lim \Phi_{1_{\mc{A}_n} (\varphi+\psi)} h \\
+  &= \lim \Phi_{(\varphi + \psi) 1_{\mc{A}_n}} h \\
+  &= \lim \Phi_{\varphi+\psi} E_{\mc{A}_n} h \\
+  &= \lim \Phi_{\varphi+\psi} h_n = \lim (\Phi_\varphi h_n + \Phi_\psi h_n)
+  \end{align*}
+
+
+
+ $(i)$ By definition, we get 
+  \begin{adjustwidth}{0.85cm}{}
+  
+  \begin{align*}
+  \dom(\alpha \varphi) = \setl h \in \hs \bigm | \int \str |\alpha \varphi|^2
+  \dm{h,h} < \infty  \setr = \dom(\varphi)  ,
+  \shortintertext{and}
+  \gen{g, \Phi_{\alpha \varphi} h } = \int \alpha \varphi \dm{g,h} = 
+  \alpha \int \varphi \dm{g,h} = \gen{g, \alpha \Phi_\varphi h},
+  \end{align*}
+  for all $g \in \hs$ and $h \in \dom(\phi)$.
+\end{adjustwidth}
+\begin{enumerate}[(i)]
+  \setcounter{enumi}{1}
+\item   
+  $h \in \dom(\Phi_\varphi \Phi_\psi )$ reformulates to  $ h \in \dom(\psi)$
+  and $  \Phi_\psi h  \in \dom(\varphi).$
+  
+  By Lemma \ref{lemlinm},  $\m{g,\Phi_\psi h} = \psi \m{g,h}$ 
+  for $h \in \dom(\psi)$. We compute
+  \begin{gather*}
+    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| = \int \str |\varphi \psi|
+    \text{d}|\m{g,h}|,
+    \shortintertext{so}
+    \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| < \infty 
+    \text{ is equivalent to }
+  \int \str |\varphi \psi| \text{d}|\m{g,h}| < \infty.
+  \shortintertext{Therefore, }
+  g \mapsto \int \str \varphi \dm{g, \Phi_\psi h} \text{ is continuous } 
+  \Leftrightarrow
+  g \mapsto \int \str \varphi \psi \dm{g,h} \text{ is continuous}.
+  \end{gather*}
+The last statement, reformulates to
+   $h \in \dom(\psi) $ and $ \Phi_\psi h \in \dom(\varphi) 
+   $  which is equivalent to $
+   h \in \dom(\psi) $ and $  h \in \dom(\varphi \psi).$
+   
+   
+  \indent As
   $
   \gen{g, \Phi_\varphi \Phi_\psi h } = \int \varphi \dm{g, \Phi_\psi h} = 
   \int \varphi \psi \dm{g,h} = \gen{g, \Phi_{\varphi \psi} h },
