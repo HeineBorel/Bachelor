@@ -15,8 +15,8 @@ as $\spe M_x$ depends on it.
 Let $\hs \coloneqq \Ltwo(\left[ 0, 1 \right])$. $M_x \in \bh$ by Hölder's 
 inequality: Let $f \in \hs$
 \[
- \| M_x(f) \|^2 = \int _0 ^1 x^2 | f^2| \de x \leq 
- 1 \cdot \int _0 ^1 | f^2 | \de x = \| f \| ^2.
+ \| M_x(f) \|^2 = \int _0 ^1 x^2 | f(x)|^2 \de x \leq 
+ 1 \cdot \int _0 ^1 | f(x) |^2 \de x = \| f \| ^2.
 \]
 Thus $\| M_x\| \leq 1$. Furthermore $M_x$ is selfadjoint, which implies that
 $\spe M_x \subset \left[ -1 , 1 \right]$. But for $\lambda > 0$,
@@ -52,10 +52,70 @@ both operators are unbounded, and hence, neither is boundedly invertible.
 \end{expl}
 
 \begin{expl}
+ 
  Let $\hs \coloneqq \Ltwo(\left[ 0, 1 \right])$. 
- $P = i \frac{\partial}{\partial x}$ is defined on $W^{1,2}(\left[ 0,1 \right])$.
- $P\str = -i\frac{\partial}{\partial x}$
+ The operator we want to consider is the momentum operator 
+ $P = i \frac{\partial}{\partial x}$.
+ We recall the definition of a normal operator.
+ $P$ is called normal if $\dom(P) = \dom(P\str)$ and 
+ $\|P\| = \| P \str \|$. To get a normal operator, we
+ need to specify boundary conditions on $\dom(P)$. One knows that
+ $P\str$ acts the same way as $P$. Therefore, if $P$ is normal,
+ it is selfadjoint.
+ We compute
+ \begin{align*}
+  \gen{f, Pg} 
+ & =\int _0 ^1 \overline{f(x)} i \frac{\partial}{\partial x}g(x) \dx
+  = \overline{f(x)}ig(x)\Bigr|^{1}_{0}
+  -\int _0 ^1 i \frac{\partial}{\partial x}\overline{f(x)} g(x) \dx\\
+&= i(\overline{f(1)}g(1)- \overline{f(0)}g(0))
++ \int _0 ^1 \frac{\partial}{\partial x}\overline{i f(x)} g(x) \dx\\
+&=i(\overline{f(1)}g(1)- \overline{f(0)}g(0)) 
++\gen{Pf, g}.
+ \end{align*}
+For $P$ to be selfadjoint, the left term from the last line needs 
+to vanish. Thus, we get the boundary conditions 
+ $\setl f \in W^{1,2}(\left[ 0,1 \right]) \bigm| f(0) = f(1) \setr$.
+ To determine the spectrum of the operator, we look at 
+ the eigenvectors of $(P+\lambda I)$.
+ $(P+\lambda I)(f)=f$ reformulates to $i f' = i(\lambda - 1)f$, giving
+ $f(x)= \e^{i(\lambda -1 )x}$. Since $\e^{i(\lambda -1 )x}$ is not in the
+ domain of $P$, we see that $P$ is injective. Thus, if an element has
+ a preimage, it is unique. One has $(P+\lambda I)(x) = i + \lambda x$.
+ Since $x \notin \dom(P)$, we see that $i + \lambda \id$ has no preimage.
+ Because $\lambda$ was arbitrary, $\spe(P) = \R$.
+ 
+ The algebra $\A(P) = \gen{I , A, B, B\str}$, $A = (I + P^2)\inv$,
+ $B = TA$. $P^2 = -\frac{\partial ^2}{\partial x^2} = \Delta$ the Laplacian.
+ This is a positive, elliptic differential operator. 
+ 
+ 
+ To avoid boundary value problems, we consider $\hs = \Ltwo(\R)$. Then
+ $P$, with domain $H^2(R)$ is a selfadjoint operator. Using the Fourier 
+ transform, $P$ is transformed into a multiplication operator. This
 \end{expl}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
