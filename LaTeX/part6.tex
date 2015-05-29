@@ -9,7 +9,7 @@ i \frac{\partial}{\partial x}$
 The study of these operators relies heavily on the chosen Hilbert space $\hs$, 
 as $\spe M_x$ depends on it.
 \end{rem}
-\begin{expl}
+\begin{expl}\label{ExplMult}
  
 
 Let $\hs \coloneqq \Ltwo(\left[ 0, 1 \right])$. $M_x \in \bh$ by Hölder's 
@@ -75,25 +75,57 @@ both operators are unbounded, and hence, neither is boundedly invertible.
  \end{align*}
 For $P$ to be selfadjoint, the left term from the last line needs 
 to vanish. Thus, we get the boundary conditions 
- $\setl f \in W^{1,2}(\left[ 0,1 \right]) \bigm| f(0) = f(1) \setr$.
+ $\setl f \in H^1(\left[ 0,1 \right]) \bigm| f(0) = f(1) \setr$.
  To determine the spectrum of the operator, we look at 
  the eigenvectors of $(P+\lambda I)$.
  $(P+\lambda I)(f)=f$ reformulates to $i f' = i(\lambda - 1)f$, giving
- $f(x)= \e^{i(\lambda -1 )x}$. Since $\e^{i(\lambda -1 )x}$ is not in the
- domain of $P$, we see that $P$ is injective. Thus, if an element has
- a preimage, it is unique. One has $(P+\lambda I)(x) = i + \lambda x$.
- Since $x \notin \dom(P)$, we see that $i + \lambda \id$ has no preimage.
- Because $\lambda$ was arbitrary, $\spe(P) = \R$.
- 
- The algebra $\A(P) = \gen{I , A, B, B\str}$, $A = (I + P^2)\inv$,
- $B = TA$. $P^2 = -\frac{\partial ^2}{\partial x^2} = \Delta$ the Laplacian.
- This is a positive, elliptic differential operator. 
- 
- 
- To avoid boundary value problems, we consider $\hs = \Ltwo(\R)$. Then
- $P$, with domain $H^2(R)$ is a selfadjoint operator. Using the Fourier 
- transform, $P$ is transformed into a multiplication operator. This
+ $f(x)= \e^{i(\lambda -1 )x}$. This is in the domain of $P$, if 
+ $\lambda = 2\pi k$ for $k \in \Z$. We claim that these elements
+ already form a Hilbert basis. To see this, we periodically
+ extend any
+ $f \in \hs \coloneqq \Ltwo(\left[ 0, 1 \right])$ to 
+ $\Ltwo(\R)$. Now we can consider functions on the quotient 
+ $\R \backslash \Z = \mathbb{S}^1$. For $\Ltwo(\mathbb{S}^1)$,
+ $\left(\e^{2\pi i k x }\right)_{k \in \Z}$ forms a Hilbert basis, via
+ Fourier expansion. A full proof can be found in 
+ \cite[Ch. V.4]{WernerFunkAna}.
+ Using the Fourier transform $\mc{F}$, $P$ becomes the multiplication operator
+ $M_{2 \pi k}$: For $f \in \dom(P)$, we get
+ \begin{align*}
+  (\mc{F}(Pf))(k)
+  &= \frac{1}{\sqrt{2\pi}} \int _0 ^1 \e^{2\pi i k x}i(\partial_xf)(x)\dx
+  = \frac{1}{\sqrt{2\pi}} \int _0 ^1 2 \pi k \e^{2\pi i k x}f(x)\dx \\
+  &= 2 \pi k (\mc{F}f)(k).
+ \end{align*}
+The Fourier transform maps $\Ltwo(\mathbb{S}^1)$ isometrically
+to $\ell^2(\Z)$. $\spe(M_{2\pi k}) = 2\pi \Z$, as 
+$(M_{2 \pi k } + \lambda I)\inv = (M_{2 \pi k + \lambda})\inv
+= M_{(2 \pi k + \lambda)\inv}$, for $\lambda \notin 2\pi \Z$.
+We can therefore apply the arguments from Example
+\ref{ExplMult}, to $M_{2 \pi k}$, and transform back.
+
 \end{expl}
+
+The fact that we could find another Hilbert space, such that our operator
+acts as a multiplication operator was not mere chance. The most general 
+statement of a spectral theorem states the following:
+
+\begin{thrm}[Spectral Theorem, multiplication operator]
+
+Let $T$ be a normal operator on a Hilbert space $\hs$. There exists
+a measure space $(\Omega, \Sigma, \mu)$, and a measurable function 
+$f: \Omega \to \C$, and a unitary operator $U: \hs \to \Ltwo(\mu)$,
+such that
+\begin{enumerate}[\normalfont (a)]
+ \item $x \in \dom(T)$ if, and only if $f \cdot Ux \in \Ltwo(\mu)$.
+ \item $UTU\str \phi = f \cdot \phi = M_f(\phi)$ for 
+ $\phi \in \dom(M_f) 
+ = \setl \phi \in \Ltwo(\mu) \bigm | f\phi \in \Ltwo(\mu) \setr$.
+\end{enumerate}
+\end{thrm}
+The proof for selfadjoint $T$ can be found in \cite[Ch. VII.4]{WernerFunkAna}.
+Note, that if $T$ is selfadjoint, then the function $f$ from the theorem, 
+takes only real values.
 
 
 
