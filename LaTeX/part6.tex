@@ -1,6 +1,6 @@
-\section{Examples}
+\section{Applications}
 
-Our examples are motivated by quantum physics. Two fundamental operators
+Our applications are motivated by quantum physics. Two fundamental operators
 in quantum mechanics are the momentum operator $P\coloneqq 
 i \frac{\partial}{\partial x}$
 , and the position operator $M_x(f)(x) = xf(x)$. 
@@ -18,7 +18,7 @@ inequality: Let $f \in \hs$
  \| M_x(f) \|^2 = \int _0 ^1 x^2 | f(x)|^2 \de x \leq 
  1 \cdot \int _0 ^1 | f(x) |^2 \de x = \| f \| ^2.
 \]
-Thus $\| M_x\| \leq 1$. Furthermore $M_x$ is selfadjoint, which implies that
+Thus $\| M_x\| \leq 1$. Furthermore $M_x$ is self-adjoint, which implies that
 $\spe M_x \subset \left[ -1 , 1 \right]$. But for $\lambda > 0$,
 $M_{x-\lambda}$ is invertible as $M_{\nicefrac{1}{(x - \lambda)}} \in \bh$, again by
 Hölder. Therefore $\spe M_x \subset \left[ 0, 1\right]$. To show 
@@ -28,8 +28,8 @@ the latter not being bounded, as $\frac{1}{x + \lambda} \notin
 \Ltwo(\left[ 0, 1\right])$. We conclude that $x$ does not a have a preimage
 in $\hs$ under $M_{x + \lambda}$. Hence $\spe M_x = \left[ 0 , 1\right]$.
 
-Our spectral theorem \ref{boundedfunccalc} now states, that we have
-an isometry $\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$. This 
+Our Spectral Theorem \ref{boundedfunccalc} states, that we have
+an isometry \unsure{in die n"achste Zeile?}$\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$. This 
 isometry sends $\id$ to $M_x$, and the constant function $1$ to $I$.
 We conclude that $\phi$ is mapped via $\Phi$ to 
 $M_{\phi(x)}: g \mapsto \phi \cdot g$. In this example, it is obvious that,
@@ -61,7 +61,7 @@ both operators are unbounded, and hence, neither is boundedly invertible.
  $\|P\| = \| P \str \|$. To get a normal operator, we
  need to specify boundary conditions on $\dom(P)$. One knows that
  $P\str$ acts the same way as $P$. Therefore, if $P$ is normal,
- it is selfadjoint.
+ it is self-adjoint.
  We compute
  \begin{align*}
   \gen{f, Pg} 
@@ -73,7 +73,7 @@ both operators are unbounded, and hence, neither is boundedly invertible.
 &=i(\overline{f(1)}g(1)- \overline{f(0)}g(0)) 
 +\gen{Pf, g}.
  \end{align*}
-For $P$ to be selfadjoint, the left term from the last line needs 
+For $P$ to be self-adjoint, the left term from the last line needs 
 to vanish. Thus, we get the boundary conditions 
  $\setl f \in H^1(\left[ 0,1 \right]) \bigm| f(0) = f(1) \setr$.
  To determine the spectrum of the operator, we look at 
@@ -107,7 +107,7 @@ We can therefore apply the arguments from Example
 \end{expl}
 
 The fact that we could find another Hilbert space, such that our operator
-acts as a multiplication operator was not mere chance. The most general 
+acts as a multiplication operator, was not mere chance. The most general 
 statement of a spectral theorem states the following:
 
 \begin{thrm}[Spectral Theorem, multiplication operator]
@@ -123,8 +123,8 @@ such that
  = \setl \phi \in \Ltwo(\mu) \bigm | f\phi \in \Ltwo(\mu) \setr$.
 \end{enumerate}
 \end{thrm}
-The proof for selfadjoint $T$ can be found in \cite[Ch. VII.4]{WernerFunkAna}.
-Note, that if $T$ is selfadjoint, then the function $f$ from the theorem, 
+The proof for self-adjoint $T$ can be found in \cite[Ch. VII.4]{WernerFunkAna}.
+Note, that if $T$ is self-adjoint, then the function $f$ from the theorem, 
 takes only real values.
 
 
