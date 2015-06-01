@@ -28,8 +28,8 @@ the latter not being bounded, as $\frac{1}{x + \lambda} \notin
 \Ltwo(\left[ 0, 1\right])$. We conclude that $x$ does not a have a preimage
 in $\hs$ under $M_{x + \lambda}$. Hence $\spe M_x = \left[ 0 , 1\right]$.
 
-Our Spectral Theorem \ref{boundedfunccalc} states, that we have
-an isometry \unsure{in die n"achste Zeile?}$\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$. This 
+Our Spectral Theorem \ref{boundedfunccalc} states, that the map
+$\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$, is an isometry. This 
 isometry sends $\id$ to $M_x$, and the constant function $1$ to $I$.
 We conclude that $\phi$ is mapped via $\Phi$ to 
 $M_{\phi(x)}: g \mapsto \phi \cdot g$. In this example, it is obvious that,
@@ -101,23 +101,28 @@ The Fourier transform maps $\Ltwo(\mathbb{S}^1)$ isometrically
 to $\ell^2(\Z)$. $\spe(M_{2\pi k}) = 2\pi \Z$, as 
 $(M_{2 \pi k } + \lambda I)\inv = (M_{2 \pi k + \lambda})\inv
 = M_{(2 \pi k + \lambda)\inv}$, for $\lambda \notin 2\pi \Z$.
+
+The map $\Phi : \spe(P) \to \lh, ~
+f \mapsto \mc{F}M_{f(2\pi k)} \mc{F}\inv$ satisfies the conditions
+of being a spectal measure for the operator $P$. By Theorem \ref{USpectral}
+it is the unique spectral measure for $P$. 
 We can therefore apply the arguments from Example
 \ref{ExplMult}, to $M_{2 \pi k}$, and transform back.
 
 \end{expl}
 
 The fact that we could find another Hilbert space, such that our operator
-acts as a multiplication operator, was not mere chance. The most general 
-statement of a spectral theorem states the following:
+acts as a multiplication operator, was not mere chance. A more general 
+version of the spectral theorem states the following:
 
 \begin{thrm}[Spectral Theorem, multiplication operator]
 
 Let $T$ be a normal operator on a Hilbert space $\hs$. There exists
-a measure space $(\Omega, \Sigma, \mu)$, and a measurable function 
+a measure space $(\Omega, \Sigma, \mu)$, a measurable function 
 $f: \Omega \to \C$, and a unitary operator $U: \hs \to \Ltwo(\mu)$,
 such that
 \begin{enumerate}[\normalfont (a)]
- \item $x \in \dom(T)$ if, and only if $f \cdot Ux \in \Ltwo(\mu)$.
+ \item $x \in \dom(T)$ if, and only if $f\! \cdot\! U(x) \in \Ltwo(\mu)$.
  \item $UTU\str \phi = f \cdot \phi = M_f(\phi)$ for 
  $\phi \in \dom(M_f) 
  = \setl \phi \in \Ltwo(\mu) \bigm | f\phi \in \Ltwo(\mu) \setr$.
