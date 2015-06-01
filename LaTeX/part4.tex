@@ -1,10 +1,11 @@
 
 \section{Extension of Continuous Spectral Measures}
 
-This section will follow \cite{LesHaupt} and \cite[pp. 341-]{RudinFuncAna}
+This section will follow \cite{LesHaupt} and \cite[pp. 341- 345]{RudinFuncAna}
 , while some notation
 is taken from \cite[Ch. 6]{PedAnaN}. The reader not familiar
-with complex measures, is advised to review the basic facts in 
+with complex measures, is advised to review the basic facts
+and definitions in 
 \cite[Ch. 6]{RudinRealComp}.
 
 We want to extend a given spectral measure for continuous functions,
@@ -256,9 +257,10 @@ g &\mapsto \int f \dm{g,h}
 is continuous and $f$ an element of $ \mscr{L}^1(\m{g,h})$.
 The third equality follows from
 \[
-\|\m{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m{g,h}| =
-\sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m{g,h}|
- =  \int \text{d}  |\m{g,h}| = |\m{g,h}|(1) .
+  \int \text{d}  |\m{g,h}| 
+= |\m{g,h}|(1) =
+\sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m{g,h}|(\phi)
+=\|\m{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m{g,h}|(\phi).
 \]
 This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a
 continuous map.
