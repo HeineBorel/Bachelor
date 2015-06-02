@@ -1,5 +1,5 @@
 
-\section{Extension of Continuous Spectral Measures}
+\section{Extension of Continuous Spectral Measures}\label{section4}
 
 This section will follow \cite{LesHaupt} and \cite[pp. 341- 345]{RudinFuncAna}
 , while some notation
@@ -16,10 +16,10 @@ are bounded, or densely defined.
  
  Let $X$ be a compact space and let
  \[
-  \Phi : \cf (X) \to \lh
+  \Phi : \cf (X) \to \bh
  \]
 be a map. $\Phi$ is called a \textit{spectral measure}, if its image 
-$\A \coloneqq \Phi(\cf (X))$ is a commutative star-subalgebra of $\lh$ and 
+$\A \coloneqq \Phi(\cf (X))$ is a commutative $C\str$-algebra of $\bh$ and 
 $\Phi$ induces an isomorphism onto its image.
 \end{defi}
 
@@ -35,9 +35,13 @@ $\Phi$ induces an isomorphism onto its image.
 
 % Hier noch das Beispiel uebernehmen ?
 \begin{expl}
-Let $\m{}$ be a positive Radon integral on our compact space $X$, meaning a
+ The maps constructed in Propositions \ref{spectraluniqueness}
+ and \ref{boundedfunccalc} are examples
+ of spectral measures.
+  
+Let $\m{}$ be a positive Radon integral on a compact space $X$, meaning a
 continuous linear functional on $\cf (X)$, such that $\m{}(f) = 0$ implies 
-that $f=0$. An more in depth study of Radon integrals can be found in 
+that $f=0$. A more in-depth study of Radon integrals can be found in 
 \cite[Chapter~6.1]{PedAnaN}. Set $\hs \coloneqq L^2(\mathfrak{m})$.
 We define 
 \begin{align*}
@@ -45,16 +49,18 @@ We define
  f \mapsto (g \mapsto f\cdot g).
 \end{align*}
 $\Phi$ is a spectral measure. This claim is not obvious, and the proof
-that $\Phi$ is an isometry requires a bit of work, but is omitted here.
+that $\Phi$ is an isometry requires a bit of work, and is omitted here.
 It can be found in \cite{LesHaupt}. 
 \end{expl}
 
-Departing from this example, let $\hs$ be a Hilbert space.
+Departing from this example, let $\hs$ be a Hilbert space and 
+$\Phi: \cf(X) \to \bh$
+be a spectral measure .
 For all $g , h \in \hs$ define
 \[
  \m{g, h} (f) \coloneqq \gen{g, \Phi_f h}.
 \]
-We then conclude, that the map 
+We see, that the map 
 \[
  f \mapsto \m{g,h} (f)
 \]
@@ -78,16 +84,16 @@ properties:
 \begin{proof}
  \begin{enumerate}[(i)]
   \item \begin{align*}
-         \| \m{g,h} \| &= \sup\limits_{\| f \| _\infty \leq 1} | \m{g,h}(f) | \\
-			&= \sup\limits_{\| f \| _\infty \leq 1} | \gen{g, \Phi_f h} | \\
-			&\leq \sup\limits_{\| f \| _\infty \leq 1} \| g \| \|\Phi_f \| \| h\| \\
-			&= \|g\| \|h\|
+         \| \m{g,h} \| &= \sup\limits_{\| \phi \| _\infty \leq 1} | \m{g,h}(\phi) | \\
+			&= \sup\limits_{\| \phi \| _\infty \leq 1} | \gen{g, \Phi_\phi h} | \\
+			&\leq \sup\limits_{\| \phi \| _\infty \leq 1} \| g \| \|\Phi_\phi \| \| h\| \\
+			&= \|g\| \|h\|.
         \end{align*}
-  since $\|\Phi_f \| =\| f \|_\infty$.
+  The last equality holds, because $\Phi$ is an isometry.
  \item follows immediately from the linearity of $\gen{\cdot , \cdot}$
  
- \item $\overline{\mb}_{g,h}(f) = \overline{\gen{g, \overline{f}h}} = 
-       \gen{\overline{f}h ,g} =	f\gen{h,g} = \gen{h, fg} = \m{h,g}(f).$
+ \item $\overline{\mb}_{g,h}(f) = \overline{\gen{g, \Phi_{\overline{f}}h}} = 
+ \gen{\Phi_{\overline{f}}h ,g} =\gen{h,\Phi_{f}g} = \m{h,g}(f).$
 	
        \item Let $\phi \geq 0$. Because $\Phi$ is algebra homomorphism, and 
        $\overline{\sqrt{\phi}} = \sqrt{\phi},$ we have 
@@ -116,10 +122,14 @@ properties:
 %  Follows from definition.
 % \end{proof}
 We now extend $\m{g,h}$ to measurable functions in the sense of 
-\cite[Ch. 4.5]{PedAnaN}.  The definition
+\cite[Ch. 4.5]{PedAnaN}. This extension is unique, 
+as the measurable (or Borel) functions are the monotone sequential 
+completion of the continuous functions \cite[Propostition 6.2.9]{PedAnaN},
+and the theorem of monotone convergence holds \cite[Theorem 6.1.13]{PedAnaN}.
+The definition
  of measurability without using $\sigma$-algebras, can be found in
  \cite[Ch. 6.3]{PedAnaN}.
-\begin{defi}
+\begin{defi}\label{defmeasurable}
  $N \subset X$ is called a $\Phi$-set of measure zero, or $\Phi$-null set, if
  $N$ is a null set of $| \m{g,h}|$ for all $g,h \in \hs$, that is  
   $| \m{g, h} | (N) =0.$
@@ -135,20 +145,20 @@ We now extend $\m{g,h}$ to measurable functions in the sense of
 % out, the operators obtained from these functions are not densely defined,
 % and hence of no interest to us. 
 
- \begin{gather*}
-   \Lonephi \coloneqq \setl f \in \Lzerophi \bigm | f \in \Lone (\m{g,h}) 
-   \text{ for all }g,h \in \hs \setr \\
-   \Linftyphi \coloneqq \setl f \in \Lzerophi \bigm |  \|f \| _\infty 
+ \begin{alignat*}{2}
+   &\Lonephi &\coloneqq& \setl f \in \Lzerophi \bigm | f \in \Lone (\m{g,h}) 
+   \text{ for all }g,h \in \hs \setr, \\
+   &\Linftyphi &\coloneqq& \setl f \in \Lzerophi \bigm |  \|f \| _\infty 
    < \infty \setr\\
    \shortintertext{where, }
-  \| f \| _\infty \coloneqq  \inf \setl \lambda > 0 \bigm |
+  &\| f \| _\infty &\coloneqq&  \inf \setl \lambda > 0 \bigm |
     |f| \leq \lambda,  \phiae\setr.
- \end{gather*}
+ \end{alignat*}
   By $\mblsx$ we denote the measurable subsets of $X$:
  \[
  \mblsx \coloneqq \setl A \subset X \bigm | 1_A \in \Lzerophi \setr.
  \]
- Let $f \in \Lzerophi$.
+ For $f \in \Lzerophi$, we set
  \begin{align*}
  \dom(f) &\coloneqq \big\lbrace h \in \hs \bigm | f \in \Lone  (\m{g,h})
  \text{ for all } g
@@ -158,7 +168,7 @@ We now extend $\m{g,h}$ to measurable functions in the sense of
  &=  \big\lbrace h \in \hs \bigm | f \in \Lone (\m{g,h}) \text{ for all } g \in
  \hs \\
  &~~~~~~~~\text{ and } \exists k \in \hs \text{ such that } \int f \dm{g,h}
- = \gen{g, k} \big\rbrace
+ = \gen{g, k} \big\rbrace,
  \end{align*}
 where the second equality is due to the Riesz representation theorem. The 
 reader familiar with unbounded operators, will recognize the similarity
@@ -178,7 +188,8 @@ By sesquilinearity of $\gen{\cdot, \cdot}$, $\Phi_f$ is linear as well.
 
 \begin{rem}
 
-If we want to proof claims about $\Lzerophi$ it is enough to show them for 
+  If we want to proof claims about $\m{g,h}$ acting on $\Lzerophi$ it
+  is enough to show them for 
 $\cf(X)$, as every measurable function is the limit of continuous ones 
 \cite[Proposition 6.2.9]{PedAnaN}.
  
@@ -186,7 +197,7 @@ $\cf(X)$, as every measurable function is the limit of continuous ones
 
 \begin{lem} \label{lemlinm}
  
-  For all $f \in \Lzerophi$ and $h \in \dom(f)$, $g\in \hs$ it holds that
+  For all $f \in \Lzerophi$, $h \in \dom(f)$, and $g\in \hs$ it holds that
  \[
  \m{g, \Phi_f h} = f\m{g,h} \text{ and } \m{\Phi_f g, h} = \overline{f}\m{g,h}.
  \]
@@ -215,9 +226,8 @@ $\cf(X)$, as every measurable function is the limit of continuous ones
    \overline{\gen{h, \Phi_{\overline{\phi}} \Phi_f g}}\\
    &= \overline{\int \overline{\phi} \dm{h, \Phi_f g}}
    = \overline{\int \overline{\phi}f \dm{h,  g}}
-   = \overline{f\m{h, g}(\overline{\phi})}\\
-   &= \overline{\m{h,g}(\overline{\phi}f)}
-   = \overline{\mf{m}}_{h,g }(\phi \overline{f}) 
+   = \overline{\m{h,g}(\overline{\phi}f)}\\
+   &= \overline{\mf{m}}_{h,g }(\phi \overline{f}) 
    = \m{g,h}(\phi \overline{f})
    = (\overline{f} \m{g,h})(\phi).
  \end{align*}
@@ -225,8 +235,8 @@ $\cf(X)$, as every measurable function is the limit of continuous ones
  
 \end{proof}
 
-We now want to know, whether the operator we obtain from our expanded measure
-is bounded, or at least densely defined, if not bounded. This will be done in the next
+We now want to know, whether the operators we obtain from our expanded measure
+are bounded, or at least densely defined. This will be done in the next
 lemmata, which are going to be summarized in a theorem at the end of the
 chapter.
 
@@ -234,7 +244,7 @@ chapter.
   \label{maintheorem1}
  If $f \in \Linftyphi$, then $\dom(f) = \hs$, $ \Phi_f \in \lh$ and
  \[
- \| \Phi_f \| = \| f\|_\infty = \inf \setl \alpha > 0 \bigm |
+ \| \Phi_f \| = \| f\|_\infty \leq \inf \setl \alpha > 0 \bigm |
  \alpha \geq |f|, \phiae\setr.
  \]
 
@@ -245,7 +255,7 @@ chapter.
    
    Let $f \in \Linftyphi$.
    We have to show that $\dom(f) = \hs$.
-   Let $h \in \hs$. For $g \in \hs$ one gets:
+   Let $g, h \in \hs$. One gets:
    \begin{align*}
      \left | \int f \dm{g, h} \right | &\leq \int |f| \text{d}  |\m{g,h}| \\
 			   &\leq \| f\| _\infty \int \text{d}  |\m{g,h}|\\
@@ -254,13 +264,13 @@ chapter.
 \shortintertext{which implies}
 g &\mapsto \int f \dm{g,h}
 \end{align*}
-is continuous and $f$ an element of $ \mscr{L}^1(\m{g,h})$.
+is continuous and $f$ an element of $ \mscr{L}^1(\m{g,h})$ for all $g, h \in \hs$.
 The third equality follows from
 \[
   \int \text{d}  |\m{g,h}| 
 = |\m{g,h}|(1) =
 \sup_{ \substack{| \phi | \leq 1\\ \phi \in \cf(X)}} |\m{g,h}|(\phi)
-=\|\m{g,h}\|=\sup_{\| \phi \|_\infty \leq 1} |\m{g,h}|(\phi).
+=\sup_{\| \phi \|_\infty \leq 1} |\m{g,h}|(\phi)=\|\m{g,h}\|.
 \]
 This shows that the assignment $g \mapsto \int f \dm{g,h}$ defines a
 continuous map.
@@ -268,16 +278,14 @@ continuous map.
   \| \Phi_f \| = \sup_{\| g\|, \| h\| \leq 1}  
   \left| \gen{g, \Phi_f h} \right | 
   = \sup_{\| g\|, \| h\| \leq 1}  \left| \int f \dm{g,h} \right | 
-  \leq \|f\|_\infty.
+  \leq \|f\|_\infty.\tag{$\ast$}
 \end{gather*}
 The other inequality, will be proved in Lemma \ref{maintheorem5}.
 \end{proof}
 
 \begin{rem}
- If $ f_n \to f \text{ in } \Linftyphi, $ then
-\[
-\Phi_f = \lim \Phi_{f_n} \text{ in } \lh.
-\]
+ Because of $(\ast)$ convergence of $ f_n $ in $\Linftyphi, $ implies
+ convergence of $\Phi_{f_n}$ in $\bh$.
 \end{rem}
 By $\int \str  f\dm{g,h}$, we mean the upper integral, as defined in
   \cite[Ch. 6.1]{PedAnaN}. If $\int \str f \dm{g,h} < \infty$, then
@@ -295,7 +303,7 @@ Then the following statements about $h \in \hs$ are equivalent:
 \begin{enumerate}[(i)]
  \item $h \in \dom(f)$
  \item $\int \str | f| ^2 \dm{h,h} < \infty$
- \item $(\Phi_{f_n}h)$ converges in $ \hs$
+ \item $(\Phi_{f_n}h)$ converges in $ \hs$.
 \end{enumerate}
 One then has
 \begin{align*}
@@ -313,27 +321,27 @@ For example, one can take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
 \begin{proof}
  $(i) \Rightarrow (ii)$:
   Let $h \in \dom(f)$.
- \begin{align*}
-   \infty > \|\Phi_f h\| ^2 &= \gen{ \Phi_f h , \Phi_f h} \\
-   &= \int f \dm{\Phi_f h, h} \\
-   &= \int f \overline{f} \dm{h,h} \\
-   &= \int | f | ^2 \dm{h,h}.
- \end{align*}
+  \begin{gather*}
+   \infty > \|\Phi_f h\| ^2 = \gen{ \Phi_f h , \Phi_f h} 
+   = \int \str f \dm{\Phi_f h, h} 
+   = \int \str f \overline{f} \dm{h,h} 
+   = \int \str | f | ^2 \dm{h,h}.
+ \end{gather*}
  
   $(ii) \Rightarrow (iii)$:
-    Let $h \in \mscr{L}^2(\m{h,h})$. Then for $g \in \hs$
+    Let $h \in \mscr{L}^2(\m{h,h})$. It is enough to show that
+    $\Phi_{f_n}$ is a Cauchy sequence in $\bh$. for $g \in \hs$
   \begin{align*}
-    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \gen{g, \Phi_{f_m}} 
-    - \gen{g, \Phi_{f_n}}\\
+    \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \gen{g, \Phi_{f_m}}h 
+    - \gen{g, \Phi_{f_n}h}\\
 					&=\int f_m \dm{g,h} - \int f_n \dm{g,h} \\
 					&= \int (f_m - f_n) \dm{g,h} \\
 					&= \gen{g, \Phi_{(f_m - f_n)} h }
     \intertext{Since $g$ was arbitrary, we get 
-      $(\Phi_{f_m} - \Phi_{f_n})h= \Phi_{(f_m - f_n)}h$}
+      $(\Phi_{f_m} - \Phi_{f_n})h= \Phi_{(f_m - f_n)}h$, and}
     \|(\Phi_{f_m} - \Phi_{f_n}) h \|^2  &= \| \Phi_{(f_m - f_n)} h \| ^2\\
 					&= \int |f_m - f_n|^2 \dm{h,h}.
   \end{align*}
-where the last equality holds, because $h \in \dom(f_m - f_n)$ and thus $f \in \Ltwophi$. 
 By our assumption, we have $f_m -f_n \to 0 \phiae$ Therefore
 \[
 | f_m - f_n |^2 \leq (2(\alpha |f| + \beta))^2 \in \mscr{L}^1(\m{h,h}),
@@ -342,12 +350,12 @@ as constant functions are contained $\Lonephi$.
 Now, Lebegues theorem about dominated convergence yields the claim.
 
 $(iii) \Rightarrow (ii)$:
-Using Fatous lemma, and
+Using Fatou's lemma, and
 $\| \Phi_{f_n} h \|^2 = \int | f_n | ^2 \dm{h,h} $, we get 
 \begin{align*}
   \infty & > \| \lim_{n \to \infty} \Phi_{f_n} h \| ^2 = \lim_{n \to \infty}
   \| \Phi_{f_n} h \| ^2 =
-  \lim_{n \to \infty} \int | f_n | ^2 \dm{h,h} \\
+  \lim_{n \to \infty} \int \str | f_n | ^2 \dm{h,h} \\
   & \geq \int \str \liminf_{n \to \infty} |f_n | ^2 \dm{h,h} = \int \str |f|^2 \dm{h,h}
 \end{align*}
 
@@ -369,7 +377,7 @@ $(ii) \Rightarrow (i)$:
    \infty &> \|g\|^2 \| \lim_{n \to \infty} \Phi_{\widetilde{f}_n}h \|^2 \geq
    \left|\gen{g, \lim_{n \to \infty} \Phi_{\widetilde{f}_n} h} \right| =
    \left|\lim_{n \to \infty} \int \widetilde{f}_n \dm{g,h} \right| \\
-	  &\geq \lim_{n \to \infty} \int |f_n| \text{d}  |\m{g,h}| 
+	  &= \lim_{n \to \infty} \int |f_n| \text{d}  |\m{g,h}| 
 	  \geq \int \str \liminf_{n \to \infty} |f_n| \text{d}  |\m{g,h}| 
 	  = \int \str |f| \text{d}  |\m{g,h}|,
  \end{align*}
@@ -380,7 +388,7 @@ $(ii) \Rightarrow (i)$:
  \lim_{n \to \infty} \int f_n \dm{g,h} = \int f \dm{g,h}
  =\gen{g, \Phi_f h},
  \]
-which means, $h \in \dom(f)$. 
+proving that, $h \in \dom(f)$. 
 
 
 \end{proof}
@@ -412,15 +420,14 @@ equivalent to
 We have 
 \begin{align*}
   \int \str |f|^2 \dm{E_{\mc{A}_n}h, E_{\mc{A}_n}h} = 
-  \int \str \overline{1}_{\mc{A}_n} 1_{\mc{A}_n} \dm{h,h} \leq
+  \int \str \overline{1}_{\mc{A}_n} 1_{\mc{A}_n} |f|^2 \dm{h,h} \leq
   n^2 \int \dm{h,h} \leq n^2 \| h\|^2 < \infty.
 \end{align*}
-For $h \in \hs$ we have $h = \lim_{n \to \infty} E_{\mc{A}_n} h$. 
-Then $|1_{\mc{A}_n}| \leq 1$, and we have
-$1_{\mc{A}_n} \to 1 $ pointwise $\phiae$
+For $h \in \hs$, we have $h = \lim_{n \to \infty} E_{\mc{A}_n} h$,
+as $1_{\mc{A}_n} \to 1 $ pointwise $\phiae$
 Let $h \in \hs = \dom(1)$. By Lemma \ref{maintheorem2} we have
 \[
-h = \Phi_1 h = \lim_{n \to \infty} \Phi_{1_{\mc{A}_n}} =
+h = \Phi_1 h = \lim_{n \to \infty} \Phi_{1_{\mc{A}_n}}h =
 \lim_{n \to \infty} E_{\mc{A}_n} h , 
 \]
 which gives $\dom(f) \subset \hs$ is dense, as $E_{\mc{A}_n} h \in \dom(f)$ by
@@ -433,12 +440,12 @@ Let  $g,h \in \dom(f) = \dom(\overline{f})$. Using Theorem \ref{measurepropertie
   \gen{g, \Phi_f h} &= \int f \dm{g,h} 
   = \overline{ \int \overline{f} \text{d}\overline{\mf{m}_{g,h}}} 
   = \overline{ \gen{h , \Phi_{\overline{f}} g }} 
-  = \gen{\Phi_{\overline{f} }g , h}
+  = \gen{\Phi_{\overline{f} }g , h}.
 \end{align*}
 Thus, $g \in \dom(\Phi_f \str)$ and $\Phi_f \str g = \Phi_{\overline{f}} g$
 for all $g \in \dom(f)$.
 
-On the other hand, to show that  $\Phi_{\overline{f}} \supset \Phi_f \str$
+On the other hand, to show that  $\Phi_{\overline{f}} \supset \Phi_f \str$,
 let $g\in \dom(\Phi_f \str)$.
 By Lemma \ref{maintheorem2}, we only have to show $\Phi_{\overline{f}_n}g$
 converges in $\hs$, for some net satisfyig the conditions of Lemma
@@ -447,17 +454,19 @@ where $\mc{A}_n = \setl x \in X \bigm | | f(x) | \leq n \setr$.
 Let $h \in \hs$. For better readability, we write $E_n$ for 
 $\Phi_{\mc{A}_n}$, $F_n$, $F_n\str$ for $\Phi_{f_n}$ 
 respectively $\Phi_{\overline{f}_n}$, and 
-$F$ for $\Phi_f$.
+$F$ for $\Phi_f$. Note that $F\str$ stands for $\Phi_F \str$ not for 
+$\Phi_{\overline{f}}$.
 
 \begin{align*}
-\gen{ F_n\str g, h }& = \int \dm{F_n\str g, h}
+  \gen{\Phi_{\overline{f}_n}g,h}&=\gen{ F_n\str g, h } = \int \dm{F_n\str g, h}
 = \int f_n \dm{g,h} 
-= \int f \dm{g, E_{n} h }
-= \int \dm{g, F E_{n} h} \\
-&= \gen{g, F E_{n} h} 
+= \int f \dm{g, E_{n} h }\\
+&= \int \dm{g, F E_{n} h} 
+= \gen{g, F E_{n} h} 
 = \gen{F \str g, E_{n} h}
 = \int 1_{\mc{A}_n} \dm{F \str g, h}\\
-&= \int \dm{E_{n} F \str g, h} = \gen{E_{\mc{A}_n}  F \str g, h}
+&= \int \dm{E_{n} F \str g, h} 
+= \gen{E_{\mc{A}_n}  \Phi_{\overline{f}} g, h}
 \end{align*}
 
 % 
@@ -593,7 +602,7 @@ $(ii)$:
     \text{d}|\m{g,h}|,
     \shortintertext{so}
     \int \str |\varphi| \text{d}|\m{g, \Phi_\psi h}| < \infty 
-    \text{ is equivalent to }
+    \Leftrightarrow
   \int \str |\varphi \psi| \text{d}|\m{g,h}| < \infty.
   \shortintertext{Therefore, }
   g \mapsto \int \str \varphi \dm{g, \Phi_\psi h} \text{ is continuous } 
@@ -655,7 +664,7 @@ Thus
 %   \intertext{and thus get using $(i)$,}
 %   \dom(\varphi) \subset \dom(\psi \varphi) \Rightarrow \dom(\Phi_\varphi \Phi_\psi)
 %   = \dom(\varphi).
-  \shortintertext{Therefore, we have proven}
+ \shortintertext{It follows that}
   \Phi_\varphi \Phi_\psi = \Phi_{\varphi \psi} \text{ and }
  \Phi_\varphi \Phi_\psi = \Phi_{\varphi + \psi}.
 \end{align*}
@@ -678,8 +687,8 @@ Rest of $(ii)$:
     E_{\mc{A}_n}(\hs) \subset \dom(\varphi)\cap \dom(\psi)
     \shortintertext{and}
     \cup \mc{A}_n = X,~\mc{A}_n \subset \mc{A}_{n+1}.
-    \shortintertext{And thus}
-    \lim E_{\mc{A}_n} = \id  
+    \shortintertext{Thus}
+    \lim E_{\mc{A}_n} = \id  .
   \end{gather*}
   For all $h \in \dom(\varphi + \psi)$, one has
   \begin{align*}
@@ -831,23 +840,23 @@ Rest of $(ii)$:
 \begin{lem} \label{maintheorem5}
   For $f \in \Lzerophi$, one has
 \[
-\Phi_f \in \lh \text{ if and only if }f \in \Linftyphi.
+\Phi_f \in \bh \text{ if and only if }f \in \Linftyphi.
 \]
 
  
 \end{lem}
 
 \begin{proof}
- "$\impliedby$" already proven in Lemma \ref{maintheorem1}.
+ "$\Leftarrow$" already proven in Lemma \ref{maintheorem1}.
  
  For the other direction we prove that $\| \Phi_f \| \geq \| f\|_\infty$.
  Let $\lambda < \| f\|_\infty$. Then $\mc{A}_\lambda \coloneqq 
  \setl |f| \geq \lambda \setr$ is not a $\Phi$-null set. By the polarization
  identity, there exists a $h \in \hs$, such that $\mc{A}_\lambda$ is not a
- $\m{h,h}$-null set. We have
+ $\m{h,h}$-null set. Set
  \begin{align*}
    \mc{A}_\lambda= \bigcup_{\substack{\mu \in \Q \\ \mu > \lambda}}
-   \setl \lambda \leq | f| \leq \mu \setr
+   \setl \lambda \leq | f| \leq \mu \setr,
    \shortintertext{which gives}
    0 \neq \m{h,h}(\mc{A}_\lambda) = 
    \sup_{\substack{\mu \in \Q \\ \mu > \lambda}} \m{h,h}(
@@ -873,17 +882,17 @@ Rest of $(ii)$:
 
 
 \begin{lem} \label{maintheorem6}
-  For $f \in \Lzerophi$, it holds that
+  For $f \in \Lzerophi$, 
   $\Phi_f $ is invertible if and only if $ \setl f = 0 \setr
   $ is a $   \Phi $-null set and $ \nicefrac{1}{f}
-  \in \Linftyphi.$ One then has $\Phi_f \inv = \Phi_{\nicefrac{1}{f}}$
+  \in \Linftyphi.$ One then has $\Phi_f \inv = \Phi_{\nicefrac{1}{f}}$.
 
 
 \end{lem}
 
 \begin{proof}
  $\Leftarrow$: 
- By the previous Lemma $\Phi_{\nicefrac{1}{f}} \in \lh$, and by Lemma 
+ By the previous Lemma $\Phi_{\nicefrac{1}{f}} \in \bh$, and by Lemma 
  \ref{maintheorem4}
  \[
  \Phi_{\nicefrac{1}{f}} \Phi_f \subset \Phi_{\nicefrac{1}{f} f} = \Phi_1 = \id =
@@ -931,7 +940,7 @@ by Lemma \ref{maintheorem5}.
 \end{lem}
 
 \begin{proof}
- " $\subset$ "
+ " $\subset$ ":
  Fix $\lambda \in \spe \Phi_f$, $\mc{A} \subset X$ such that $E_\mc{A} = I$.
  We claim that $\lambda \in \overline{f(\mc{A})}$. By Lemmata \ref{maintheorem4}
  and \ref{maintheorem6}, $\Phi_f - \lambda I= \Phi_{f - \lambda}$ is 
@@ -942,18 +951,11 @@ by Lemma \ref{maintheorem5}.
   \left.  b\right)& \setl f - \lambda =0 \setr \text{ is a }\Phi\text{-null set,
     but } \nicefrac{1}{(f- \lambda)} \notin \Linftyphi.
 \end{align*}
-
 Suppose $a)$ holds. Since $\mc{A}\complement$ is a $\Phi\text{-null set}$,
-\[
-\mc{A} \cap \setl f= \lambda \setr \neq \varnothing .
-\]
-
-This means there exists a $x \in \mc{A}$ such that $f(x) = \lambda$, that is
-\[
-\lambda \in f(\mc{A}).
-\]
-
-Suppose now that $b)$ holds. By Lemma \ref{maintheorem6} $\nicefrac{1}{(f- \lambda)}
+$\mc{A} \cap \setl f= \lambda \setr \neq \varnothing$ .
+This means, there exists a $x \in \mc{A}$ such that $f(x) = \lambda$, that is
+$\lambda \in f(\mc{A}).$
+Now suppose that $b)$ holds. By Lemma \ref{maintheorem6} $\nicefrac{1}{(f- \lambda)}
 \notin \Linftyphi$ implies that $\nicefrac{1}{(f- \lambda)}$ is unbounded on
 $\mc{A} \setminus \setl f= \lambda \setr$. Thus, there exists a sequence
 $(x_n) \in \mc{A} \setminus \setl f= \lambda \setr$, such that
@@ -972,8 +974,8 @@ By Lemma \ref{maintheorem6}, $\Phi_f - \lambda I= \Phi_{f- \lambda}$ is
 invertible implies that $ \setl f = \lambda \setr  \text{ is a }   \Phi
 \text{-null set,} \text{ and } \nicefrac{1}{f - \lambda }  \in \Linftyphi$. Thus with 
 $M \coloneqq \| \nicefrac{1}{f - \lambda} \|_\infty$,
-$\setl | f- \lambda | < \nicefrac{1}{M} \setr$ is a $\Phi$-null set. Therefore,
-we can set $\mc{A}_0 \coloneqq \setl | f- \lambda | \geq \nicefrac{1}{M} \setr $.
+$\setl | f- \lambda | < \nicefrac{1}{M} \setr$ is a $\Phi$-null set.
+We set $\mc{A}_0 \coloneqq \setl | f- \lambda | \geq \nicefrac{1}{M} \setr $.
 Then $E_{\mc{A}_0} = I$ and $d(\lambda, \overline{f(\mc{A}_0)}) \geq
 \nicefrac{1}{M}$, that is 
 \[

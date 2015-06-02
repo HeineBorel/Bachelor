@@ -1,4 +1,4 @@
-\section{Unbounded Operators}
+\section{Unbounded Operators}\label{section3}
 
 
 
@@ -11,12 +11,13 @@ This chapter follows \cite{LesHaupt}. Lemma \ref{BBounded} is taken from
 \cite[p. 319]{ConFuncAna}.
 
 From now on, let $T \in \lh$ be a closed normal operator. 
-We endow $\domt$ with the graph scalar product
+We endow $\domt$ with the graph scalar product, where 
+$\iota: \dom(T) \hookrightarrow \hs$ is the canonical inclusion.
 \[
  \gen{x,y}_T \coloneqq  \gen{\iota x, \iota y}_\hs +
  \gen{ T \iota x, T \iota y}_\hs,
 \]
-making it a Hilbert space. The topology given by the graph scalar product
+This turns $\dom(T)$ into a Hilbert space. The topology given by the graph scalar product
 is finer than the subspace topology, as convergence in the graph norm
  implies convergence in the subspace topology. Furthermore,
 $T$ seen as a map from $( \domt , \gen{\cdot, \cdot}_T)$ to $\hs$, is 
@@ -25,8 +26,7 @@ continous.
 If there is no room for misinterpretation,
 we will omit the $\hs$ in the scalar product. The adjoint of $T$ as a closed 
 operator from $\hs$ to itself, will be called $T^*$. 
-Let $\iota : \domt \to \hs$ be the inclusion.
-We have two ways to interpret this map;
+We have two ways to interpret the inclusion map $\iota$:
 \begin{enumerate}
  \item as an operator on $\hs$, namely the identity with domain $\domt$, or
  \item as a bounded linear operator $\iota : ( \domt , \gen{\cdot, \cdot}_T)
@@ -34,8 +34,7 @@ We have two ways to interpret this map;
 \end{enumerate}
 Using the second interpretation, we note that by 
 $\ran(\iota\str) = \ker(\iota)^\perp =\hs$
-and $\ker(\iota\str) = \ran(\iota)^\perp = 0$, $\iota\str$ is a bijection,
-as $\dom(T)$ is dense in $\hs$. 
+and $\ker(\iota\str) = \ran(\iota)^\perp = 0$, $\iota\str$ is a bijection.
 \begin{lem}\label{TTstrDense}
  $\dom(T\str T)$ is dense in $( \domt , \gen{\cdot, \cdot}_T)$.
 \end{lem}
@@ -46,11 +45,11 @@ as $\dom(T)$ is dense in $\hs$.
   0 &=\gen{x, y}_T = \gen{\iota x, \iota y}_\hs + \gen{T\iota x, T\iota y}
   _\hs \\
   &=\gen{\iota x, \iota y}_\hs + \gen{T\str T\iota x, \iota y}_\hs
-= \gen{I + T \str T) \iota x, \iota y}_\hs.
+= \gen{(I + T \str T) \iota x, \iota y}_\hs.
  \end{align*}
 Therefore, if we prove $\ran(I + T\str T)$ is dense in $\hs$, the claim is
 proven as well. Since $\ran(I + T\str T)^{\perp_\hs} = \ker(I + T\str T)$, we prove
-injectivity of $(I + T\str T) \in \lh$,
+injectivity of $(I + T\str T)$,
 \begin{align*}
  \| (I + T\str T)x \| ^2  
  &= \|x \| ^2 + \| T \str T x\| ^2 + \gen{x, T\str T x}
@@ -67,9 +66,9 @@ injectivity of $(I + T\str T) \in \lh$,
  invertible, with inverse $\iota \iota \str$.
 \end{prop}
 \begin{proof}
-  For $x \in \domt$, $y \in \hs$ such that 
+  Let $x \in \domt$, $y \in \hs$ such that 
   $\iota  \iota \str y \in \dom(T\str T)$.
-  By definition 
+  We see that
   \begin{align*}
 \gen{\iota x, y}_\hs &= \gen{x, \iota \str y}_T = 
   \gen{\iota x,\iota \iota \str y}_\hs +
@@ -82,11 +81,10 @@ injectivity of $(I + T\str T) \in \lh$,
   \[
    0 = \gen{\iota x , \iota \iota \str y + T\str T \iota \iota \str y - y}.
   \]
-  Note that since $\iota \str$ is a continuous bijection and $\dom(T \str T)
+  Note, that since $\iota \str$ is a continuous bijection and $\dom(T \str T)
   \subset \dom(T)$ is a
   dense subset of both $\dom(T)$ and $\hs$, $(i \str) \inv (\dom(T \str T))$ is dense
-  in $\hs$. Since this equality holds for all $x \in \domt$, we get
-
+  in $\hs$. As this equality holds for all $x \in \domt$, we get
   \begin{align*}
   y=\iota \iota \str y + T\str T \iota \iota \str y 
   = (1+ T \str T) \iota \iota \str y,
@@ -96,10 +94,9 @@ injectivity of $(I + T\str T) \in \lh$,
 \end{proof}
 
 Define $A \coloneqq \iota \iota \str$ and $B \coloneqq TA$. 
-If we think of $A$ corresponding $\nicefrac{1}{1 + |x|^2}$, then we would expect
+If we think of $A$ corresponding to $\nicefrac{1}{1 + |x|^2}$, then we would expect
 $B$ to be bounded as well.
-As it turns out, this is true proven by the following
-
+As it turns out, this is true.
 \begin{lem}\label{BBounded}
  $B = TA = T(I + T \str T)\inv$ is a bounded operator, and we have
  $AT \subset TA$.
@@ -108,17 +105,17 @@ As it turns out, this is true proven by the following
 
 
 \begin{proof}
- Let $y \in \dom(I + T \str T)$ such that $(I + T \str T)y = x \in \domt$.
+ Let $x \in \dom(I + T \str T)$ such that $(I + T \str T)x = y \in \domt$.
  Using the calculation at the end of Lemma \ref{TTstrDense}, we get 
- $\| x + T\str T x \|^2 \geq \|Tx\|^2$.
-From that, $\| TAx\|^2 = \| Ty \| ^2 \leq \| (I + T \str T)y \|^2 = \| x \| ^2$
+ $\| y + T\str T y \|^2 \geq \|Ty\|^2$.
+From that, $\| TAy\|^2 = \| Tx \| ^2 \leq \| (I + T \str T)x \|^2 = \| y \| ^2$
 , which proves that $B$ is bounded. 
 
 To show that $AT \subset TA$, take $y \in \dom(AT) = \domt$,
 $x \in \dom(T \str T)$ such that $y = ( I +  T \str T)x$. $T \str T x \in \domt$
 which implies $Tx \in \dom(TT\str) = \dom(T\str T)$. Then 
 \[
- ATy = A(Tx + T T\str T x) = A((I + T\str T)Tx)= A(I+ T\str T)Tx= Tx,
+ ATy = A(Tx + T T\str T x) = A(I + T\str T)Tx= Tx,
 \]
 and
 \[
@@ -164,10 +161,10 @@ in the following
 
 \end{rem}
 
-From now on, we identify $B=\overline{AT}$ and $B\str =\overline{AT\str}$
+From now on, we identify $B={AT}$ and $B\str ={AT\str}$
 with their bounded extensions.
-Define $\A = \A(T)$ by $\A \coloneqq  \gen{I, A, B , B\str}$. Let $ \chi \in \spe (\A)$
-, such that $\chi(A) =0$. By our previous identity, we get
+Define $\A = \A(T)$ by $\A \coloneqq  \gen{I, A, B }$. Let $ \chi \in \spe (\A)$
+, such that $\chi(A) =0$. By the previous identity, we get
 \[
  \chi(A)^2 + |\chi(B)|^2 = \chi(A),
 \]
@@ -176,7 +173,7 @@ which implies that $\chi(B) =0$ as well. But for all $\chi$ in  $\spe (\A)$,
 If such a $\chi$ exists, it is therefore unique. We call this
 character $\chi_\infty$.
 
-We define $\theta : \spe (\A) \to \cb$ by
+Define $\theta : \spe (\A) \to \cb$ by
 
  \[
  \chi \mapsto 
@@ -185,11 +182,13 @@ We define $\theta : \spe (\A) \to \cb$ by
     \infty &, \text{ if } \chi = \chi_\infty.
     \end{cases}
  \]
- Let $\chi \neq \chi_\infty$. Since $\chi$ is a involutive algebrahomomorphism, $A^2 + B\str B = A$ implies for
+ Let $\chi \neq \chi_\infty$. Since $\chi$ is a involutive algebrahomomorphism,
+ $A^2 + B\str B = A$ implies for
    $\chi(A) = \chi(A) \overline{\chi(A)} + \chi(B) \overline{\chi(B)} $
 , which is equivalent to  
   $ \frac{1}{\chi(A)} = 1 + \frac{\chi(B)}{\chi(A)} 
-  \overline{\left( \frac{\chi(B)}{\chi(A)} \right)} = 1 + | \theta(\chi)|^2.$
+  \overline{\left( \frac{\chi(B)}{\chi(A)} \right)} = 1 + | \theta(\chi)|^2$.
+ The last equalities hold because as $A$ is self-adjoint, $\chi(A)$ is a real number.
  Inverting the last equality gives
 \[
  \chi(A) = \frac{1}{1 + |\theta (\chi)|^2} \tag{$\ast$}.
@@ -200,11 +199,11 @@ The definition of $\theta$ (and not  $T =
  \chi(B) = \chi(A) \frac{\chi(B)}{\chi(A)}= \chi(A)~ \theta(\chi) 
  \tag{$\ast \ast$}.
 \]
-Recalling the definition of the Gelfandtransformation, we see that our map
+Recalling the definition of the Gelfand transform, we see that our map
 \[
  \theta : \spe(\A) \setminus \setl\chi_\infty\setr \to \C
 \]
-equals a fraction of two single Gelfandtransformations
+equals a fraction of two single Gelfand transform
 \[
  \theta(\chi) = \frac{\chi(B)}{\chi(A)} = \frac{\G_B (\chi)}{\G_A (\chi)}=
  \frac{\G_B}{\G_A}(\chi).
@@ -212,7 +211,8 @@ equals a fraction of two single Gelfandtransformations
 But $\G_A \neq 0$ on $\spe(\A) \setminus \setl\chi_\infty\setr$, which implies
 that $\theta$ is continuous on $\spe(\A) \setminus \setl\chi_\infty\setr$.
 If $\chi_\infty$ exists, let $ \left( \chi_\lambda \right) 
-_{\lambda \in \Lambda}$ be a net converging to $\chi_\infty$ and 
+_{\lambda \in \Lambda}$ \unsure{why does this exist?
+}be a net converging to $\chi_\infty$ and 
 $\chi_\lambda \neq \chi_\infty$ for all $\lambda \in \Lambda$. 
 By continuity of $\G_A$ we have
 \[
@@ -226,16 +226,16 @@ which is equivalent to
 \[
  | \theta (\chi_\lambda ) | \to \infty.
 \]
-Summarizing the last part, we get 
+Summarizing the previous pragraph, we get 
 \begin{lem}
-$\theta$ extends to a continuous map n$ \theta : \spe(\A) \to \cb,$
+$\theta$ extends to a continuous map $ \theta : \spe(\A) \to \cb,$
 by $\theta (\chi_\infty) \coloneqq \infty$.
 Furthermore $\theta : \spe (\A) \to \cb$ is a homeomorphism onto its image.
 \end{lem}
 
 \begin{proof}
-The first claim was proven before. For the second claim we check 
-$\theta$ is injective:
+The first claim was proven before. For the second claim, we check 
+that $\theta$ is injective:
 Let $\chi_1 , \chi_2 \neq \chi_\infty$. Equations $(\ast)$ and $(\ast \ast)$
 imply that, if $\theta (\chi_1)= \theta( \chi_2)$, \newline $\chi_1$ coincides with
 $\chi_2$. Furthermore, $\chi_\infty$ is unique, which implies that $\theta$
@@ -270,32 +270,34 @@ As $\G$  is an involutive algebrahomomorphism, $\Phi$ is as well.
 
 
 \begin{proof}
- 
- \begin{align*}
-  \Phi \inv (A)(z) &= \G_A \circ \theta \inv (z)\\
-		   &= \G_A (\theta \inv (z))\\
-		   &= \frac{1}{1+ |z|^2}
-\intertext{using $\G_A(\chi)=\chi(A)=\frac{1}{1+ |\theta(\chi)|^2}$. Moreover}
-\Phi \inv (B)(z) &= \G_B \circ \theta \inv (z) \\
-		   &= \G_B (\theta \inv (z)) \\
-		   &= \frac{z}{1 + |z|^2}.
- \end{align*}
+ Let $z \in \theta(\spe\A)$, $z = \theta(\chi)$. Using 
+ $\G_A(\chi)=\chi(A)=\frac{1}{1+ |\theta(\chi)|^2}$, we get
+ \begin{gather*}
+  \Phi \inv (A)(z) = \G_A \circ \theta \inv (z)
+		   = \G_A (\theta \inv (z))
+		   = \frac{1}{1+ |z|^2}.
+\intertext{ Moreover, using $\G_B(\chi) =
+\chi(A) \theta(\chi)= \frac{\theta(\chi)}{1 + | \theta(\chi)|^2}$, we get}
+\Phi \inv (B)(z) = \G_B \circ \theta \inv (z) 
+		   = \G_B (\theta \inv (z)) 
+		  = \frac{z}{1 + |z|^2}.
+ \end{gather*}
  
  To proof uniqueness, let $\Psi : \cf (\theta (\spe \A)) \to \A$ be another
- involutive algebrahomomorphism  such that
+ involutive algebra homomorphism, such that
  \[
-  \Psi \left(\frac{1}{1 + | z| ^2}\right) = A ,
+  \Psi \left(\frac{1}{1 + | z| ^2}\right) = A ,\text{ and}
   ~ \Psi\left(\frac{z}{1+ |z|^2}\right) = B.
  \]
  Then $\Phi$ coincides with $\Psi$ on all polynomials in $A, B, \overline{B}$.
- The polynomials form an involutive
- algebra, which seperates points. By the theorem of Stone-Weierstrass
+ Theses polynomials form an involutive
+ algebra, which seperates points. By the theorem of Stone-Weierstrass,
  it is dense, and 
- therefore $\Phi$ equals $\Psi$ since they are continious.
+ therefore $\Phi$ equals $\Psi$ as they are continious.
 \end{proof}
 
 Our goal is to construct a functional calculus for $T$. With respect to $\Phi$,
-$T$ corresponds to 
+$T$ would corresponds to 
 $I_{\theta (\spe \A)}$. But if $\chi_\infty \in \spe (\A)$, then 
 $I_{\theta ( \spe \A ))}
 \notin \cf (\spe \A)$ since $\infty \notin \C$.

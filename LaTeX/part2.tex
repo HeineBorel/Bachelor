@@ -1,5 +1,5 @@
 
-\section{Spectral Theorem For Bounded Opearators}
+\section{Spectral Theorem for Bounded Opearators}
 % We want to construct a most general spectral theorem for linear opeartors
 % between Hilbert spaces. To achieve said goal, we need some auxilliary
 % results, derived by Gelfand's theorem. For each normal operator 
@@ -13,7 +13,7 @@ In this chapter, we use the Gelfand transform to prove a continuous
 spectral theorem for bounded normal operators, and some auxiliary results
 about the spectrum of $C^*$-algebras.
 \begin{prop} \label{specinvariant}
- Let $\A$ be a $C^*$-subalgebra of the $C^*$-algebra
+ Let $\A$ be a unital $C^*$-subalgebra of the $C^*$-algebra
  $\B$. 
  Let $A$ be an element of $\A$, which is invertible in $\B$.
  Then $A$ is already invertible in $\A$. In other words 
@@ -24,7 +24,7 @@ about the spectrum of $C^*$-algebras.
 \end{prop}
 \begin{proof}
  First assume $A = A^* $. We have $\spe_\A(A) \subset \R$, implying that
-  $(A + i \lambda I)$  is invertible in  $\A$, for all  $A$ in $\A$.
+  $(A + i \lambda I)$  is invertible in  $\A$, for all $\lambda \neq 0$.
   As 
  \[
   \lim_{\lambda \to 0} (A + i \lambda I) = A,
@@ -35,21 +35,21 @@ about the spectrum of $C^*$-algebras.
   \lim_{\lambda \to 0} (A + i \lambda I) \inv =A \inv.
  \]
 Because $ (A + i \lambda I)\inv$ is an element of $\A$ for all $\lambda \neq 0$, 
-the statement  holds for self adjoint $A$, as $\A$ is a closed subalgebra. 
+the statement  holds for self-adjoint $A$, as $\A$ is a closed subalgebra. 
 
-For more general $A$, we consider the self adjoint element
-$A\str A$, with inverse  $(A\str A)\inv = A\inv (A\inv)^*$. 
-Since $\A$ is an involutive algebra, $A\str A$ is an element of $\A$, which implies that
-$A$ is left-invertible in $\A$, with inverse $(A\str A)\inv A^*$.
+For more general $A$, we consider the self-adjoint element
+$A\str \! A$, with inverse  $(A\str \! A)\inv = A\inv (A\inv)^*$. 
+Since $\A$ is an involutive algebra, $A\str \! A$ is an element of $\A$, which implies that
+$A$ is left-invertible in $\A$, with inverse $(A\str \! A)\inv A^*$.
 Using the same argument with the normal element $AA^*$, one gets the
 right-invertibility of $A$. Thus $A$ is invertible, and the
 inverses coincide.
 \end{proof}
 
 \begin{cor}
- Let $\A$ be a $C^*$-subalgebra of $\lh$, $T \in \A$. Then 
+ Let $\A$ be a unital $C^*$-subalgebra of $\bh$, $T \in \A$. Then 
 \[
- \spe_\A (T) = \spe_{\lh}(T) = \spe(T).
+ \spe_\A (T) = \spe_{\bh}(T) = \spe(T).
 \]
 \end{cor}
 
@@ -63,19 +63,19 @@ inverses coincide.
 \begin{proof}
  First, we show that $\G_A : \spe(\A) \to \C$ is injective. Let 
  $\chi_1 , \chi_2$ be elements of $\spe(\A)$. If $\G_A(\chi_1) = \G_A(\chi_2)=
- \chi_2(A)=\chi_1(A)$, then also $\chi_1(A^*)=\chi_2(A^*)$. Since 
+ \chi_2(A)=\chi_1(A)$, then $\chi_1(A^*)=\chi_2(A^*)$ also. Since 
  $\chi_1(I)=\chi_2(I)=1$, we see that $\chi_1 = \chi_2$ on all polynomials
  in $A$ and $A^*$. Because $\chi_1$, $\chi_2$ are continous, they have to coincide on
  $\A$. 
  
  By Proposition \ref{SpecSurj}, $\G_A$ is surjective. Hence, $\G_A$ is a continous bijection 
- from $\spe(\A)$ to $\spe(A)$. As $\spe(\A)$ is compact,
+ from $\spe(\A)$ to $\spe(A)$. As $\spe(\A)$ is compact and $\spe(A)$ Hausdorff,
  $\G_A$ is a homeomorphism.
 By the theorem of Gelfand--Neimark 
 \[
  \G : \A \to \cf(\spe \A)
 \]
-is an isomorphism. We get the following commutative diagram, which yields the result
+is an isomorphism. We get the following commutative diagram, which yields the result:
 
 % \textbf{Mit xymatrix}
 % \[
@@ -100,7 +100,7 @@ is an isomorphism. We get the following commutative diagram, which yields the re
 %   \draw[->] (CSpfrA) to node  [right]{$\G_B \mapsto \G_B \circ \G_A \inv$} (CSpA);
 %  \end{tikzpicture}
 %  \end{center}
-
+\pagebreak
  \begin{center}
  \begin{tikzpicture}[node distance = 2cm]
   \node (frA) {$\A$};
@@ -114,6 +114,7 @@ is an isomorphism. We get the following commutative diagram, which yields the re
   \draw[->] (CSpfrA) to node  [right]
   {$\scriptstyle \G_B \mapsto \G_B \circ \G_A \inv$} (CSpA);
  \end{tikzpicture}
+ .
  \end{center}
 
  
@@ -129,7 +130,7 @@ is an isomorphism. We get the following commutative diagram, which yields the re
  
   For $f \in \cf(\spe A)$, we get 
   \[
-   \Phi (f) = \G \inv (f \circ \G_A)).
+   \Phi (f) = \G \inv (f \circ \G_A).
   \]
   Thus, one retrieves the generators of $\A$ via
    \begin{align*}
@@ -154,7 +155,7 @@ is an isomorphism. We get the following commutative diagram, which yields the re
  $\spe (A)$, and hence gives us an element $f(A)$ in $\A$. 
  
  In general, a complex square root does not give a holomorphic function on
- $\spe (A)$. However for self adjoint $A$, we can still define a continuous 
+ $\spe (A)$. However for self-adjoint $A$, we can still define a continuous 
  square root, as $\spe(A)$ consists only of real numbers.
  \[
   \sqrt{\phantom{z}} : \spe (A) \to \C, ~ z \mapsto 
@@ -167,14 +168,14 @@ is an isomorphism. We get the following commutative diagram, which yields the re
 
  If the normal operator $T$ is invertible, 0 is not an element of the 
  spectrum. Since the spectrum is a closed subset of $\C$, there is a 
- neighbourhood $U$ around 0, which is not contained in the spectrum of
- $T$. Thus $f(x) =\nicefrac{1}{x}$ is a continuous function on $\spe(T)$. 
+ neighborhood $U$ containing 0, such that $U$ does not intersect $\spe(T)$.
+ Thus $f(x) =\nicefrac{1}{x}$ is a continuous function on $\spe(T)$. 
  Since we have $1 = x f(x)$, the spectral theorem implies, that $f$
  corresponds to $T\inv$.
  
 \end{expl}
 
-\begin{prop}
+\begin{prop}\label{conthomo}
  Let $\B$ be an involutive, unital Banach algebra, $\A$ a unital $C^*$-algebra, and let
 \[
   \Phi : \B \to \A 
@@ -187,22 +188,18 @@ Then $\Phi$ is continuous and norm decreasing.
 \[
   \spe_\A (\Phi (B)) \subset \spe_\B (B).
 \]
-For the spectral radius one has
+For the spectral radius, one therefore has
 \[
  \rho (\Phi (B)) \leq \rho ( B) \leq \| B \|.
 \]
-And consequently
+Consequently
 \begin{align*}
  \| \Phi (B) \|^2 &= \| (\Phi (B))\str \Phi (B) \| \\
 		  &= \| \Phi (B \str B) \| \\
 		  &= \rho ( \Phi(B \str B)) \leq \| B\str B \| \leq \| B \| ^2.
 \end{align*}
-
-This gives 
-\[
- \| \Phi \| \leq 1.
-\]
-\end{proof}
+This gives $ \| \Phi \| \leq 1$.
+ \end{proof}
 \begin{cor}
  Using the same notation as before, the isomorphism
  \begin{gather*}
@@ -216,8 +213,8 @@ is the only $C^*$-algebra homomorphism with the property that}
 \begin{proof}
  If $\Psi : \cf ( \spe A) \to \A$ is another algebra homomorphism with the 
  properties above, then $\Psi = \Phi$ on all polynomials in $z$ and 
- $\overline{z}$ on $\spe (A)$. We already know that both homomorphisms are
- continuous. Thus  they must coincide on $\cf ( \spe A )$ by the theorem
+ $\overline{z}$ on $\spe (A)$. By Proposition \ref{conthomo}, we know that both homomorphisms are
+ continuous. Thus  they must coincide on $\cf ( \spe A )$, by the theorem
  of Stone-Weierstrass.
 \end{proof}
 
