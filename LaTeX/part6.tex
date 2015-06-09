@@ -132,11 +132,14 @@ UTU\str \phi = f \cdot \phi = M_f(\phi) \text{ for }\phi \in \dom(M_f)
 %  = \setl \phi \in \Ltwo(\mu) \bigm | f\phi \in \Ltwo(\mu) \setr$.
 % \end{enumerate}
 \end{thrm}
-The proof for self-adjoint $T$ can be found in \cite[Ch. VII.4]{WernerFunkAna}.
-We will sketch it here.
+The proof for bounded self-adjoint $T$ can be found in \cite[Ch. VII.1]{WernerFunkAna}.
+Here, we sketch how one can extend this proof for normal operatorrs.
 
-First assume, that $x$ is a cyclic vector for $T$, meaning that 
-the linear span of $x, Tx, T^2x, \dots$ lies dense in $\hs$. 
+\begin{proof}
+ 
+
+First assume, that $x$ is a $\str$-cyclic vector for $T$, meaning that 
+the span of $\setl {T\str} ^k T^n x\bigm | k,n \in \N \setr$ lies dense in $\hs$. 
 % By 
 % the Riesz--Markov--Kakutani representation theorem
 % \cite[Theorem 6.3.4]{PedAnaN}, $\m{x,x}$ 
@@ -167,6 +170,8 @@ we have a cyclic vector.
 
 Unfortunately, we can not expect $T$ to have a cyclic vector. However, we can 
 decompose $\hs$ into cyclic subspaces via an argument using Zorn's Lemma.
+For this argument to work, we need that $\bigcap_k \dom(T^k)$ is dense in $\hs$,
+which is an easy application of Theorem \ref{USpectral}.
 We adopt the notation from \cite[pp. 337]{WernerFunkAna}, writing
 $\hs = \bigoplus_2 \hs_i$, $x = (x_i)$ for a sum of pairwise orthogonal subspaces, such that
 the closure of the span is the whole space. Once we have a decomposition
@@ -175,13 +180,16 @@ considerations above, and get
 unitary maps $U_i : \Ltwo(\m{x_i, x_i}) \to \hs_i$, 
 ($U_i T_i U_i \str)\phi_i = f_i \cdot \phi_i$. We now take the direct sum
 (defined in \cite[214L]{FremMeasureTheo}) of the measure spaces $(\spe(T_i), \m{x_i,x_i})$,
-and obtain a new measure space ($\bigcup \spe(T_i),\m{}$).
+and obtain a new measure space ($\dot\bigcup \spe(T_i),\m{}$).
 We write $f = (f_i)$, $f(x) = f_i(x)$ if $x \in \spe(T_i)$. 
 Define a new operator $U:\hs \to \Ltwo(\m{})$, via 
 $U((x_i)) = (U_i(x_i))$. It follows that $U$ is unitary, and 
-$(UTU\str)(\phi) = f\phi$.
+$(UTU\str)(\phi) = f\phi$, finishing the proof.
+\end{proof}
 
-
+The theorem tells us, that the multiplication operator is indeed 
+the most general, and in a certain sense, the only example of a normal
+operator.
 
 
 
