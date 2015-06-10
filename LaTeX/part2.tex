@@ -46,6 +46,32 @@ right-invertibility of $A$. Thus $A$ is invertible, and the
 inverses coincide.
 \end{proof}
 
+\begin{prop}\label{conthomo}
+ Let $\B$ be an involutive, unital Banach algebra, $\A$ a unital $C^*$-algebra, and let
+\[
+  \Phi \colon \B \to \A 
+\]
+be an involutive algebra homomorphism.
+Then $\Phi$ is continuous and norm decreasing.
+\end{prop}
+\begin{proof}
+ Let $B \in \B$. We have
+\[
+  \spe_\A (\Phi (B)) \subset \spe_\B (B).
+\]
+For the spectral radius, one therefore has
+\[
+ \rho (\Phi (B)) \leq \rho ( B) \leq \| B \|.
+\]
+Consequently
+\begin{align*}
+ \| \Phi (B) \|^2 &= \| (\Phi (B))\str \Phi (B) \| \\
+		  &= \| \Phi (B \str B) \| \\
+		  &= \rho ( \Phi(B \str B)) \leq \| B\str B \| \leq \| B \| ^2.
+\end{align*}
+This gives $ \| \Phi \| \leq 1$.
+ \end{proof}
+
 \begin{cor}
  Let $\A$ be a unital $C^*$-subalgebra of $\bh$, $T \in \A$. Then 
 \[
@@ -173,32 +199,6 @@ is an isomorphism. We get the following commutative diagram, which yields the re
  corresponds to $T\inv$.
  
 \end{expl}
-
-\begin{prop}\label{conthomo}
- Let $\B$ be an involutive, unital Banach algebra, $\A$ a unital $C^*$-algebra, and let
-\[
-  \Phi \colon \B \to \A 
-\]
-be an involutive algebra homomorphism.
-Then $\Phi$ is continuous and norm decreasing.
-\end{prop}
-\begin{proof}
- Let $B \in \B$. We have
-\[
-  \spe_\A (\Phi (B)) \subset \spe_\B (B).
-\]
-For the spectral radius, one therefore has
-\[
- \rho (\Phi (B)) \leq \rho ( B) \leq \| B \|.
-\]
-Consequently
-\begin{align*}
- \| \Phi (B) \|^2 &= \| (\Phi (B))\str \Phi (B) \| \\
-		  &= \| \Phi (B \str B) \| \\
-		  &= \rho ( \Phi(B \str B)) \leq \| B\str B \| \leq \| B \| ^2.
-\end{align*}
-This gives $ \| \Phi \| \leq 1$.
- \end{proof}
 \begin{cor}
  Using the same notation as before, the isomorphism
  \begin{gather*}
