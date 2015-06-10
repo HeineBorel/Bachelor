@@ -12,7 +12,7 @@ This chapter follows \cite{LesHaupt}. Lemma \ref{BBounded} is taken from
 
 From now on, let $T \in \lh$ be a closed normal operator. 
 We endow $\domt$ with the graph scalar product, where 
-$\iota: \dom(T) \hookrightarrow \hs$ is the canonical inclusion.
+$\iota\colon \dom(T) \hookrightarrow \hs$ is the canonical inclusion.
 \[
  \gen{x,y}_T \coloneqq  \gen{\iota x, \iota y}_\hs +
  \gen{ T \iota x, T \iota y}_\hs,
@@ -29,7 +29,7 @@ operator from $\hs$ to itself, will be called $T^*$.
 We have two ways to interpret the inclusion map $\iota$:
 \begin{enumerate}
  \item as an operator on $\hs$, namely the identity with domain $\domt$, or
- \item as a bounded linear operator $\iota : ( \domt , \gen{\cdot, \cdot}_T)
+ \item as a bounded linear operator $\iota \colon ( \domt , \gen{\cdot, \cdot}_T)
  \to ( \hs , \gen{\cdot, \cdot}_\hs)$.
 \end{enumerate}
 Using the second interpretation, we note that by 
@@ -66,6 +66,8 @@ injectivity of $(I + T\str T)$,
  invertible, with inverse $\iota \iota \str$.
 \end{prop}
 \begin{proof}
+  The calculation of the last lemma shows that $(I + T \str T)$ is injective.
+  Therefore, it suffices to show that there exists a right inverse.
   Let $x \in \domt$, $y \in \hs$ such that 
   $\iota  \iota \str y \in \dom(T\str T)$.
   We see that
@@ -90,7 +92,7 @@ injectivity of $(I + T\str T)$,
   = (1+ T \str T) \iota \iota \str y,
   \end{align*}
   which implies that $ \iota \iota \str = ( I + T \str T) \inv$,
-  as $\iota \iota\str $ is bounded.
+  as $\iota \iota\str $ is bounded and $(I = T\str T)$ is injective.
 \end{proof}
 
 Define $A \coloneqq \iota \iota \str$ and $B \coloneqq TA$. 
@@ -173,7 +175,7 @@ which implies that $\chi(B) =0$ as well. But for all $\chi$ in  $\spe (\A)$,
 If such a $\chi$ exists, it is therefore unique. We call this
 character $\chi_\infty$.
 
-Define $\theta : \spe (\A) \to \cb$ by
+Define $\theta \colon \spe (\A) \to \cb$ by
 
  \[
  \chi \mapsto 
@@ -188,7 +190,7 @@ Define $\theta : \spe (\A) \to \cb$ by
 , which is equivalent to  
   $ \frac{1}{\chi(A)} = 1 + \frac{\chi(B)}{\chi(A)} 
   \overline{\left( \frac{\chi(B)}{\chi(A)} \right)} = 1 + | \theta(\chi)|^2$.
- The last equalities hold because as $A$ is self-adjoint, $\chi(A)$ is a real number.
+ The last equalities hold because $A$ is self-adjoint, implying that $\chi(A)$ is a real number.
  Inverting the last equality gives
 \[
  \chi(A) = \frac{1}{1 + |\theta (\chi)|^2} \tag{$\ast$}.
@@ -201,7 +203,7 @@ The definition of $\theta$ (and not  $T =
 \]
 Recalling the definition of the Gelfand transform, we see that our map
 \[
- \theta : \spe(\A) \setminus \setl\chi_\infty\setr \to \C
+ \theta \colon \spe(\A) \setminus \setl\chi_\infty\setr \to \C
 \]
 equals a fraction of two single Gelfand transform
 \[
@@ -209,11 +211,13 @@ equals a fraction of two single Gelfand transform
  \frac{\G_B}{\G_A}(\chi).
 \]
 But $\G_A \neq 0$ on $\spe(\A) \setminus \setl\chi_\infty\setr$, which implies
-that $\theta$ is continuous on $\spe(\A) \setminus \setl\chi_\infty\setr$.
-If $\chi_\infty$ exists, let $ \left( \chi_\lambda \right) 
-_{\lambda \in \Lambda}$ \unsure{why does this exist?
-}be a net converging to $\chi_\infty$ and 
-$\chi_\lambda \neq \chi_\infty$ for all $\lambda \in \Lambda$. 
+that $\theta$ is continuous on $\spe(\A) \setminus \setl\chi_\infty\setr$. 
+To show that $\theta$ is continuous at $\chi_\infty$
+, let $ \left( \chi_\lambda \right) 
+_{\lambda \in \Lambda}$ be a net converging to $\chi_\infty$ and 
+$\chi_\lambda \neq \chi_\infty$ for all $\lambda \in \Lambda$. If 
+no such net exists, we need not worry about continuity as $\chi_\infty$
+does not even exist, or is an isolated point in $\spe(\A)$.
 By continuity of $\G_A$ we have
 \[
  \G_A (\chi_\lambda) = \chi_\lambda (A) \to \chi_\infty (A) = 0.
@@ -226,11 +230,12 @@ which is equivalent to
 \[
  | \theta (\chi_\lambda ) | \to \infty.
 \]
+This implies that $\theta$ is continuous. 
 Summarizing the previous pragraph, we get 
 \begin{lem}
-$\theta$ extends to a continuous map $ \theta : \spe(\A) \to \cb,$
+$\theta$ extends to a continuous map $ \theta \colon \spe(\A) \to \cb,$
 by $\theta (\chi_\infty) \coloneqq \infty$.
-Furthermore $\theta : \spe (\A) \to \cb$ is a homeomorphism onto its image.
+Furthermore $\theta \colon \spe (\A) \to \cb$ is a homeomorphism onto its image.
 \end{lem}
 
 \begin{proof}
@@ -243,7 +248,7 @@ is injective. Since $\spe (\A)$ is compact and $\cb$ is Hausdorff,
 this proves the second claim.
 \end{proof}
 
-Combining the Gelfandisomorphism $\G : \A \to \cf (\spe \A)$, with
+Combining the Gelfandisomorphism $\G \colon \A \to \cf (\spe \A)$, with
 $\theta$, one has
 
 \begin{align*}
@@ -253,7 +258,7 @@ $\theta$, one has
 \end{align*}
 Define
 \[
- \Phi : \cf ( \theta (\spe \A)) \to \A,~ g \mapsto \G \inv (g \circ \theta).
+ \Phi \colon \cf ( \theta (\spe \A)) \to \A,~ g \mapsto \G \inv (g \circ \theta).
 \]
 As $\G$  is an involutive algebrahomomorphism, $\Phi$ is as well.
 
@@ -283,7 +288,7 @@ As $\G$  is an involutive algebrahomomorphism, $\Phi$ is as well.
 		  = \frac{z}{1 + |z|^2}.
  \end{gather*}
  
- To proof uniqueness, let $\Psi : \cf (\theta (\spe \A)) \to \A$ be another
+ To proof uniqueness, let $\Psi \colon \cf (\theta (\spe \A)) \to \A$ be another
  involutive algebra homomorphism, such that
  \[
   \Psi \left(\frac{1}{1 + | z| ^2}\right) = A ,\text{ and}
@@ -298,8 +303,8 @@ As $\G$  is an involutive algebrahomomorphism, $\Phi$ is as well.
 
 Our goal is to construct a functional calculus for $T$. With respect to $\Phi$,
 $T$ would corresponds to 
-$I_{\theta (\spe \A)}$. But if $\chi_\infty \in \spe (\A)$, then 
-$I_{\theta ( \spe \A ))}
+$\id_{\theta (\spe \A)}$. But if $\chi_\infty \in \spe (\A)$, then 
+$\id_{\theta ( \spe \A ))}
 \notin \cf (\spe \A)$ since $\infty \notin \C$.
 
 

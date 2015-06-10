@@ -29,10 +29,10 @@ the latter not being bounded, as $\frac{1}{x + \lambda} \notin
 in $\hs$ under $M_{x + \lambda}$. Hence $\spe M_x = \left[ 0 , 1\right]$.
 
 Our Spectral Theorem \ref{boundedfunccalc} states, that the map
-$\Phi : \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$, is an isometry. This 
+$\Phi \colon \cf(\left[0, 1\right]) \to \spe (\gen{M_x, I})$, is an isometry. This 
 isometry sends $\id$ to $M_x$, and the constant function $1$ to $I$.
 We conclude that $\phi$ is mapped via $\Phi$ to 
-$M_{\phi(x)}: g \mapsto \phi \cdot g$. In this example, it is obvious that,
+$M_{\phi(x)}\colon g \mapsto \phi \cdot g$. In this example, it is obvious that
 $\Linfty$ is mapped to $\bh$. If we take $\phi(x) = \nicefrac{1}{x}$, 
 $\dom(\phi)$ is by definition, all elements $f \in \hs$, such that
 $g \mapsto \gen{g, M_\phi f}$ is continuous in $g$ for all $g \in \hs$.
@@ -98,11 +98,11 @@ to vanish. Thus, we get the boundary conditions
   &= 2 \pi k (\mc{F}f)(k).
  \end{align*}
 The Fourier transform maps $\Ltwo(\mathbb{S}^1)$ isometrically
-to $\ell^2(\Z)$. $\spe(M_{2\pi k}) = 2\pi \Z$, as 
+to $\ell^2(\Z)$, found in \cite[p. 205]{TaylorPDEI}. $\spe(M_{2\pi k}) = 2\pi \Z$, as 
 $(M_{2 \pi k } + \lambda I)\inv = (M_{2 \pi k + \lambda})\inv
 = M_{(2 \pi k + \lambda)\inv}$, for $\lambda \notin 2\pi \Z$.
 
-The map $\Phi : \spe(P) \to \lh, ~
+The map $\Phi \colon \Lzero(\spe(P)) \to \lh, ~
 f \mapsto \mc{F}M_{f(2\pi k)} \mc{F}\inv$ satisfies the conditions
 of being a spectal measure for the operator $P$. By Theorem \ref{USpectral}
 it is the unique spectral measure for $P$. 
@@ -119,7 +119,7 @@ version of the spectral theorem states the following:
 
 Let $T$ be a normal operator on a Hilbert space $\hs$. There exists
 a measure space $(\Omega, \Sigma, \mu)$, a measurable function 
-$f: \Omega \to \C$, and a unitary operator $U: \hs \to \Ltwo(\mu)$,
+$f\colon \Omega \to \C$, and a unitary operator $U\colon \hs \to \Ltwo(\mu)$,
 such that
 \[
 UTU\str \phi = f \cdot \phi = M_f(\phi) \text{ for }\phi \in \dom(M_f) 
@@ -143,7 +143,7 @@ the span of $\setl {T\str} ^k T^n x\bigm | k,n \in \N \setr$ lies dense in $\hs$
 % By 
 % the Riesz--Markov--Kakutani representation theorem
 % \cite[Theorem 6.3.4]{PedAnaN}, $\m{x,x}$ 
-Consider the map $V:\cf(\spe(T)) \to \hs$, 
+Consider the map $V\colon\cf(\spe(T)) \to \hs$, 
 $\phi \mapsto \Phi_\phi x$, where $\Phi$ is the unique spectral 
 measure obtained in Theorem \ref{USpectral}. Then
 \begin{gather*}
@@ -152,7 +152,7 @@ measure obtained in Theorem \ref{USpectral}. Then
  = \|\Phi_\phi x \|^2,
 \end{gather*}
 implying that $V$ can be isometrically extended to a map 
-$\overline{V}: \Ltwo(\m{x,x}) \to \hs.$ As $x$ is a cyclic vector, 
+$\overline{V}\colon \Ltwo(\m{x,x}) \to \hs.$ As $x$ is a cyclic vector, 
 the image of $\overline{V}$ is the whole Hilbert space $\hs$. Thus, 
 $\overline{V}$ is a surjective isometry, and therefore unitary. For
 $\phi \in \Ltwo(\m{x,x})$, such that $\id \cdot \phi$ is still 
@@ -165,8 +165,8 @@ where the last equality holds by Lemma \ref{maintheorem4}. This gives
 \[
  (\overline{V}\inv T \overline{V})\phi = \id \cdot \phi.
 \]
-Now $U\coloneqq  \overline{V}\inv = \overline{V}\str$, proves the claim if 
-we have a cyclic vector.
+Now $U\coloneqq  \overline{V}\inv = \overline{V}\str$, and $\id$ satisfy 
+the conditions of the theorem.
 
 Unfortunately, we can not expect $T$ to have a cyclic vector. However, we can 
 decompose $\hs$ into cyclic subspaces via an argument using Zorn's Lemma.
@@ -177,12 +177,12 @@ $\hs = \bigoplus_2 \hs_i$, $x = (x_i)$ for a sum of pairwise orthogonal subspace
 the closure of the span is the whole space. Once we have a decomposition
 $\hs = \bigoplus_2 \hs_i$ into cyclic subspaces, we apply the 
 considerations above, and get
-unitary maps $U_i : \Ltwo(\m{x_i, x_i}) \to \hs_i$, 
+unitary maps $U_i \colon \Ltwo(\m{x_i, x_i}) \to \hs_i$, 
 ($U_i T_i U_i \str)\phi_i = f_i \cdot \phi_i$. We now take the direct sum
 (defined in \cite[214L]{FremMeasureTheo}) of the measure spaces $(\spe(T_i), \m{x_i,x_i})$,
 and obtain a new measure space ($\dot\bigcup \spe(T_i),\m{}$).
 We write $f = (f_i)$, $f(x) = f_i(x)$ if $x \in \spe(T_i)$. 
-Define a new operator $U:\hs \to \Ltwo(\m{})$, via 
+Define a new operator $U\colon\hs \to \Ltwo(\m{})$, via 
 $U((x_i)) = (U_i(x_i))$. It follows that $U$ is unitary, and 
 $(UTU\str)(\phi) = f\phi$, finishing the proof.
 \end{proof}

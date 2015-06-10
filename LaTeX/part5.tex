@@ -11,7 +11,7 @@ for unbounded normal operators, completing the process started in Section
  $\A(T) \coloneqq \gen{I, A, B,},~ A \coloneqq (I + T \str T)\inv,
  ~ B \coloneqq TA$. \newline There exists a uniquely determined spectral measure
  \[
-  \Phi : \Lzero\left( \overline{\spe T }^\cb \right) \to \lh
+  \Phi \colon \Lzero\left( \overline{\spe T }^\cb \right) \to \lh
  \]
  such that
  \begin{enumerate}[(i)]
@@ -27,7 +27,7 @@ for unbounded normal operators, completing the process started in Section
  is an isomorphism onto its image. For $f \in 
  \Lzero\left( \overline{\spe T }^\cb \right)$, $\Phi(f)$ has to be 
  a normal, densely defined operator on $\hs$. Furthermore, $\Phi$ must extend the 
- unique Spectral measure $\Phi: \cf\left( \overline{\spe T }^\cb \right) \to 
+ unique Spectral measure $\Phi\colon \cf\left( \overline{\spe T }^\cb \right) \to 
  \bh$ from Proposition \ref{spectraluniqueness}.
 \end{thrm}
 
@@ -35,13 +35,13 @@ for unbounded normal operators, completing the process started in Section
  
  In Proposition \ref{spectraluniqueness}, we defined the inverse Gelfandisomorphism 
  \[
-  \Phi : \cf ( \theta (\spe \A)) \to \A \subset \lh,~ g \mapsto \G \inv
+  \Phi \colon \cf ( \theta (\spe \A)) \to \A \subset \lh,~ g \mapsto \G \inv
   (g \circ \theta).
  \]
  It follows that $\Phi$ is a spectral measure for $\cf( \theta (\spe \A)) $ such that
  \begin{align*}
-  A = \Phi_a, ~ a: \lambda \mapsto \frac{1}{1+ | \lambda| ^2 }, \\
-  B = \Phi_b, ~ b: \lambda \mapsto \frac{\lambda}{1 + | \lambda | ^2}.
+  A = \Phi_a, ~ a\colon \lambda \mapsto \frac{1}{1+ | \lambda| ^2 }, \\
+  B = \Phi_b, ~ b\colon \lambda \mapsto \frac{\lambda}{1 + | \lambda | ^2}.
  \end{align*}
  Following \cite[Ch. 4.5]{PedAnaN}, we extend $\Phi$ to measurable functions. 
  As remarked just before Definition \ref{defmeasurable}, this expansion is
@@ -58,7 +58,7 @@ Because $A$ is the inverse of $1 + T\str T$, we get
 \[
  E_{\setl \infty \setr} = (1+T\str T)AE_{\setl \infty \setr} = 0.  
 \]
-Define $\id : \theta(\spe \A) \subset \cb \to \C$, via $\id(\infty) =0$. Thus,
+Define $\id \colon \theta(\spe \A) \subset \cb \to \C$, via $\id(\infty) =0$. Thus,
 \[
 \id \in \Lzerophi\text{, and }(1 + | \id| ^2 ) a = 1~~\Phi\text{-a.e.}
 \]
@@ -144,7 +144,7 @@ Since $\theta(\spe \A) \subset \cb$ is compact, we get
  \overline{\spe T}^{\cb} = \theta ( \spe \A).
 \]
 This proves, that there exists a spectral measure 
-$\Phi : \cf(\overline{\spe T}^{\cb}) \to \lh,$ such that $\Phi_{\id} = T$,
+$\Phi \colon \cf(\overline{\spe T}^{\cb}) \to \lh,$ such that $\Phi_{\id} = T$,
 and $\setl \infty \setr$ is a $\Phi$-nullset.
  To check uniqueness, let $\Phi'$ be another spectral measure, such that
 $\infty$ is a $\Phi'$-zeroset, and $\Phi'( \id) = T$. To prove $\Phi = \Phi'$,
