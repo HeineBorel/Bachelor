@@ -48,7 +48,8 @@ surjective algebra homomorphism
 The proof can be found in \cite[Ch. 4.3]{PedAnaN}. The map in the theorem is
 the so called Gelfand transform.% named after Israel Moissejewitsch Gelfand (1941).
 
-All Hilbert spaces are assumed to be separable. All spaces shall be
+All Hilbert spaces are assumed to be separable. The scalar products
+are conjugate linear in the first variable. All spaces shall be
 second countable and Hausdorff. The separability and countability
 assumptions are not necessary in most proofs, but simplify notation.
 
@@ -63,7 +64,6 @@ $\rant$ we denote the domain and the range
 of the operator. The set of bounded linear operators will be
 called $\bh$, in
 contrast to $\lh$, which is the set of all linear operators.
-The set of closed operators is denoted by $\ch$.
 
 \begin{defi}
   If $T$ and $S$ are operators on $\hs$, we say $T$ \textit{extends} $S$,
@@ -91,7 +91,7 @@ However, we have the following
 \begin{defi}
  Let $T$ denote a closed operator on $\hs$. We say that $T$ is 
  \textit{boundedly invertible} if
- $T\colon\dom(T) \to \ran(T)= \hs$ is a bijection, and $T\inv \colon\hs \to \dom(T)$
+ $T\colon\dom(T) \to \ran(T)= \hs$ is a bijection, and $T\inv \colon\hs \to \dom(T) \subset \hs$
  is continuous. $T\inv$ is called the \textit{bounded inverse} of $T$. As $T\inv$ is
  continuous, the closed graph theorem implies the boundedness of $T\inv$.
 \end{defi}

@@ -26,15 +26,6 @@ continous.
 If there is no room for misinterpretation,
 we will omit the $\hs$ in the scalar product. The adjoint of $T$ as a closed 
 operator from $\hs$ to itself, will be called $T^*$. 
-We have two ways to interpret the inclusion map $\iota$:
-\begin{enumerate}
- \item as an operator on $\hs$, namely the identity with domain $\domt$, or
- \item as a bounded linear operator $\iota \colon ( \domt , \gen{\cdot, \cdot}_T)
- \to ( \hs , \gen{\cdot, \cdot}_\hs)$.
-\end{enumerate}
-Using the second interpretation, we note that by 
-$\ran(\iota\str) = \ker(\iota)^\perp =\hs$
-and $\ker(\iota\str) = \ran(\iota)^\perp = 0$, $\iota\str$ is a bijection.
 \begin{lem}\label{TTstrDense}
  $\dom(T\str T)$ is dense in $( \domt , \gen{\cdot, \cdot}_T)$.
 \end{lem}
@@ -59,7 +50,16 @@ injectivity of $(I + T\str T)$,
 \end{align*}
 
 \end{proof}
-
+We have two ways to interpret the inclusion map $\iota$:
+\begin{enumerate}
+ \item as an operator on $\hs$, namely the identity with domain $\domt$, or
+ \item as a bounded linear operator $\iota \colon ( \domt , \gen{\cdot, \cdot}_T)
+ \to ( \hs , \gen{\cdot, \cdot}_\hs)$.
+\end{enumerate}
+% Using the second interpretation, we note that by 
+% $\ran(\iota\str) = \ker(\iota)^\perp =\hs$
+% and $\ker(\iota\str) = \ran(\iota)^\perp = 0$, $\iota\str$ is a bijection.
+Using the second interpretation, we get
 
 \begin{prop}
  $(I + T \str T)$ is boundedly
@@ -83,16 +83,29 @@ injectivity of $(I + T\str T)$,
   \[
    0 = \gen{\iota x , \iota \iota \str y + T\str T \iota \iota \str y - y}.
   \]
-  Note, that since $\iota \str$ is a continuous bijection and $\dom(T \str T)
-  \subset \dom(T)$ is a
-  dense subset of both $\dom(T)$ and $\hs$, $(i \str) \inv (\dom(T \str T))$ is dense
-  in $\hs$. As this equality holds for all $x \in \domt$, we get
+%   Note, that since $\iota \str$ is a continuous bijection and $\dom(T \str T)
+%   \subset \dom(T)$ is a
+%   dense subset of both $\dom(T)$ and $\hs$, $(i \str) \inv (\dom(T \str T))$ is dense
+%   in $\hs$. As this equality holds for all $x \in \domt$, we get
+This equality holds for all $x \in \dom(T)$, giving
   \begin{align*}
   y=\iota \iota \str y + T\str T \iota \iota \str y 
   = (1+ T \str T) \iota \iota \str y,
   \end{align*}
-  which implies that $ \iota \iota \str = ( I + T \str T) \inv$,
-  as $\iota \iota\str $ is bounded and $(I = T\str T)$ is injective.
+  which implies that $ \iota \iota \str y= ( I + T \str T) \inv y$, 
+  for all $y \in (\iota \iota \str )\inv (\dom(T\str T))$.
+  Now we need to show that $(\iota \iota \str )\inv (\dom(T\str T))$ is
+  dense in $\hs$. To do that, let $x\in \dom(T)$, $y \in \hs$. Then
+  \begin{align*}
+   \gen{T\iota x, T\iota \iota \str y}_\hs &= \gen{x, \iota \str y}_T
+ - \gen{\iota x, \iota \iota \str y}_\hs\\
+ &= \gen{\iota x, y}_\hs - \gen{\iota x, \iota \iota \str y}_\hs =
+ \gen{\iota x, y - \iota \iota \str y}_\hs.
+  \end{align*}
+This shows that $T\str(T\iota \iota \str y) = y - \iota \iota\str y$, proofing
+that $\iota \iota \str y \in \dom(T\str T)$. As $y\in \hs$ was arbitrary, this gives
+$(\iota \iota \str)\inv \dom(T\str T) = \hs$, completing the proof that 
+$\iota \iota \str = (1+ T\str T)\inv$.
 \end{proof}
 
 Define $A \coloneqq \iota \iota \str$ and $B \coloneqq TA$. 
@@ -138,7 +151,7 @@ in the following
 \begin{proof}
  For $x \in \hs$ we can choose a sequence $x_n \in \domt$, with 
  $x_n \rightarrow x$. Define $\overline{AT}(x) \coloneqq TA(x)$.
- This is linear, because $AT = TA$ on $\domt$. As $TA$ is linear bounded,
+ This is linear, because $AT = TA$ on $\domt$. As $TA$ is bounded,
  the limit does not depend on the chosen sequence.
 \end{proof}
 
@@ -210,7 +223,7 @@ equals a fraction of two single Gelfand transform
  \theta(\chi) = \frac{\chi(B)}{\chi(A)} = \frac{\G_B (\chi)}{\G_A (\chi)}=
  \frac{\G_B}{\G_A}(\chi).
 \]
-But $\G_A \neq 0$ on $\spe(\A) \setminus \setl\chi_\infty\setr$, which implies
+But $\G_A(\chi) \neq 0$ on $\spe(\A) \setminus \setl\chi_\infty\setr$, which implies
 that $\theta$ is continuous on $\spe(\A) \setminus \setl\chi_\infty\setr$. 
 To show that $\theta$ is continuous at $\chi_\infty$
 , let $ \left( \chi_\lambda \right) 
@@ -242,7 +255,7 @@ Furthermore $\theta \colon \spe (\A) \to \cb$ is a homeomorphism onto its image.
 The first claim was proven before. For the second claim, we check 
 that $\theta$ is injective:
 Let $\chi_1 , \chi_2 \neq \chi_\infty$. Equations $(\ast)$ and $(\ast \ast)$
-imply that, if $\theta (\chi_1)= \theta( \chi_2)$, \newline $\chi_1$ coincides with
+imply that, if $\theta (\chi_1)= \theta( \chi_2)$, $\chi_1$ coincides with
 $\chi_2$. Furthermore, $\chi_\infty$ is unique, which implies that $\theta$
 is injective. Since $\spe (\A)$ is compact and $\cb$ is Hausdorff, 
 this proves the second claim.
@@ -278,12 +291,12 @@ As $\G$  is an involutive algebrahomomorphism, $\Phi$ is as well.
  Let $z \in \theta(\spe\A)$, $z = \theta(\chi)$. Using 
  $\G_A(\chi)=\chi(A)=\frac{1}{1+ |\theta(\chi)|^2}$, we get
  \begin{gather*}
-  \Phi \inv (A)(z) = \G_A \circ \theta \inv (z)
+  \Phi \inv (A)(z) = (\G_A \circ \theta \inv) (z)
 		   = \G_A (\theta \inv (z))
 		   = \frac{1}{1+ |z|^2}.
 \intertext{ Moreover, using $\G_B(\chi) =
 \chi(A) \theta(\chi)= \frac{\theta(\chi)}{1 + | \theta(\chi)|^2}$, we get}
-\Phi \inv (B)(z) = \G_B \circ \theta \inv (z) 
+\Phi \inv (B)(z) = (\G_B \circ \theta \inv) (z) 
 		   = \G_B (\theta \inv (z)) 
 		  = \frac{z}{1 + |z|^2}.
  \end{gather*}
