@@ -27,7 +27,7 @@ $\Phi$ induces an isomorphism onto its image.
  By isomorphism we mean that
  \begin{enumerate}
   \item $\Phi$ is an involutive algebra homomorphism,
-  \item $\Phi$ is a bijection onto A,
+  \item $\Phi$ is a bijection onto $\A$,
   \item $\Phi$ is an isometry: $\| \Phi f \| = \| f \|_\infty$.
  \end{enumerate}
 
@@ -45,7 +45,7 @@ that $f=0$. A more in-depth study of Radon integrals can be found in
 \cite[Chapter~6.1]{PedAnaN}. Set $\hs \coloneqq L^2(\mathfrak{m})$.
 We define 
 \begin{align*}
- \Phi \colon \cf(X) \to \mathscr{L}({\Ltwom}) \\
+  \Phi \colon \cf(X) \to \mc{B}({\Ltwo \m{}}) \\
  f \mapsto (g \mapsto f\cdot g).
 \end{align*}
 $\Phi$ is a spectral measure. This claim is not obvious, and the proof
@@ -198,7 +198,7 @@ $\cf(X)$, as every measurable function is the limit of continuous ones
  
   For all $f \in \Lzerophi$, $h \in \dom(f)$, and $g\in \hs$ it holds that
  \[
- \m{g, \Phi_f h} = f\m{g,h} \text{ and } \m{\Phi_f g, h} = \overline{f}\m{g,h}.
+ \m{g, \Phi_f h} = f\m{g,h} \hspace{15pt}\text{ and }\hspace{15pt} \m{\Phi_f g, h} = \overline{f}\m{g,h}.
  \]
 
 \end{lem}
@@ -329,13 +329,13 @@ For example, one can take the net $f_n = 1_{\mc{A}_n}$, where $\mc{A}_n =
  
   $(ii) \Rightarrow (iii)$:
     Let $h \in \mscr{L}^2(\m{h,h})$. It is enough to show that
-    $\Phi_{f_n}$ is a Cauchy sequence in $\bh$. for $g \in \hs$
+    $\Phi_{f_n}$ is a Cauchy sequence in $\bh$. For $g \in \hs$
   \begin{align*}
     \gen{g, (\Phi_{f_m} - \Phi_{f_n})h} &= \gen{g, \Phi_{f_m}}h 
     - \gen{g, \Phi_{f_n}h}\\
 					&=\int f_m \dm{g,h} - \int f_n \dm{g,h} \\
 					&= \int (f_m - f_n) \dm{g,h} \\
-					&= \gen{g, \Phi_{(f_m - f_n)} h }
+					&= \gen{g, \Phi_{(f_m - f_n)} h }.
     \intertext{Since $g$ was arbitrary, we get 
       $(\Phi_{f_m} - \Phi_{f_n})h= \Phi_{(f_m - f_n)}h$, and}
     \|(\Phi_{f_m} - \Phi_{f_n}) h \|^2  &= \| \Phi_{(f_m - f_n)} h \| ^2\\
@@ -664,7 +664,7 @@ Thus
 %   = \dom(\varphi).
  \shortintertext{It follows that}
   \Phi_\varphi \Phi_\psi = \Phi_{\varphi \psi} \text{ and }
- \Phi_\varphi \Phi_\psi = \Phi_{\varphi + \psi}.
+ \Phi_\varphi + \Phi_\psi = \Phi_{\varphi + \psi}.
 \end{align*}
 In particular, 
 \[
@@ -697,7 +697,7 @@ Rest of $(ii)$:
   &= \lim \Phi_{1_{\mc{A}_n} (\varphi+\psi)} h \\
   &= \lim \Phi_{(\varphi + \psi) 1_{\mc{A}_n}} h \\
   &= \lim \Phi_{\varphi+\psi} E_{\mc{A}_n} h \\
-  &= \lim \Phi_{\varphi+\psi} h_n = \lim (\Phi_\varphi h_n + \Phi_\psi h_n)
+  &= \lim \Phi_{\varphi+\psi} h_n = \lim (\Phi_\varphi h_n + \Phi_\psi h_n).
   \end{align*}
 
 
@@ -913,7 +913,7 @@ It remains to show that $ \nicefrac{1}{f} \in \Linftyphi$. We have
 \Phi_f \cdot \Phi_{\nicefrac{1}{f}} \subset \Phi_1 = I.
 \]
 On $\dom(\Phi_f \cdot \Phi_{\nicefrac{1}{f}}) $, it holds that 
-$\Phi_{\nicefrac{1}{f}}= \Phi_f \inv$ .
+$\Phi_{\nicefrac{1}{f}}= \Phi_f \inv$.
 Since $\Phi_f$ is invertible, it is surjective. We claim $ \hs = \Phi_f(\dom(f))
 \subset \dom(\Phi_{\nicefrac{1}{f}})$
 
@@ -950,7 +950,7 @@ by Lemma \ref{maintheorem5}.
     but } \nicefrac{1}{(f- \lambda)} \notin \Linftyphi.
 \end{align*}
 Suppose $a)$ holds. Since $\mc{A}\complement$ is a $\Phi\text{-null set}$,
-$\mc{A} \cap \setl f= \lambda \setr \neq \varnothing$ .
+$\mc{A} \cap \setl f= \lambda \setr$ is non empty.
 This means, there exists a $x \in \mc{A}$ such that $f(x) = \lambda$, that is
 $\lambda \in f(\mc{A}).$
 Now suppose that $b)$ holds. By Lemma \ref{maintheorem6} $\nicefrac{1}{(f- \lambda)}

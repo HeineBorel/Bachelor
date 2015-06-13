@@ -19,12 +19,12 @@ inequality: Let $f \in \hs$
  1 \cdot \int _0 ^1 | f(x) |^2 \de x = \| f \| ^2.
 \]
 Thus $\| M_x\| \leq 1$. Furthermore $M_x$ is self-adjoint, which implies that
-$\spe M_x \subset \left[ -1 , 1 \right]$. But for $\lambda > 0$,
+$\spe M_x \subset \left[ -1 , 1 \right]$. But for $\lambda < 0$,
 $M_{x-\lambda}$ is invertible as $M_{\nicefrac{1}{(x - \lambda)}} \in \bh$, again by
 Hölder. Therefore $\spe M_x \subset \left[ 0, 1\right]$. To show 
-$\spe M_x \supset \left[ 0, 1\right]$, let $\lambda \in  \left[ 0, 1\right]$.
-Again the inverse of $M_{x+ \lambda}$ would be $M_{\nicefrac{1}{(x + \lambda)}}$,
-the latter not being bounded, as $\frac{1}{x + \lambda} \notin 
+$\spe M_x \supset \left[0, 1\right]$, let $\lambda \in  \left[0, 1\right]$.
+Again the inverse of $M_{x- \lambda}$ would be $M_{\nicefrac{1}{(x - \lambda)}}$,
+the latter not being bounded, as $\frac{1}{x - \lambda} \notin 
 \Ltwo(\left[ 0, 1\right])$. We conclude that $x$ does not a have a preimage
 in $\hs$ under $M_{x + \lambda}$. Hence $\spe M_x = \left[ 0 , 1\right]$.
 
@@ -43,7 +43,7 @@ As seen in Example \ref{ExplFuncCalc}, or by direct calculation,
 $M_\phi$ is the inverse to $M_x$. $M_\phi$ is unbounded, and $M_x$ is 
 the bounded inverse to $M_x$. This is an example, where we started with
 a bounded operator, and via the Functional Calculus for measurable 
-functions, got an unbounded operator
+functions, got an unbounded operator.
 
 If we change the Hilbert space to $\hs = \Ltwo (\R)$, the spectrum
 of our multiplication operator changes to $\spe(M_x) = \R$. Thus, $M_x$ 
@@ -59,28 +59,28 @@ both operators are unbounded, and hence, neither is boundedly invertible.
  We recall the definition of a normal operator.
  $P$ is called normal if $\dom(P) = \dom(P\str)$ and 
  $\|P\| = \| P \str \|$. To get a normal operator, we
- need to specify boundary conditions on $\dom(P)$. One knows that
- $P\str$ acts the same way as $P$. Therefore, if $P$ is normal,
+ need to specify boundary conditions on $\dom(P)$. One easily sees that
+ $P\str$ acts the same way as $P$. Therefore if $P$ is normal,
  it is self-adjoint.
  We compute
  \begin{align*}
   \gen{f, Pg} 
- & =\int _0 ^1 \overline{f(x)} i \frac{\partial}{\partial x}g(x) \dx
+ & =\int _0 ^1 \overline{f(x)} i \frac{\partial}{\partial x}(g(x)) \dx
   = \overline{f(x)}ig(x)\Bigr|^{1}_{0}
-  -\int _0 ^1 i \frac{\partial}{\partial x}\overline{f(x)} g(x) \dx\\
+  -\int _0 ^1 i \frac{\partial}{\partial x}(\overline{f(x)}) g(x) \dx\\
 &= i(\overline{f(1)}g(1)- \overline{f(0)}g(0))
-+ \int _0 ^1 \frac{\partial}{\partial x}\overline{i f(x)} g(x) \dx\\
++ \int _0 ^1 \frac{\partial}{\partial x}(\overline{i f(x)}) g(x) \dx\\
 &=i(\overline{f(1)}g(1)- \overline{f(0)}g(0)) 
 +\gen{Pf, g}.
  \end{align*}
 For $P$ to be self-adjoint, the left term from the last line needs 
-to vanish. Thus, we get the boundary conditions 
- $\setl f \in H^1(\left[ 0,1 \right]) \bigm| f(0) = f(1) \setr$.
+to vanish. Thus, we get $\dom(P)=
+ \setl f \in H^1(\left[ 0,1 \right]) \bigm| f(0) = f(1) \setr$.
  To determine the spectrum of the operator, we look at 
  the eigenvectors of $(P+\lambda I)$.
- $(P+\lambda I)(f)=f$ reformulates to $i f' = i(\lambda - 1)f$, giving
+ $(P+\lambda I)(f)=f$ reformulates to $ f' = (\lambda - 1)f$, giving
  $f(x)= \e^{i(\lambda -1 )x}$. This is in the domain of $P$, if 
- $\lambda = 2\pi k$ for $k \in \Z$. We claim that these elements
+ $\lambda-1 = 2\pi k$ for $k \in \Z$. We claim that these elements
  already form a Hilbert basis. To see this, we periodically
  extend any
  $f \in \hs \coloneqq \Ltwo(\left[ 0, 1 \right])$ to 
@@ -122,7 +122,7 @@ a measure space $(\Omega, \Sigma, \mu)$, a measurable function
 $f\colon \Omega \to \C$, and a unitary operator $U\colon \hs \to \Ltwo(\mu)$,
 such that
 \[
-UTU\str \phi = f \cdot \phi = M_f(\phi) \text{ for }\phi \in \dom(M_f) 
+UTU\str \phi = f \cdot \phi = M_f(\phi) \text{ for all }\phi \in \dom(M_f) 
  = \setl \phi \in \Ltwo(\mu) \bigm | f\phi \in \Ltwo(\mu) \setr.
 \]
 % \begin{enumerate}[\normalfont (a)]
